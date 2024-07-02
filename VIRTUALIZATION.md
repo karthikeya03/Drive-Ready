@@ -11,12 +11,12 @@
 
 ## Rack Servers
 
-- Consists of various virtual servers                                                                     ![Virtualization Example](https://raw.githubusercontent.com/karthikeya03/Drive-Ready/main/SESSION.2.1.png)
+- Consists of various virtual servers 
 - Power is only given to the physical server
 - Low power consumption
 - Example: THUB, 26 virtual machines (servers) in one physical rack server
 
-
+  ![Virtualization Example](https://raw.githubusercontent.com/karthikeya03/Drive-Ready/main/SESSION.2.1.png)
 
 ### Types of Servers
 
