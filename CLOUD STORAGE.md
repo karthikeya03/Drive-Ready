@@ -39,4 +39,4 @@ The key features of cloud computing are as follows.
 2.	File Storage: Like a shared drive at work where everyone can access and use pre-organized folders and files.
 3.	Object Storage: Like a giant bin where you can throw in files without worrying about organizing them into folders. You just use tags or unique IDs to find them later.
    
-https://raw.github.com/karthikeya03/IMAGES/JustMain/6.1.png
+![CLOUD STORAGE](https://raw.github.com/karthikeya03/IMAGES/JustMain/6.1.png)
