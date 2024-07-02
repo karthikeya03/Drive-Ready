@@ -1,0 +1,61 @@
+SESSION 1: OS - SYSTEM SOFTWARE:
+An operating system is the most important software that runs on a computer. It manages the computer's memory and processes, as well as all of its software and hardware. It also allows you to communicate with the computer without knowing how to speak the computer's language
+
+! [Caption for the image]( https://indiafreenotes.com/wp-content/uploads/2020/03/topic-1.jpg)
+
+	GUI - graphical user interface
+	CLI - command line interface
+	CMD - command prompt
+
+	Some cmd commands: 
+
+1.	devmgmt.msc : device management 
+2.	msinfo32 : machine informaton
+3.	diskmgmt.msc : disk management 
+4.	dxdiag : dx dialogue box
+source code - developers
+	os components :-
+1.	shell - GUI, CLI, PowerShell (flexibility to use the hardware)
+2.	kernel - hardware - source code
+
+	3 LAYERS OF OS : 
+USER:-
+1.	application software
+2.	os
+3.	hardware resource (motherboard -CPU, RAM, storage, network)
+
+	SOURCE CODE – KERNEL:
+•	DEVLOPER --> SOURCE CODE
+•	WINDOWS - CLOSED SOURCE CODE OS
+•	SUPPORT -DEDICATED TEAM - RESPONSIBLE (closed source code)
+•	UNIX is also closed source code - MAC OS, APPLE IOS
+
+! [Caption for the image](image.png)
+
+
+	OPEN SOURCE: 
+•	NO LICENSE REQUIRED; WE CAN EDIT SOURCE CODE OPEN TO THE DEVELOPER
+•	LINUX IS OPEN-SOURCE CODE 
+•	COMMUNITY SUPPORT IS RESPONSIBLE (open-source code)
+•	ANDRIOD – LINUX
+
+	TYPES OF OS:-
+•	mobile OS - android, apple ios, tyzen, java
+•	desktop OS - ms windows, Linux , macos
+•	server OS - windows server, redhat(RHEL), UBUNTU SERVER, UNIX
+•	SECURITY OS - KALI LINUX, PARROT LINUX, SANS
+•	NETWORK OS - CISCO IOS , F5 OS, FORTINET, JUNIPER JUNOS
+
+	VERSIONS:-
+•	LINUX - home redhat fedora, UBUNTU desktop
+•	SERVER VERSION- UBUNTU server , rhel
+•	MICROSOFT – win 10 ,11
+•	server 2016, server 2022, server 2023
+•	respderry pi -iot -debian linux
+•	
+	SERVERS : network administrator, manages server
+•	Availability (Zero Downtime) is depicted by a green circle.
+•	Scalability (Ability to Increase or Decrease Resources) is shown with up and down arrows in orange.
+•	Reliability (Recovery After a Crash) is illustrated by a blue restart symbol.
+
+! [Caption for the image](Picture1.png)
