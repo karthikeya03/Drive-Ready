@@ -2,7 +2,7 @@
 
 An operating system (OS) is the most crucial software running on a computer. It manages the computer's memory and processes, along with all its software and hardware. The OS enables you to communicate with the computer without needing to understand the computer's language.
 
-![OS Overview](https://indiafreenotes.com/wp-content/uploads/2020/03/topic-1.jpg)
+![OS Overview](https://raw.githubusercontent.com/karthikeya03/IMAGES/JustMain/Picture2.png)
 
 ## Interfaces
 
@@ -31,11 +31,7 @@ An operating system (OS) is the most crucial software running on a computer. It 
 3. **Hardware Resource**:
    - Motherboard, CPU, RAM, Storage, Network
 
-
-
-![OS Layers](https://raw.githubusercontent.com/karthikeya03/Drive-Ready/main/Picture2.png)
-
-
+![OS Layers](https://raw.githubusercontent.com/karthikeya03/IMAGES/JustMain/Picture1.png)
 
 ### Source Code and Kernel
 
@@ -81,5 +77,4 @@ An operating system (OS) is the most crucial software running on a computer. It 
 - **Scalability** (Ability to Increase or Decrease Resources): Represented by up and down arrows in orange.
 - **Reliability** (Recovery After a Crash): Represented by a blue restart symbol.
 
-![OS Layers](https://raw.githubusercontent.com/karthikeya03/Drive-Ready/main/Picture1.png)
-
+![OS Layers](https://raw.githubusercontent.com/karthikeya03/IMAGES/JustMain/Picture1.png)
