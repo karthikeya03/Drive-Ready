@@ -1,5 +1,3 @@
-# SESSION 2: VIRTUALIZATION
-
 ## Virtualization
 
 - No need to maintain physical servers
@@ -16,7 +14,7 @@
 - Low power consumption
 - Example: THUB, 26 virtual machines (servers) in one physical rack server
 
-  ![Virtualization Example](https://raw.githubusercontent.com/karthikeya03/Drive-Ready/main/SESSION.2.1.png)
+  ![Virtualization Example](https://raw.githubusercontent.com/karthikeya03/IMAGES/JustMain/SESSION.2.1.png)
 
 ### Types of Servers
 
@@ -49,6 +47,4 @@
 
 - **Every virtual machine is a separate server**
 
-)
-
-![Virtualization Example](https://raw.githubusercontent.com/karthikeya03/Drive-Ready/main/SESSION.2.2.png)
+![Virtualization Example](https://raw.githubusercontent.com/karthikeya03/IMAGES/JustMain/SESSION.2.2.png)
