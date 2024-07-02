@@ -81,4 +81,5 @@ An operating system (OS) is the most crucial software running on a computer. It 
 - **Scalability** (Ability to Increase or Decrease Resources): Represented by up and down arrows in orange.
 - **Reliability** (Recovery After a Crash): Represented by a blue restart symbol.
 
-![OS Layers](https://raw.githubusercontent.com/karthikeya03/Drive-Ready/main/image.png)
+![OS Layers](https://raw.githubusercontent.com/karthikeya03/Drive-Ready/main/Picture1.png)
+
