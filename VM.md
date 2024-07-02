@@ -233,8 +233,8 @@ rm /var/www/html/index.html
 touch /var/www/html/index.html
 echo "this is technical hub" > /var/www/html/index.html
 systemctl start apache2
-
-# Step-by-Step Guide for Elastic IPs Using Scripts
+```
+#Step-by-Step Guide for Elastic IPs Using Scripts
 
 ## Step 1: Launch an EC2 Instance
 
@@ -267,7 +267,7 @@ systemctl start apache2
     echo "this is technical hub" > /var/www/html/index.html
     ```
 
-This script will:
+## This script will:
 - Switch to the root user.
 - Change permissions of the `/var/www/html` directory.
 - Remove the default `index.html` file.
