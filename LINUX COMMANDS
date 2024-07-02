@@ -1,0 +1,86 @@
+# LINUX: SESSION 4
+
+## Open source
+- Source code is open to all
+
+## LINUX
+- Linus Torvalds
+
+## UNIX
+- First OS
+
+## COMMANDS IN Linux
+
+1. **SH: Shell**
+   - BASH: Bourne Again Shell
+   - Example prompt: `[ec2-user@ip-172-31-31-186 ~]$` (Standard user account login)
+
+2. **$: Standard user account prompt**
+   - `sudo su`: Switch to root account (`#` indicates root)
+   - Example: `sudo su`
+
+3. **clear: Clear the terminal screen**
+   - Example: `clear`
+
+4. **exit: Exit the current shell**
+   - Example: `exit`
+
+5. **ls: List files and directories**
+   - Syntax: `ls`
+   - Example: `ls`
+
+6. **ls -l: List detailed information about files and directories**
+   - Syntax: `ls -l`
+   - Example: `ls -l`
+
+7. **ls -la: List all files and directories, including hidden ones**
+   - Syntax: `ls -la`
+   - Example: `ls -la`
+
+8. **pwd: Print current working directory**
+   - Syntax: `pwd`
+   - Example: `pwd`
+
+9. **cat: Display file contents**
+   - Syntax: `cat filename`
+   - Example: `cat myfile.txt`
+
+10. **cat >> filename: Append to a file**
+    - Syntax: `cat >> filename`
+    - Example: `cat >> myfile.txt`
+
+11. **cat > filename: Overwrite content of a file**
+    - Syntax: `cat > filename`
+    - Example: `cat > myfile.txt`
+
+12. **mkdir: Create a directory**
+    - Syntax: `mkdir dirname`
+    - Example: `mkdir new_directory`
+
+13. **cd: Change directory**
+    - Syntax: `cd dirname`
+    - Example: `cd new_directory`
+
+14. **cd ..: Move to the parent directory**
+    - Syntax: `cd ..`
+    - Example: `cd ..`
+
+15. **rm: Remove a file**
+    - Syntax: `rm filename`
+    - Example: `rm myfile.txt`
+
+16. **rm -r: Remove a directory (with confirmation)**
+    - Syntax: `rm -r dirname`
+    - Example: `rm -r old_directory`
+
+17. **rm -rf: Forcefully remove a directory (without confirmation)**
+    - Syntax: `rm -rf dirname`
+    - Example: `rm -rf unwanted_directory`
+
+18. **man: Display the manual for a command**
+    - Syntax: `man command`
+    - Example: `man ls`
+
+19. **cp: Copy files or directories**
+    - Syntax: `cp source destination`
+    - Example: `cp file1.txt file2.txt`
