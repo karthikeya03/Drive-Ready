@@ -46,7 +46,7 @@ Cloud computing architecture comprises several key components:
    - **Intranet:** Private network using internet technologies restricted to an organization.
    - **Intercloud:** Connected global network of clouds, enabling interoperability between different cloud systems.
 
-![OS Layers](https://raw.github.com/karthikeya03/IMAGES/JustMain/7.2.jpg)
+![OS Layers](https://raw.github.com/karthikeya03/IMAGES/JustMain/7.2.png)
 
 ## Cloud Computing Services:
 The following are types of cloud computing services:
@@ -87,4 +87,4 @@ The following are types of cloud computing services:
    
    Example: AWS Lambda, Google Cloud Functions, Azure Functions, IBM Cloud Functions
 
-![OS Layers](https://raw.github.com/karthikeya03/IMAGES/JustMain/7.4.jpg)
+![OS Layers](https://raw.github.com/karthikeya03/IMAGES/JustMain/7.4.png)
