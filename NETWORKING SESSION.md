@@ -6,7 +6,7 @@
 - **What is it?** AWS VPC lets you create a private network in AWS where you can safely set up and manage your resources.
 
 ### Network Basics
-- **Network:** A system that allows devices to communicate using specific rules called protocols.
+- **Network:** A system that allows devices to communicate using specific rules called protocols
 
 ### Types of Addresses
 1. **MAC Address (Media Access Control):** A unique code assigned to devices for network communication.
