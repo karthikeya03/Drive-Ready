@@ -1,6 +1,6 @@
 
 
- ## SESSION 12: NETWORKING
+ ## SESSION 13: NETWORKING
 
 ### AWS VPC (Virtual Private Cloud)
 - **What is it?** AWS VPC lets you create a private network in AWS where you can safely set up and manage your resources.
