@@ -57,5 +57,4 @@ USER:-
 •	Availability (Zero Downtime) is depicted by a green circle.
 •	Scalability (Ability to Increase or Decrease Resources) is shown with up and down arrows in orange.
 •	Reliability (Recovery After a Crash) is illustrated by a blue restart symbol.
-
-! [Caption for the image](Picture1.png)
+![OS Layers](./images/Picture1.png)
