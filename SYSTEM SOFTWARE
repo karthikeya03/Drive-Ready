@@ -31,7 +31,7 @@ An operating system (OS) is the most crucial software running on a computer. It 
 3. **Hardware Resource**:
    - Motherboard, CPU, RAM, Storage, Network
 
-![OS Layers](image.png)
+![OS Layers]("image.png")
 
 ### Source Code and Kernel
 
@@ -77,4 +77,4 @@ An operating system (OS) is the most crucial software running on a computer. It 
 - **Scalability** (Ability to Increase or Decrease Resources): Represented by up and down arrows in orange.
 - **Reliability** (Recovery After a Crash): Represented by a blue restart symbol.
 
-![Server Overview](Picture1.png)
+![Server Overview]("Picture1.png")
