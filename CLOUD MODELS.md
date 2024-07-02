@@ -26,4 +26,4 @@ A **Hybrid Cloud** is a combination of both public and private cloud environment
 - Threat Stack
 - Infinidat
   
-![CLOUD](https://raw.github.com/karthikeya03/IMAGES/blob/JustMain/8.1.png)
+![CLOUD](https://raw.github.com/karthikeya03/IMAGES/JustMain/8.1.png)
