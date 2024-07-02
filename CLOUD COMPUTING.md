@@ -1,7 +1,7 @@
 # SESSION 7: CLOUD COMPUTING
 
 ## What is Cloud Computing?
-Cloud Computing refers to the practice of using remote servers hosted on the Internet to store, manage, and process data, rather than relying on a local server or a personal computer. It’s a way to access computing resources and services over the internet, making it possible to use applications, store files, and perform various computing tasks without needing physical hardware on your premises.
+Cloud Computing refers to the practice of using remote servers hosted on the Internet to store, manage, and process data, rather than relying on a local server or a personal computer. It’s a way to access computing resources and services over the internet, making it possible to use applications, store files, and perform various computing tasks without needing physical hardware on your premises
 
 ## Key Points:
 - **Internet-Based Computing:** Cloud computing delivers services and resources over the internet.
