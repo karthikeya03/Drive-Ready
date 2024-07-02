@@ -30,6 +30,9 @@ The AWS Global Infrastructure is a worldwide network of data centers and servers
 - **Edge Locations:** Over 150, positioned in major cities to improve access speeds.
 - **Regional Edge Caches:** 13, enhancing data retrieval efficiency.
 
+![aws](https://raw.github.com/karthikeya03/IMAGES/JustMain/9.2.png)
+
+
 ## Example: Watching a Movie on a Streaming Service
 Imagine you're in Singapore and you want to watch a movie on an online streaming service like Amazon Prime Video.
 
