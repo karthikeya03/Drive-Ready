@@ -1,4 +1,4 @@
-	SESSION 6 : CLOUD STORAGE 
+#	SESSION 6 : CLOUD STORAGE 
 
 •	What is Cloud Storage?
 - In Cloud Computing, Cloud storage is a virtual locker where we can remotely stash any data.
