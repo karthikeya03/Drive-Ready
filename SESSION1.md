@@ -1,4 +1,4 @@
-### v SESSION 12 : NETWORKING
+###  SESSION 12 : NETWORKING
 
 ### ·    AWS VPC (Virtual Private Cloud):
 
