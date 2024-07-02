@@ -41,5 +41,5 @@
 3. **Confirm Termination**:
    - Confirm the termination action.
 
-![EC2 Dashboard](https://github.com/karthikeya03/IMAGES/blob/JustMain/3.1.png.raw)
+![EC2 Dashboard](https://raw.github.com/karthikeya03/IMAGES/JustMain/3.1.png)
 
