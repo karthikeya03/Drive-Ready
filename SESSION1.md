@@ -119,6 +119,52 @@ We are dealing with IP addresses in the range starting from 2.0.0.0.
 - PC0 and PC1 are both in the 128.1.0.0 network.
 - Since they share the same network (128.1.0.0), they can communicate directly without any need for routing.
 
+
+### Example 3: Class C Network Overview
+- **Class C IP Address Range**: 192.0.0.0 to 223.255.255.255.
+- **Subnet Mask for Class C**: 255.255.255.0.
+- Each Class C network has 256 IP addresses (0 to 255 in the last octet).
+- The first address is the **network address** (e.g., 192.168.1.0), and the last address is the **broadcast address** (e.g., 192.168.1.255).
+
+### 1. Last IP in C CLASS
+- **Definition**: The very last IP address in the entire Class C range.
+- **Calculation**:
+  - Class C starts from 192.0.0.0 and ends at 223.255.255.255.
+  - The last IP address is 223.255.255.255, which is a broadcast address.
+- **Answer**: 223.255.255.255.
+
+### 2. LAST NETWORK IN C CLASS
+- **Definition**: The last network in the Class C range.
+- **Explanation**:
+  - Each network in Class C has 256 addresses.
+  - The highest network in the Class C range starts at 223.255.255.0.
+  - Its subnet mask is 255.255.255.0.
+- **Answer**: 223.255.255.0/24.
+
+### 3. 3RD NETWORK IN C CLASS
+- **Definition**: The third network address within the Class C range.
+- **Explanation**:
+  - The first network is 192.0.0.0/24.
+  - The second network is 192.0.1.0/24.
+  - The third network is 192.0.2.0/24.
+- **Answer**: 192.0.2.0/24.
+
+### 4. LAST IP OF 3rd network in C CLASS
+- **Definition**: The last usable IP address in the third network of the Class C range.
+- **Explanation**:
+  - For the third network (192.0.2.0/24), the addresses range from 192.0.2.0 to 192.0.2.255.
+  - The network address is 192.0.2.0.
+  - The broadcast address is 192.0.2.255.
+  - The last usable IP address is just before the broadcast address.
+- **Answer**: 192.0.2.254.
+
+### Summary with Examples
+- **Last IP in C CLASS**: The very last IP in the Class C range: **223.255.255.255**.
+- **LAST NETWORK IN C CLASS**: The highest network in the Class C range: **223.255.255.0/24**.
+- **3RD NETWORK IN C CLASS**: The third network in the Class C range: **192.0.2.0/24**.
+- **LAST IP OF 3rd network in C CLASS**: The last usable IP of the third Class C network: **192.0.2.254**.
+
+
 ### Network Terms
 
 - **Network:** A group of interconnected devices.
