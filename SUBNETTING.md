@@ -82,3 +82,65 @@ Using a Class C network (default mask `255.255.255.0`), we get 256 IP addresses.
 - Reduced broadcast traffic
 
 By subnetting, we create a network with exactly the number of IP addresses needed, minimizing waste and optimizing performance.
+
+# Example: Understanding Subnet Mask and IP Address Communication
+
+## Scenario
+
+### Network 1
+- **IP Addresses**: `192.168.10.1` and `192.168.10.30`
+- **Subnet Mask**: `255.255.255.0` (/24)
+
+### Network 2
+- **IP Addresses**: `192.168.10.1` and `192.168.10.30`
+- **Subnet Mask**: `255.255.255.224` (/27)
+
+## Explanation
+
+### Network 1: Subnet Mask `255.255.255.0` (/24)
+
+- **Subnet Mask**: `255.255.255.0`
+- **Binary Representation**: `11111111.11111111.11111111.00000000`
+- **Network Portion**: First 24 bits (192.168.10)
+- **Host Portion**: Last 8 bits (0 to 255)
+
+**IP Range for /24 Network**: `192.168.10.0 - 192.168.10.255`
+
+- **192.168.10.1** and **192.168.10.30** fall within this range.
+- **Conclusion**: Both IPs are in the same subnet, so they can communicate directly.
+
+### Network 2: Subnet Mask `255.255.255.224` (/27)
+
+- **Subnet Mask**: `255.255.255.224`
+- **Binary Representation**: `11111111.11111111.11111111.11100000`
+- **Network Portion**: First 27 bits (192.168.10.x, where x is 0 to 31, 32 to 63, etc.)
+- **Host Portion**: Last 5 bits (0 to 31, 32 to 63, etc.)
+
+**IP Range for /27 Network**:
+
+| Subnet      | Network ID     | Usable IP Range                | Broadcast ID       |
+|-------------|----------------|--------------------------------|--------------------|
+| Subnet 1    | `192.168.10.0` | `192.168.10.1 - 192.168.10.30` | `192.168.10.31`    |
+| Subnet 2    | `192.168.10.32`| `192.168.10.33 - 192.168.10.62`| `192.168.10.63`    |
+| Subnet 3    | `192.168.10.64`| `192.168.10.65 - 192.168.10.94`| `192.168.10.95`    |
+
+- **192.168.10.1** is in the first subnet (192.168.10.0/27).
+- **192.168.10.30** is also in the first subnet (192.168.10.0/27).
+
+**Conclusion for Different IP Ranges**:
+- If we consider IPs that fall into different subnets, they will not communicate directly.
+- Example: 
+  - **192.168.10.1** is in `192.168.10.0/27` (1st subnet).
+  - **192.168.10.33** is in `192.168.10.32/27` (2nd subnet).
+
+### Why Doesn't `192.168.10.1` Ping `192.168.10.33` in `/27`?
+- **Different Subnets**: `192.168.10.1` (Subnet 1: `192.168.10.0/27`) and `192.168.10.33` (Subnet 2: `192.168.10.32/27`) are in different subnets.
+- **Routing Required**: Communication between different subnets requires routing.
+
+### Summary
+
+- **Subnet Mask `/24`**: IPs `192.168.10.1` and `192.168.10.30` can ping each other because they are in the same subnet.
+- **Subnet Mask `/27`**: IPs `192.168.10.1` and `192.168.10.33` cannot ping each other directly because they are in different subnets.
+
+Understanding the subnet mask helps determine whether devices can communicate directly or if routing is required.
+
