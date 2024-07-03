@@ -1,5 +1,7 @@
 # SESSION 15 : IP Address Classes and Networking
 
+# IP Address Classes and Networking
+
 ## IP Address Classes
 
 IP addresses are divided into classes to accommodate different network sizes. The classes are A, B, C, D, and E.
@@ -55,10 +57,10 @@ An IP address is divided into two parts:
 ## Images for Better Understanding
 
 ### IP Address Classes
-![IP Address Classes](https://www.cbtnuggets.com/blog/wp-content/uploads/2019/09/What-are-the-IP-address-classes-1024x620.png)
+![IP Address Classes](https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/IPv4_address_classes.svg/1200px-IPv4_address_classes.svg.png)
 
 ### Network and Host Portions
-![Network and Host Portions](https://4.bp.blogspot.com/-kzk0kGy5xA8/UFI8mWZ--5I/AAAAAAAAAP8/mS9W7C_DgO0/s1600/CCNA+-+Network+Portion+of+IP+Address.png)
+![Network and Host Portions](https://static.packt-cdn.com/products/9781788399983/graphics/7dd24d6f-8ef7-4b24-b162-1e5b14b9e4a5.png)
 
 ## Summary
 
@@ -69,3 +71,13 @@ An IP address is divided into two parts:
 - **Host ID:** Identifies a device within the network.
 
 Understanding these basics helps in designing and managing IP networks effectively.
+
+
+## NETWORK ID and BROADCAST ID : 
+
+```0.0.0.0``` : a network IP: an id that represents the first network, and cannot be used to represent a computer. 
+``` 1.0.0.0``` : is the first NETWORK IP of the first class
+``` 5.0.0.0``` : is the first NETWORK IP of the fifth class
+these cannot be used to represent a computer and cannot be provided as an ip address
+
+```255.255.255.255``` : is called a broadcast IP
