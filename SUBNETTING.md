@@ -62,13 +62,13 @@ Using a Class C network (default mask 255.255.255.0), we get 256 IP addresses. A
 ### Powers of 2
 ![POWERS OF 2](https://raw.github.com/karthikeya03/IMAGES/JustMain/123.png)
 
-## Example 2: Allocating 16 IP Addresses TO 16 COMPUTERS Using C Class :
+## Example 2: Allocating 10 IP Addresses TO 10 COMPUTERS Using C Class :
 
 ### Problem
-Given the requirement of 16 IP addresses, follow the subnetting steps.
+Given the requirement of 10 IP addresses, follow the subnetting steps.
 
 #### STEP 1. Identify the Requirement
-- **Requirement**: 16 IP addresses
+- **Requirement**: 10 IP addresses
 
 #### STEP 2. Nearest Power of 2
 - **Calculation**: \(2^4 = 16\)
