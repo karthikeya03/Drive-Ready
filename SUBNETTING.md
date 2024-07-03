@@ -12,15 +12,15 @@ Using a Class C network (default mask `255.255.255.0`), we get 256 IP addresses.
 
 ### Steps to Subnetting
 
-#### 1. Identify the Requirement
+#### STEP 1. Identify the Requirement
 - **Requirement**: 30 IP addresses
 
-#### 2. Nearest Power of 2
+#### STEP 2. Nearest Power of 2
 - **Calculation**: \(2^5 = 32\)
   - Formula: \(2^n - 2\) (subtracting 2 for network and broadcast IDs)
   - For 30 addresses, we need 32 IP addresses.
 
-#### 3. Write the New Subnet Mask
+#### STEP 3. Write the New Subnet Mask
 - **Default Subnet Mask**: `255.255.255.0`
   - This provides 256 IP addresses (slash value is /24).
 
@@ -34,12 +34,12 @@ Using a Class C network (default mask `255.255.255.0`), we get 256 IP addresses.
   - Convert the new mask to decimal: `255.255.255.224`
   - New slash value: `/27`
 
-### 4. Number of Hosts and Networks
+#### STEP 4. Number of Hosts and Networks
 - **Number of Hosts**: \(2^5 = 32\)
 - **Number of Networks**: \(2^3 = 8\) (number of converted network bits)
 - The large network is split into 8 subnets, each with 32 addresses, reducing waste.
 
-### 5. Writing the Range
+#### STEP 5. Writing the Range
 - **Range Calculation**: Based on \(2^5 = 32\) hosts per subnet.
 
 | No. of Hosts | No. of Networks |
