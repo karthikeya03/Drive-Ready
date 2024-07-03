@@ -57,9 +57,11 @@ An IP address is divided into two parts:
 ## Images for Better Understanding
 
 <BLOCKQUOTE> IP Address Classes :</BLOCKQUOTE>  <BR>
+
 ![IP Address Classes](https://raw.github.com/karthikeya03/IMAGES/JustMain/2.jpeg)
 
 <BLOCKQUOTE> Network and Host Portions : </BLOCKQUOTE>   <BR>
+
 ![Network and Host Portions](https://raw.github.com/karthikeya03/IMAGES/JustMain/1.gif)
 
 ## Summary
