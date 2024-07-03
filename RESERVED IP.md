@@ -82,13 +82,13 @@ Understanding these basics helps in designing and managing IP networks effective
 
 ## Examples
 
-*** Example 1 *** 
+***Example 1*** 
 - **IP Address:** `10.250.67.89`
 - **First Usable IP:** `10.0.0.1`
 - **Last Usable IP:** `10.255.255.254`
 - **256th Usable IP:** `10.0.1.0`
 
-*** Example 2 **
+***Example 2**
 - **IP Address:** `172.254.89`
 - **Network ID:** `172.254.0.0`
 - **Broadcast ID:** `172.254.255.255`
