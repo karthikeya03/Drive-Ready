@@ -142,5 +142,4 @@ By subnetting, we create a network with exactly the number of IP addresses neede
 - **Subnet Mask `/24`**: IPs `192.168.10.1` and `192.168.10.30` can ping each other because they are in the same subnet.
 - **Subnet Mask `/27`**: IPs `192.168.10.1` and `192.168.10.33` cannot ping each other directly because they are in different subnets.
 
-Understanding the subnet mask helps determine whether devices can communicate directly or if routing is required.
 
