@@ -5,7 +5,7 @@
 - **Increased Security**: Harder for attackers to move between subnets.
 - **Reduced Broadcast Traffic**: Only devices in the same subnet receive broadcast messages.
 
-## Example: Allocating 30 IP Addresses Using Class C
+## Example: Allocating 30 IP Addresses To 30 Computers Using Class C
 
 ### Problem
 Using a Class C network (default mask 255.255.255.0), we get 256 IP addresses. Allocating only 30 addresses wastes 226 IP addresses.
@@ -62,7 +62,7 @@ Using a Class C network (default mask 255.255.255.0), we get 256 IP addresses. A
 ### Powers of 2
 ![POWERS OF 2](https://raw.github.com/karthikeya03/IMAGES/JustMain/123.png)
 
-## Example 2: Allocating 16 IP Addresses TO 16 COMPUTERS
+## Example 2: Allocating 16 IP Addresses TO 16 COMPUTERS Using C Class :
 
 ### Problem
 Given the requirement of 16 IP addresses, follow the subnetting steps.
