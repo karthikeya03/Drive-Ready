@@ -56,10 +56,10 @@ An IP address is divided into two parts:
 
 ## Images for Better Understanding
 
-## IP Address Classes :
+<BLOCKQUOTE> IP Address Classes :</BLOCKQUOTE>  <BR>
 ![IP Address Classes](https://raw.github.com/karthikeya03/IMAGES/JustMain/2.jpeg)
 
-## Network and Host Portions :
+<BLOCKQUOTE> Network and Host Portions : </BLOCKQUOTE>   <BR>
 ![Network and Host Portions](https://raw.github.com/karthikeya03/IMAGES/JustMain/1.gif)
 
 ## Summary
@@ -75,20 +75,20 @@ Understanding these basics helps in designing and managing IP networks effective
 
 ## NETWORK ID and BROADCAST ID : 
 
-```0.0.0.0``` : a network IP: an id that represents the first network, and cannot be used to represent a computer. 
-``` 1.0.0.0``` : is the first NETWORK IP of the first class.
-``` 5.0.0.0``` : is the first NETWORK IP of the fifth class.
-these cannot be used to represent a computer and cannot be provided as an ip address.
+```0.0.0.0``` : a network IP: an id that represents the first network, and cannot be used to represent a computer. <BR>
+``` 1.0.0.0``` : is the first NETWORK IP of the first class. <BR>
+``` 5.0.0.0``` : is the first NETWORK IP of the fifth class. <BR>
+these cannot be used to represent a computer and cannot be provided as an ip address. <BR>
 ```255.255.255.255``` : is called a broadcast IP.
 
-EXAMPLE 1
-: 10.250.67.89
-: 10.0.0.1 is the first ip
-:  10.255.255.254 is the last usable ip
-: 10.0.1.0 is the 256th usable ip
+<BLOCKHEAD>EXAMPLE 1  </BLOCKHEAD>
+: 10.250.67.89  <BR>
+: 10.0.0.1 is the first ip  <BR>
+:  10.255.255.254 is the last usable ip  <BR>
+: 10.0.1.0 is the 256th usable ip <BR>
 
-EXAMPLE 2
-: 172. 254. 89 
-:  172.254.0.0 network id
-: 172.254.255.255 broadcast id 
+<BLOCKHEAD> EXAMPLE 2 </BLOCKHEAD>
+: 172. 254. 89  <BR>
+:  172.254.0.0 network id <BR>
+: 172.254.255.255 broadcast id  <BR>
   
