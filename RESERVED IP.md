@@ -57,10 +57,10 @@ An IP address is divided into two parts:
 ## Images for Better Understanding
 
 > IP Address Classes
-[IP Address Classes](https://www.google.com/url?sa=i&url=https%3A%2F%2Fmycomputernotes.com%2Fwhat-is-ip-address-and-its-classes%2F&psig=AOvVaw3JU2jw73DROKq_VlgHwu0y&ust=1720068478239000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCNCjssqIiocDFQAAAAAdAAAAABAE)
+![IP Address Classes](https://www.google.com/url?sa=i&url=https%3A%2F%2Fmycomputernotes.com%2Fwhat-is-ip-address-and-its-classes%2F&psig=AOvVaw3JU2jw73DROKq_VlgHwu0y&ust=1720068478239000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCNCjssqIiocDFQAAAAAdAAAAABAE)
 
 > Network and Host Portions :
-[Network and Host Portions](https://www.google.com/url?sa=i&url=http%3A%2F%2Fpenta2.ufrgs.br%2Ftrouble%2Fts_ip.htm&psig=AOvVaw22qL-UP5dXVkznjbVpRjEF&ust=1720068551059000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCIiug-mIiocDFQAAAAAdAAAAABAE)
+![Network and Host Portions](https://www.google.com/url?sa=i&url=http%3A%2F%2Fpenta2.ufrgs.br%2Ftrouble%2Fts_ip.htm&psig=AOvVaw22qL-UP5dXVkznjbVpRjEF&ust=1720068551059000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCIiug-mIiocDFQAAAAAdAAAAABAE)
 
 ## Summary
 
