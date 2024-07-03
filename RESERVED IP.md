@@ -109,7 +109,7 @@ This example explains the characteristics of a Class B network. It outlines the 
 
 - **257th Network:** `129.0.0.0`
   - The 257th network starts at the same base address `129.0.0.0` since network IDs do not change with individual IP assignments within a given network.
-  -  - **Network ID of 257th network:** `129.0.0.0`
+  -  **Network ID of 257th network:** `129.0.0.0`
   - This is the base address for the given network.
 - **Broadcast ID:** `129.0.255.255`
   - This is the address used to send data to all hosts within the `129.0.x.x` network.
