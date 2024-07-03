@@ -59,7 +59,7 @@ Using a Class C network (default mask `255.255.255.0`), we get 256 IP addresses.
 | Subnet 7      | `192.168.10.192`| `192.168.10.193 - 192.168.10.222`| `192.168.10.223`|
 | Subnet 8      | `192.168.10.224`| `192.168.10.225 - 192.168.10.254`| `192.168.10.255`|
 
-### Visual Aid: Powers of 2
+### Powers of 2
 ![POWERS OF 2](https://raw.github.com/karthikeya03/IMAGES/JustMain/123.png)
 
 ## Summary
