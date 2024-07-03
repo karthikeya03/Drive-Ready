@@ -56,11 +56,11 @@ An IP address is divided into two parts:
 
 ## Images for Better Understanding
 
-> IP Address Classes
-![IP Address Classes](https://www.google.com/url?sa=i&url=https%3A%2F%2Fmycomputernotes.com%2Fwhat-is-ip-address-and-its-classes%2F&psig=AOvVaw3JU2jw73DROKq_VlgHwu0y&ust=1720068478239000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCNCjssqIiocDFQAAAAAdAAAAABAE)
+> IP Address Classes :
+![IP Address Classes](https://raw.github.com/karthikeya03/IMAGES/JustMain/2.jpeg)
 
 > Network and Host Portions :
-![Network and Host Portions](https://www.google.com/url?sa=i&url=http%3A%2F%2Fpenta2.ufrgs.br%2Ftrouble%2Fts_ip.htm&psig=AOvVaw22qL-UP5dXVkznjbVpRjEF&ust=1720068551059000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCIiug-mIiocDFQAAAAAdAAAAABAE)
+![Network and Host Portions](https://raw.github.com/karthikeya03/IMAGES/JustMain/1.gif)
 
 ## Summary
 
@@ -81,3 +81,15 @@ Understanding these basics helps in designing and managing IP networks effective
 these cannot be used to represent a computer and cannot be provided as an ip address
 
 ```255.255.255.255``` : is called a broadcast IP
+
+EXAMPLE 1
+: 10.250.67.89
+  10.0.0.1 is the first ip
+  10.255.255.254 is the last usable ip
+  10.0.1.0 is the 256th usable ip
+
+EXAMPLE 2
+: 172. 254. 89 
+  172.254.0.0 network id
+  172.254.255.255 broadcast id 
+  
