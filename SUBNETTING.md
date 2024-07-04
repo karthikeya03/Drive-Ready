@@ -118,6 +118,51 @@ Given the requirement of 10 IP addresses, follow the subnetting steps.
 | Subnet 15     | 192.168.10.224 | 192.168.10.225 - 192.168.10.238| 192.168.10.239     |
 | Subnet 16     | 192.168.10.240 | 192.168.10.241 - 192.168.10.254| 192.168.10.255     |
 
+## Example 3: Allocating 60 IP Addresses to 60 Computers
+
+### Problem
+Given the requirement of 60 IP addresses, follow the subnetting steps.
+
+### Step-by-Step Solution
+
+#### STEP 1. Identify the Requirement
+- **Requirement**: 60 IP addresses
+
+#### STEP 2. Nearest Power of 2
+- **Calculation**: The nearest power of 2 that can accommodate at least 60 IP addresses is \(2^6 = 64\).
+
+#### STEP 3. Write the New Subnet Mask
+- **Default Subnet Mask**: 255.255.255.0 (for a typical Class C network)
+
+- **Change to Fit Requirement**:
+  - We need at least 64 addresses, including the network and broadcast addresses.
+  - Adjusting the subnet mask to provide 64 addresses involves using 6 bits for hosts (2^6 = 64).
+  - Binary Representation:
+    - Default: 11111111.11111111.11111111.00000000
+    - New: 11111111.11111111.11111111.11000000 (26 bits for the network and 6 bits for hosts)
+
+- **New Subnet Mask**:
+  - Convert the new mask to decimal: 255.255.255.192
+  - New slash value: /26
+
+#### STEP 4. Number of Hosts and Networks
+- **Number of Hosts per Subnet**: \(2^6 - 2 = 62\) (subtracting 2 for the network and broadcast addresses)
+- **Number of Subnets**: With 2 bits borrowed for subnetting, we have \(2^2 = 4\) subnets.
+
+#### STEP 5. Writing the Range
+- **Range Calculation**: Each subnet will have 64 addresses (62 usable for hosts).
+
+### Example Subnet Allocation
+Using a starting IP of 192.168.1.0/26:
+
+| Subnet        | Network ID     | Usable IP Range                 | Broadcast ID       |
+|---------------|----------------|---------------------------------|--------------------|
+| Subnet 1      | 192.168.1.0    | 192.168.1.1 - 192.168.1.62      | 192.168.1.63       |
+| Subnet 2      | 192.168.1.64   | 192.168.1.65 - 192.168.1.126    | 192.168.1.127      |
+| Subnet 3      | 192.168.1.128  | 192.168.1.129 - 192.168.1.190   | 192.168.1.191      |
+| Subnet 4      | 192.168.1.192  | 192.168.1.193 - 192.168.1.254   | 192.168.1.255      |
+
+
 ## Summary
 
 ### Initial Setup
