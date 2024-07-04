@@ -219,12 +219,12 @@ Using a starting IP of 192.168.1.0/26:
 
 By subnetting, we create a network with exactly the number of IP addresses needed, minimizing waste and optimizing performance.
 
-# Example 4: Allocating 1000 IP Addresses to 1000 Computers
+## Example 4: Allocating 1000 IP Addresses Using Class B Addresses
 
 ### Problem
-Given the requirement of 1000 IP addresses, follow the subnetting steps.
+Given the requirement of 1000 IP addresses, follow the subnetting steps using Class B addresses.
 
-### Steps to get Ip adresses :
+### Step-by-Step Solution
 
 #### STEP 1. Identify the Requirement
 - **Requirement**: 1000 IP addresses
@@ -233,15 +233,14 @@ Given the requirement of 1000 IP addresses, follow the subnetting steps.
 - **Calculation**: The nearest power of 2 that can accommodate at least 1000 IP addresses is \(2^{10} = 1024\).
 
 #### STEP 3. Write the New Subnet Mask
-- **Default Subnet Mask**: 255.255.255.0 (for a typical Class C network)
+- **Default Subnet Mask**: 255.255.0.0 (for a Class B network)
 
 - **Change to Fit Requirement**:
   - We need at least 1024 addresses, including the network and broadcast addresses.
   - Adjusting the subnet mask to provide 1024 addresses involves using 10 bits for hosts (2^10 = 1024).
   - Binary Representation:
-    - Default: 11111111.11111111.11111111.00000000
-    - New: 11111111.11111111.(111111)(00).(00000000)
-    - (22 bits for the network and 10 bits for hosts)
+    - Default: 11111111.11111111.00000000.00000000
+    - New: 11111111.11111111.11111100.00000000 (14 bits for the network and 10 bits for hosts)
 
 - **New Subnet Mask**:
   - Convert the new mask to decimal: 255.255.252.0
@@ -255,15 +254,19 @@ Given the requirement of 1000 IP addresses, follow the subnetting steps.
 #### STEP 5. Writing the Range
 - **Range Calculation**: Each subnet will have 1024 addresses (1022 usable for hosts).
 
+   | No. of Hosts | No. of Networks |
+   |--------------|-----------------|
+   |     1024     |       4         |
+
 ### Example Subnet Allocation
-Using a starting IP of 192.168.0.0/22:
+Using a starting IP of 172.16.0.0/22:
 
 | Subnet        | Network ID     | Usable IP Range                     | Broadcast ID       |
 |---------------|----------------|-------------------------------------|--------------------|
-| Subnet 1      | 192.168.0.0    | 192.168.0.1 - 192.168.3.254         | 192.168.3.255      |
-| Subnet 2      | 192.168.4.0    | 192.168.4.1 - 192.168.7.254         | 192.168.7.255      |
-| Subnet 3      | 192.168.8.0    | 192.168.8.1 - 192.168.11.254        | 192.168.11.255     |
-| Subnet 4      | 192.168.12.0   | 192.168.12.1 - 192.168.15.254       | 192.168.15.255     |
+| Subnet 1      | 172.16.0.0     | 172.16.0.1 - 172.16.3.254            | 172.16.3.255       |
+| Subnet 2      | 172.16.4.0     | 172.16.4.1 - 172.16.7.254            | 172.16.7.255       |
+| Subnet 3      | 172.16.8.0     | 172.16.8.1 - 172.16.11.254           | 172.16.11.255      |
+| Subnet 4      | 172.16.12.0    | 172.16.12.1 - 172.16.15.254          | 172.16.15.255      |
 
 
 
