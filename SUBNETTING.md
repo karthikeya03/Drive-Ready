@@ -152,6 +152,10 @@ Given the requirement of 60 IP addresses, follow the subnetting steps.
 #### STEP 5. Writing the Range
 - **Range Calculation**: Each subnet will have 64 addresses (62 usable for hosts).
 
+  | No. of Hosts | No. of Networks |
+  |--------------|-----------------|
+  |     64       |       4         |
+
 ### Example Subnet Allocation
 Using a starting IP of 192.168.1.0/26:
 
