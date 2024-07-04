@@ -162,21 +162,6 @@ Using a starting IP of 192.168.1.0/26:
 | Subnet 3      | 192.168.1.128  | 192.168.1.129 - 192.168.1.190   | 192.168.1.191      |
 | Subnet 4      | 192.168.1.192  | 192.168.1.193 - 192.168.1.254   | 192.168.1.255      |
 
-
-## Summary
-
-### Initial Setup
-- **Class C Network**: 192.168.1.0
-- **Default Subnet Mask**: 255.255.255.0 (/24)
-- **Usable IPs**: 254
-- **Wasted IPs**: 224 (if only 30 are used)
-
-### Subnetting Steps
-1. **Requirement**: 30 IP addresses
-2. **Calculation**: \(2^5 = 32\) (30 usable, 2 reserved)
-3. **New Subnet Mask**: 255.255.255.224 (/27)
-4. **Usable IP Range**: 32 - 2 = 30 addresses
-
 ### Benefits of Subnetting
 - Efficient IP usage
 - Enhanced security
