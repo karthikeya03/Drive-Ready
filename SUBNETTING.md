@@ -5,7 +5,53 @@
 - **Increased Security**: Harder for attackers to move between subnets.
 - **Reduced Broadcast Traffic**: Only devices in the same subnet receive broadcast messages.
 
-## Example: Allocating 30 IP Addresses To 30 Computers Using Class C
+# Simple Explanation of Default Slash Values for IP Addresses
+
+## Introduction :
+When we talk about IP addresses, we need to know how many parts of the address are used to identify the network and how many parts are used to identify the device (like a computer) on that network. This is what the "slash value" helps us understand.
+
+## What is a Slash Value?:
+The slash value is a number that comes after an IP address and tells us how many bits are used for the network part. It's written like this: `192.168.1.0/24`.
+
+## IP Address Classes and Their Slash Values
+
+### Class A
+- **Address Range**: 1.0.0.0 to 126.0.0.0
+- **Default Subnet Mask**: 255.0.0.0
+- **Slash Value**: /8 (*8)
+
+**Class A** uses the first 8 bits to identify the network. Think of it like using the first part of a phone number to know which country someone is calling from.
+
+### Class B
+- **Address Range**: 128.0.0.0 to 191.255.0.0
+- **Default Subnet Mask**: 255.255.0.0
+- **Slash Value**: /16 (8+8)
+
+**Class B** uses the first 16 bits to identify the network. This is like using the first two parts of a phone number to know which country and area someone is calling from.
+
+### Class C
+- **Address Range**: 192.0.0.0 to 223.255.255.0
+- **Default Subnet Mask**: 255.255.255.0
+- **Slash Value**: /24 (8+8+8)
+
+**Class C** uses the first 24 bits to identify the network. This is like using the first three parts of a phone number to know which country, area, and city someone is calling from.
+
+## Simple Examples
+
+### Example 1: Class A IP Address
+- **IP Address**: 10.0.0.0/8
+  - Here, `/8` means the first 8 bits are for the network. The rest can be used for devices.
+
+### Example 2: Class B IP Address
+- **IP Address**: 172.16.0.0/16
+  - Here, `/16` means the first 16 bits are for the network. The rest can be used for devices.
+
+### Example 3: Class C IP Address
+- **IP Address**: 192.168.1.0/24
+  - Here, `/24` means the first 24 bits are for the network. The rest can be used for devices.
+
+
+# Example: Allocating 30 IP Addresses To 30 Computers Using Class C
 
 ### Problem
 Using a Class C network (default mask 255.255.255.0), we get 256 IP addresses. Allocating only 30 addresses wastes 226 IP addresses.
@@ -139,7 +185,7 @@ Given the requirement of 60 IP addresses, follow the subnetting steps.
   - Adjusting the subnet mask to provide 64 addresses involves using 6 bits for hosts (2^6 = 64).
   - Binary Representation:
     - Default: 11111111.11111111.11111111.00000000
-    - New: 11111111.11111111.11111111.11000000 (26 bits for the network and 6 bits for hosts)
+    - New: 11111111.11111111.11111111.(11) (000000) (26 bits for the network and 6 bits for hosts)
 
 - **New Subnet Mask**:
   - Convert the new mask to decimal: 255.255.255.192
