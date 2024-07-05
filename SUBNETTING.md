@@ -249,6 +249,7 @@ Given the requirement of 1000 IP addresses, follow the subnetting steps using Cl
 #### STEP 4. Number of Hosts and Networks
 - **Number of Addresses per Subnet**: \(2^{10} = 1024\) (includes network and broadcast addresses)
 - **Number of Usable Hosts per Subnet**: \(2^{10} - 2 = 1022\) (subtracting 2 for the network and broadcast addresses)
+- **Number of networks** : `(2^n)` = `(2^6)` = `64` networks.
 - **Number of Subnets**: With 2 bits borrowed for subnetting, we have \(2^2 = 4\) subnets.
 
 #### STEP 5. Writing the Range
@@ -256,7 +257,7 @@ Given the requirement of 1000 IP addresses, follow the subnetting steps using Cl
 
    | No. of Hosts | No. of Networks |
    |--------------|-----------------|
-   |     1024     |       4         |
+   |     1024     |       64        |
 
 ### Example Subnet Allocation
 Using a starting IP of 172.16.0.0/22:
