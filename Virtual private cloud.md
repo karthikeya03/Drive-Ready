@@ -300,5 +300,37 @@ When configuring the network settings for your EC2 instance, you need to ensure 
    - Select the subnet(s) you want to associate with this Route Table.
    - Click 'Save associations'.
 
+# AWS VPC Setup Steps
+
+## Steps
+
+1. **Create VPC**
+2. **Create Subnet**
+3. **EC2 Instance (with Network Settings)**
+4. **Internet Gateway**
+5. **Route Tables**
+
+---
+
+## Mind Map
+
+![MINDMAP](https://raw.github.com/karthikeya03/IMAGES/JustMain/img001.png)
+
+```plaintext
+         INTERNET
+             |
+         INTERNET
+         GATEWAY
+             |
+         ROUTE TABLE
+             |
+           SUBNET
+             |
+    AVAILABILITY ZONE
+             |
+            VPC
+             |
+         AWS CLOUD
+
 
 
