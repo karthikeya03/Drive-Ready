@@ -94,4 +94,4 @@ This guide has walked you through launching an EC2 instance in a default VPC, en
 - [EC2 Console](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-console.png)
 - [Launch Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/launch-wizard1.png)
 - [Security Group](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/launch-wizard4.png)
-- [VPC Console](https://docs.aws.amazon.com/vpc/latest/userguide/images/vpc-dashboard.png)
+- ![VPC Console](https://raw,docs.aws.amazon.com/vpc/latest/userguide/images/vpc-dashboard.png)
