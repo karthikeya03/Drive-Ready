@@ -252,6 +252,14 @@ When configuring the network settings for your EC2 instance, you need to ensure 
 
 - **Option:** Add additional security group rules as needed to fit your security requirements. ```(ALL ICMP IPv4)```
 
+# STEP 4: Attaching an Internet GateWay: 
 
+how to attach an internet gateway, tell step by step in aws console. i cimpletedt eh rfirst three steps till adding network srtings and launching an instance after that. 
+
+# STEP 5 : ROUTE TABLE : 
+
+how to associate a route table. after attaching an internet gateway
+
+route table -> subnet associations -> subnets without explcit subnet association -> editsubnet association -> 
 
 
