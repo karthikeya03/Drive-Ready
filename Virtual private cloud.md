@@ -316,21 +316,24 @@ When configuring the network settings for your EC2 instance, you need to ensure 
 
 ![MINDMAP](https://raw.github.com/karthikeya03/IMAGES/JustMain/img001.png)
 
-```plaintext
-         INTERNET
+---
+
+## Flowchart
+
+         `INTERNET`
              |
-         INTERNET
-         GATEWAY
+         `INTERNET
+          GATEWAY`
              |
-         ROUTE TABLE
+        `ROUTE TABLE`
              |
-           SUBNET
+          `SUBNET`
              |
-    AVAILABILITY ZONE
+     `AVAILABILITY ZONE`
              |
-            VPC
+          ` VPC`
              |
-         AWS CLOUD
+        ` AWS CLOUD`
 
 
 
