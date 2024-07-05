@@ -4,7 +4,8 @@
 
 A Virtual Private Cloud (VPC) is a virtual network that closely resembles a traditional network you would operate in your own data center. This guide will walk you through creating and configuring a VPC, launching an EC2 instance, enabling ICMP, connecting via SSH, detaching the internet gateway, and verifying connectivity.
 
-## ICMP : 
+## ICMP
+
 The Internet Control Message Protocol (ICMP) is a network layer protocol used by network devices to diagnose network communication issues. ICMP is mainly used to determine whether or not data is reaching its intended destination on time.
 
 ## Steps
@@ -49,15 +50,12 @@ The Internet Control Message Protocol (ICMP) is a network layer protocol used by
 ### Step 2: Connect to Your EC2 Instance via SSH
 
 1. **Obtain the Public IP**
-
    - From the EC2 Dashboard, select your instance and note the public IP address.
 
 2. **Open SSH Terminal**
-
    - Open a terminal on your local machine.
 
 3. **Connect Using SSH**
-
    - Use the following command to connect:
 
      ```bash
@@ -87,33 +85,69 @@ The Internet Control Message Protocol (ICMP) is a network layer protocol used by
 2. **Verify ICMP**
    - Try pinging your instance.
    - The ping should fail, indicating no connectivity.
-  
-# Creating Your Own Virtual Private Cloud (VPC)
 
-## Introduction
+## Creating Your Own Virtual Private Cloud (VPC)
+
+### Introduction
 
 A Virtual Private Cloud (VPC) allows you to provision a logically isolated section of the AWS cloud where you can launch AWS resources in a virtual network. This guide will walk you through the steps to create your own VPC.
 
-## Steps TO CREATE A VPC
+### Steps to Create a VPC
 
-### Step 1: Create a VPC
+1. **Open the Amazon VPC Console**
+   - Navigate to the [Amazon VPC Console](https://console.aws.amazon.com/vpc/).
 
-- Open the Amazon VPC Console
-- Navigate to the Amazon VPC Console.
-- Create a VPC
-- In the left-hand navigation pane, click on "Your VPCs".
-- Click "Create VPC".
-- Configure the VPC
-  - Name tag: Enter a name for your VPC (e.g., MyVPC).
-  - IPv4 CIDR block: Enter the CIDR block for your VPC (e.g., 10.0.0.0/16).
-  - IPv6 CIDR block: Leave this as default (No IPv6 CIDR Block).
-  - Tenancy: Default.
-- Create the VPC
-- Click "Create VPC".
+2. **Create a VPC**
+   - In the left-hand navigation pane, click on "Your VPCs".
+   - Click "Create VPC".
 
-  ## Steps TO CREATE A SUBNETWORK
+3. **Configure the VPC**
+   - **Name tag:** Enter a name for your VPC (e.g., MyVPC).
+   - **IPv4 CIDR block:** Enter the CIDR block for your VPC (e.g., 10.0.0.0/16).
+   - **IPv6 CIDR block:** Leave this as default (No IPv6 CIDR Block).
+   - **Tenancy:** Default.
 
-### Step 2: Create a VPC
+4. **Create the VPC**
+   - Click "Create VPC".
 
-![VPC](https://raw.github.com/karthikeya03/IMAGES/JustMain/image2.png)
+### Steps to Create a Subnet
 
+1. **Open the Amazon VPC Console**
+   - Navigate to the [Amazon VPC Console](https://console.aws.amazon.com/vpc/).
+
+2. **Create a Subnet**
+   - In the left-hand navigation pane, click on "Subnets".
+   - Click "Create Subnet".
+
+3. **Configure the Subnet**
+   - **Subnet Name:**
+     - **Field:** Subnet name
+     - **Value:** HELLO_SUBNET
+     - **Description:** This is where you specify a name for your subnet. The name can be up to 256 characters long and helps you identify the subnet later.
+   - **Availability Zone:**
+     - **Field:** Availability Zone
+     - **Value:** No preference
+     - **Description:** This dropdown allows you to choose the Availability Zone in which your subnet will reside. If you select "No preference," AWS will choose an appropriate Availability Zone for you.
+   - **IPv4 VPC CIDR block:**
+     - **Field:** IPv4 VPC CIDR block
+     - **Value:** 192.128.64.0/24
+     - **Description:** This specifies the CIDR block of your VPC. The subnet's CIDR block must be within this range.
+   - **IPv4 Subnet CIDR block:**
+     - **Field:** IPv4 subnet CIDR block
+     - **Value:** 192.128.64.63/26
+     - **Description:** Here, you specify the CIDR block for your subnet. In this case, the subnet CIDR block is set to 192.128.64.63/26, which allows for 64 IP addresses.
+   - **Tags (Optional):**
+     - **Field:** Tags
+     - **Key:** Name
+     - **Value:** HELLO_SUBNET
+     - **Description:** Tags are optional key-value pairs that you can use to organize, manage, and identify your AWS resources. In this example, a tag with the key "Name" and the value "HELLO_SUBNET" is being added to the subnet.
+
+4. **Additional Actions:**
+   - **Button:** Add new tag
+     - **Description:** You can click this button to add more tags to your subnet. AWS allows you to add up to 50 tags per resource.
+   - **Button:** Remove
+     - **Description:** Clicking this button removes the tag.
+
+5. **Add New Subnet:**
+   - **Button:** Add new subnet
+     - **Description:** If you want to create more subnets within the same VPC, you can click this button to start the process for additional subnets.
