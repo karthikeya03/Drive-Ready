@@ -316,7 +316,7 @@ Using a starting IP of 172.16.0.0/22:
 
 - **Change to Fit Requirement**:
   - We need at least 2048 addresses, including the network and broadcast addresses.
-  - Adjusting the subnet mask to provide 2048 addresses involves using 10 bits for hosts (2^10 = 1024).
+  - Adjusting the subnet mask to provide 2048 addresses involves using 11 bits for hosts (2^11 = 2048).
   - Binary Representation:
     - Default: 11111111.11111111.00000000.00000000
     - 1*2^7 + 1*2^6 + 1*2^5 + 1*2^4 + 1*2^3 + 0*2^2 + 0*2^1 + 0*2^0
