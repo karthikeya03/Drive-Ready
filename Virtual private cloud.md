@@ -86,7 +86,7 @@ The Internet Control Message Protocol (ICMP) is a network layer protocol used by
    - Try pinging your instance.
    - The ping should fail, indicating no connectivity.
 
-## Creating Your Own Virtual Private Cloud (VPC)
+# Creating Your Own Virtual Private Cloud (VPC)
 
 ### Introduction
 
@@ -122,24 +122,24 @@ A Virtual Private Cloud (VPC) allows you to provision a logically isolated secti
 3. **Configure the Subnet**
    - **Subnet Name:**
      - **Field:** Subnet name
-     - **Value:** HELLO_SUBNET
-     - **Description:** This is where you specify a name for your subnet. The name can be up to 256 characters long and helps you identify the subnet later.
+     - **Value:** `HELLO_SUBNET`
+     - **Description:** This is where you specify a name for your subnet. The name can be up to `256` characters long and helps you identify the subnet later.
    - **Availability Zone:**
      - **Field:** Availability Zone
      - **Value:** No preference
      - **Description:** This dropdown allows you to choose the Availability Zone in which your subnet will reside. If you select "No preference," AWS will choose an appropriate Availability Zone for you.
    - **IPv4 VPC CIDR block:**
      - **Field:** IPv4 VPC CIDR block
-     - **Value:** 192.128.64.0/24
+     - **Value:** `192.128.64.0`/24
      - **Description:** This specifies the CIDR block of your VPC. The subnet's CIDR block must be within this range.
    - **IPv4 Subnet CIDR block:**
      - **Field:** IPv4 subnet CIDR block
-     - **Value:** 192.128.64.63/26
-     - **Description:** Here, you specify the CIDR block for your subnet. In this case, the subnet CIDR block is set to 192.128.64.63/26, which allows for 64 IP addresses.
+     - **Value:** `192.128.64.63`/26
+     - **Description:** Here, you specify the CIDR block for your subnet. In this case, the subnet CIDR block is set to `192.128.64.63/26`, which allows for 64 IP addresses.
    - **Tags (Optional):**
      - **Field:** Tags
      - **Key:** Name
-     - **Value:** HELLO_SUBNET
+     - **Value:** `HELLO_SUBNET`
      - **Description:** Tags are optional key-value pairs that you can use to organize, manage, and identify your AWS resources. In this example, a tag with the key "Name" and the value "HELLO_SUBNET" is being added to the subnet.
 
 4. **Additional Actions:**
