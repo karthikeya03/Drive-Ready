@@ -76,7 +76,7 @@ A Virtual Private Cloud (VPC) allows you to provision a logically isolated secti
    - **Button:** Add new subnet
      - **Description:** If you want to create more subnets within the same VPC, you can click this button to start the process for additional subnets.
     
-     # Creating Your Own Virtual Private Cloud (VPC)
+# Creating Your Own Virtual Private Cloud (VPC)
 
 
 # EXAMPLE 1 : Steps to Create a VPC with `192.168.1.0/24`: 
