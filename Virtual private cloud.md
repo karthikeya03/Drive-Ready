@@ -85,13 +85,3 @@ A Virtual Private Cloud (VPC) is a virtual network that closely resembles a trad
    - Try pinging your instance.
    - The ping should fail, indicating no connectivity.
 
-### Conclusion
-
-This guide has walked you through launching an EC2 instance in a default VPC, enabling ICMP, connecting via SSH, detaching the internet gateway, and verifying the connection status. By following these steps, you can understand the basic operations and connectivity within a VPC.
-
-## Images
-
-- [EC2 Console](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-console.png)
-- [Launch Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/launch-wizard1.png)
-- [Security Group](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/launch-wizard4.png)
-- ![VPC Console](https://raw,docs.aws.amazon.com/vpc/latest/userguide/images/vpc-dashboard.png)
