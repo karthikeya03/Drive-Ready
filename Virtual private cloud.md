@@ -8,84 +8,6 @@ A Virtual Private Cloud (VPC) is a virtual network that closely resembles a trad
 
 The Internet Control Message Protocol (ICMP) is a network layer protocol used by network devices to diagnose network communication issues. ICMP is mainly used to determine whether or not data is reaching its intended destination on time.
 
-## Steps
-
-### Step 1: Launch an EC2 Instance in the Default VPC
-
-1. **Open the Amazon EC2 Console**
-   - Navigate to the [Amazon EC2 Console](https://console.aws.amazon.com/ec2/).
-
-2. **Launch Instance**
-   - Click on "Launch Instance".
-
-3. **Choose an Amazon Machine Image (AMI)**
-   - Select an appropriate AMI, such as Amazon Linux 2 AMI.
-
-4. **Choose an Instance Type**
-   - Select the instance type (e.g., t2.micro for free tier).
-
-5. **Configure Instance**
-   - Ensure the default VPC is selected.
-   - Click "Next: Configure Instance Details".
-
-6. **Add Storage**
-   - Configure the storage as needed.
-   - Click "Next: Add Tags".
-
-7. **Add Tags**
-   - Optionally, add tags to your instance.
-   - Click "Next: Configure Security Group".
-
-8. **Configure Security Group**
-   - Create a new security group or select an existing one.
-   - Ensure SSH (port 22) is allowed.
-   - Add a rule to allow ICMP (ping).
-   - Click "Review and Launch".
-
-9. **Review and Launch**
-   - Review your instance configuration.
-   - Click "Launch".
-   - Select an existing key pair or create a new one to access your instance.
-
-### Step 2: Connect to Your EC2 Instance via SSH
-
-1. **Obtain the Public IP**
-   - From the EC2 Dashboard, select your instance and note the public IP address.
-
-2. **Open SSH Terminal**
-   - Open a terminal on your local machine.
-
-3. **Connect Using SSH**
-   - Use the following command to connect:
-
-     ```bash
-     ssh -i /path/to/your-key-pair.pem ec2-user@your-instance-public-ip
-     ```
-
-### Step 3: Detach the Internet Gateway from the Default VPC
-
-1. **Navigate to the VPC Console**
-   - Go to the [Amazon VPC Console](https://console.aws.amazon.com/vpc/).
-
-2. **Select the Default VPC**
-   - Under "Virtual Private Cloud", select "Your VPCs".
-   - Choose the default VPC.
-
-3. **Detach the Internet Gateway**
-   - Go to "Internet Gateways".
-   - Select the internet gateway attached to the default VPC.
-   - Click "Actions" and then "Detach from VPC".
-
-### Step 4: Verify SSH Connection
-
-1. **Reconnect via SSH**
-   - Try reconnecting to your EC2 instance using SSH.
-   - You should not be able to connect, as the internet gateway is detached.
-
-2. **Verify ICMP**
-   - Try pinging your instance.
-   - The ping should fail, indicating no connectivity.
-
 # Creating Your Own Virtual Private Cloud (VPC)
 
 ### Introduction
@@ -159,7 +81,7 @@ A Virtual Private Cloud (VPC) allows you to provision a logically isolated secti
 
 # EXAMPLE 1 : Steps to Create a VPC with `192.168.1.0/24`: 
 
- ## Creating Your Own Virtual Private Cloud (VPC)
+ ## STEP 1 : Creating Your Own Virtual Private Cloud (VPC)
 
  ### Steps to Create a VPC
 
@@ -179,7 +101,7 @@ A Virtual Private Cloud (VPC) allows you to provision a logically isolated secti
 4. **Create the VPC**
    - Click "Create VPC".
 
-## Steps to Create a Subnet
+# STEP 2 : Steps to Create a Subnet
 
 1. **Open the Amazon VPC Console**
    - Navigate to the [Amazon VPC Console](https://console.aws.amazon.com/vpc/).
@@ -258,4 +180,78 @@ Each `/27` subnet will have 32 IP addresses (2^5 = 32), with 30 usable IP addres
 | **First Usable IP:** | 192.168.1.65        |
 | **Last Usable IP:**  | 192.168.1.94        |
 | **Broadcast Address:** | 192.168.1.95      |
+
+# STEP 3: Additional Networking Settings
+
+When configuring the network settings for your EC2 instance, you need to ensure that you have selected the appropriate VPC and subnet. Below are the detailed steps for setting up the additional networking settings.
+
+### Network Settings
+
+1. **VPC (Virtual Private Cloud)**
+   - **Field:** VPC - required
+   - **Value:** `vpc-0b7a0895f29e32a6b (VPC_1)`
+   - **Description:** Select the VPC where your EC2 instance will reside. In this example, the selected VPC is `VPC_1`.
+
+2. **Subnet**
+   - **Field:** Subnet - required
+   - **Value:** `subnet-09dfe57d64d6f7958 (subnet1)`
+   - **Description:** Choose the subnet within the selected VPC. The subnet chosen here is `subnet1` with the CIDR block `192.168.1.64/27`.
+
+3. **Auto-assign public IP**
+   - **Option:** Disable
+   - **Description:** Choose whether to auto-assign a public IP address to your instance. Here, it is disabled.
+
+4. **Firewall (Security groups)**
+   - **Option:** Select existing security group or create a new one.
+   - **Description:** Security groups act as a virtual firewall to control the inbound and outbound traffic to your instance.
+
+5. **Security Group Name**
+   - **Field:** Security group name - required
+   - **Value:** `launch-wizard-2`
+   - **Description:** The name of the security group created or selected for your instance.
+
+6. **Security Group ID**
+   - **Field:** Security group ID
+   - **Value:** `sg-0a8768a042b493f6d`
+   - **Description:** The unique identifier of the security group.
+
+7. **Description**
+   - **Field:** Description - optional
+   - **Value:** `launch-wizard-2 created 2024-07-05T08:26:29.073+12`
+   - **Description:** A description of the security group.
+
+### Inbound Security Group Rules
+
+1. **Rule 1: Allow SSH**
+   - **Type:** SSH
+   - **Protocol:** TCP
+   - **Port range:** 22
+   - **Source type:** Anywhere
+   - **Source:** `0.0.0.0/0`
+   - **Description:** `SSH for admin desktop`
+   - **Explanation:** This rule allows SSH access from any IP address to port 22.
+
+2. **Rule 2: Allow ICMP**
+   - **Type:** All ICMP - IPv4
+   - **Protocol:** ICMP
+   - **Port range:** N/A
+   - **Source type:** Anywhere
+   - **Source:** `0.0.0.0/0`
+   - **Description:** `ICMP for admin desktop`
+   - **Explanation:** This rule allows ICMP (ping) requests from any IP address.
+
+### Warning
+
+- **Message:**
+  `Rules with source of 0.0.0.0/0 allow all IP addresses to access your instance.'
+  'We recommend restricting security group rules to allow access from known IP addresses only.`
+  
+- **Description:** This warning indicates that allowing access from any IP address (`0.0.0.0/0`) can be a security risk, and it's recommended to restrict access to known IP addresses.
+
+### Advanced Network Configuration
+
+- **Option:** Add additional security group rules as needed to fit your security requirements. ```(ALL ICMP IPv4)```
+
+
+
 
