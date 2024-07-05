@@ -110,6 +110,8 @@ A Virtual Private Cloud (VPC) allows you to provision a logically isolated secti
 4. **Create the VPC**
    - Click "Create VPC".
 
+![SUBNET](https://raw.github.com/karthikeya03/IMAGES/JustMain/image2.png)
+
 ### Steps to Create a Subnet
 
 1. **Open the Amazon VPC Console**
