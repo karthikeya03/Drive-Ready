@@ -350,6 +350,43 @@ Using a starting IP of 172.16.0.0/22:
 | Subnet 3      | 172.16.16.0     | 172.16.16.1 - 172.16.23.254           | 172.16.23.255      |
 | Subnet 4      | 172.16.24.0    | 172.16.24.1 - 172.16.31.254          | 172.16.32.255      |
 
+# Subnetting Examples Explained :
+
+### Example 1: Subnetting Network 172.22.0.0/25
+
+#### Understanding Subnets
+- **Subnet Mask:** /25 (255.255.255.128)
+  - This means the first 25 bits of the IP address are reserved for network identification.
+  - The remaining 32-25 : 7 bits are available for host addresses within each subnet.
+
+#### Calculating Subnets
+- **Number of Subnets:** 2^7 = 128
+  - With 7 bits for subnetting, you can create 128 different subnets.
+
+#### Hosts per Subnet
+- **Host Bits:** 7
+  - This leaves 7 bits for host addresses per subnet.
+- **Number of Hosts per Subnet:** 2^7 - 2 = 126
+  - You can have up to 126 usable hosts per subnet, accounting for the network address and broadcast address.
+
+### Example 2: Subnetting Network 192.168.190.0/30
+
+#### Understanding Subnets
+- **Subnet Mask:** /30 (255.255.255.252)
+  - Here, the first 30 bits are for network identification.
+  - Only 2 bits remain for host addresses in each subnet.
+
+#### Calculating Subnets
+- **Number of Subnets:** 2^2 = 4
+  - With 2 bits for subnetting, you can create 4 different subnets.
+
+#### Hosts per Subnet
+- **Host Bits:** 2
+  - This allows for 2 bits for host addresses per subnet.
+- **Number of Hosts per Subnet:** 2^2 - 2 = 2
+  - Each subnet can accommodate up to 2 usable hosts, after accounting for the network address and broadcast address.
+
+
 
 # Example: Understanding Subnet Mask and IP Address Communication
 
