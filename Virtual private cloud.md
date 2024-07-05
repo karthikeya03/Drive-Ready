@@ -153,3 +153,109 @@ A Virtual Private Cloud (VPC) allows you to provision a logically isolated secti
 5. **Add New Subnet:**
    - **Button:** Add new subnet
      - **Description:** If you want to create more subnets within the same VPC, you can click this button to start the process for additional subnets.
+    
+     # Creating Your Own Virtual Private Cloud (VPC)
+
+
+# EXAMPLE 1 : Steps to Create a VPC with `192.168.1.0/24`: 
+
+# Creating Your Own Virtual Private Cloud (VPC)
+
+## Steps to Create a VPC
+
+1. **Open the Amazon VPC Console**
+   - Navigate to the [Amazon VPC Console](https://console.aws.amazon.com/vpc/).
+
+2. **Create a VPC**
+   - In the left-hand navigation pane, click on "Your VPCs".
+   - Click "Create VPC".
+
+3. **Configure the VPC**
+   - **Name tag:** Enter a name for your VPC (e.g., `MyVPC`).
+   - **IPv4 CIDR block:** Enter `192.168.1.0/24`.
+   - **IPv6 CIDR block:** Leave this as default (No IPv6 CIDR Block).
+   - **Tenancy:** Default.
+
+4. **Create the VPC**
+   - Click "Create VPC".
+
+## Steps to Create a Subnet
+
+1. **Open the Amazon VPC Console**
+   - Navigate to the [Amazon VPC Console](https://console.aws.amazon.com/vpc/).
+
+2. **Create a Subnet**
+   - In the left-hand navigation pane, click on "Subnets".
+   - Click "Create Subnet".
+
+3. **Configure the Subnet**
+   - **Subnet Name:**
+     - **Field:** Subnet name
+     - **Value:** `MySubnet`
+     - **Description:** This is where you specify a name for your subnet. The name can be up to 256 characters long and helps you identify the subnet later.
+   - **VPC:**
+     - **Field:** VPC
+     - **Value:** Select the VPC created in Step 1.
+   - **Availability Zone:**
+     - **Field:** Availability Zone
+     - **Value:** No preference
+     - **Description:** This dropdown allows you to choose the Availability Zone in which your subnet will reside. If you select "No preference," AWS will choose an appropriate Availability Zone for you.
+   - **IPv4 CIDR block:**
+     - **Field:** IPv4 CIDR block
+     - **Value:** `192.168.1.64/27`
+     - **Description:** Here, you specify the CIDR block for your subnet. In this case, the subnet CIDR block is set to `192.168.1.64/27`, which is the third subnet in the range and allows for 32 IP addresses (30 usable).
+
+4. **Tags (Optional):**
+   - **Field:** Tags
+     - **Key:** Name
+     - **Value:** `MySubnet`
+     - **Description:** Tags are optional key-value pairs that you can use to organize, manage, and identify your AWS resources.
+
+5. **Additional Actions:**
+   - **Button:** Add new tag
+     - **Description:** You can click this button to add more tags to your subnet. AWS allows you to add up to 50 tags per resource.
+   - **Button:** Remove
+     - **Description:** Clicking this button removes the tag.
+
+6. **Add New Subnet:**
+   - **Button:** Add new subnet
+     - **Description:** If you want to create more subnets within the same VPC, you can click this button to start the process for additional subnets.
+
+7. **Create the Subnet**
+   - Click "Create Subnet".
+
+## Subnet Details and Calculation
+
+### Calculate the number of subnets:
+
+- **Original CIDR block:** `192.168.1.0/24`
+- **New subnet mask:** `/27`
+- **Difference in bits:** `27 - 24 = 3` bits
+- **Number of subnets:** `2^3 = 8` subnets
+
+### Calculate the range for each subnet:
+
+Each `/27` subnet will have 32 IP addresses (2^5 = 32), with 30 usable IP addresses (excluding the network address and the broadcast address).
+
+### Subnet Ranges
+
+| Subnet Number | Subnet CIDR     | Range                  |
+| --------------| ----------------| -----------------------|
+| 1st Subnet    | 192.168.1.0/27  | 192.168.1.0 - 192.168.1.31  |
+| 2nd Subnet    | 192.168.1.32/27 | 192.168.1.32 - 192.168.1.63 |
+| 3rd Subnet    | 192.168.1.64/27 | 192.168.1.64 - 192.168.1.95 |
+| 4th Subnet    | 192.168.1.96/27 | 192.168.1.96 - 192.168.1.127 |
+| 5th Subnet    | 192.168.1.128/27| 192.168.1.128 - 192.168.1.159 |
+| 6th Subnet    | 192.168.1.160/27| 192.168.1.160 - 192.168.1.191 |
+| 7th Subnet    | 192.168.1.192/27| 192.168.1.192 - 192.168.1.223 |
+| 8th Subnet    | 192.168.1.224/27| 192.168.1.224 - 192.168.1.255 |
+
+### Detailed Breakdown of the 3rd Subnet
+
+| Detail               | IP Address          |
+| -------------------- | ------------------- |
+| **Network Address:** | 192.168.1.64        |
+| **First Usable IP:** | 192.168.1.65        |
+| **Last Usable IP:**  | 192.168.1.94        |
+| **Broadcast Address:** | 192.168.1.95      |
+
