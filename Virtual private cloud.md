@@ -252,14 +252,53 @@ When configuring the network settings for your EC2 instance, you need to ensure 
 
 - **Option:** Add additional security group rules as needed to fit your security requirements. ```(ALL ICMP IPv4)```
 
-# STEP 4: Attaching an Internet GateWay: 
+  
+# Step 4: Attaching an Internet Gateway
 
-how to attach an internet gateway, tell step by step in aws console. i cimpletedt eh rfirst three steps till adding network srtings and launching an instance after that. 
+1. Log in to AWS Management Console:
+   - Open your browser and go to the AWS Management Console.
+   - Enter your credentials and log in.
 
-# STEP 5 : ROUTE TABLE : 
+2. Navigate to VPC Dashboard:
+   - Click on 'Services' in the top-left corner.
+   - Select 'VPC' from the list of services.
 
-how to associate a route table. after attaching an internet gateway
+3. Create an Internet Gateway:
+   - In the left navigation pane, click on 'Internet Gateways'.
+   - Click 'Create internet gateway'.
+   - Enter a name for your Internet Gateway.
+   - Click 'Create internet gateway'.
 
-route table -> subnet associations -> subnets without explcit subnet association -> editsubnet association -> 
+4. Attach the Internet Gateway to Your VPC:
+   - Select the newly created Internet Gateway.
+   - Click 'Actions' > 'Attach to VPC'.
+   - Select your VPC from the drop-down list.
+   - Click 'Attach internet gateway'.
+
+# Step 5: Associating a Route Table
+
+1. Create a Route Table:
+   - In the left navigation pane, click on 'Route Tables'.
+   - Click 'Create route table'.
+   - Enter a name for your Route Table.
+   - Select the VPC you want to associate it with.
+   - Click 'Create route table'.
+
+2. Add a Route to the Route Table:
+   - Select the newly created Route Table.
+   - Click the 'Routes' tab.
+   - Click 'Edit routes'.
+   - Click 'Add route'.
+   - In 'Destination', enter '0.0.0.0/0'.
+   - In 'Target', select 'Internet Gateway' and choose your Internet Gateway from the drop-down list.
+   - Click 'Save routes'.
+
+3. Associate the Route Table with a Subnet:
+   - Select the newly created Route Table.
+   - Click the 'Subnet Associations' tab.
+   - Click 'Edit subnet associations'.
+   - Select the subnet(s) you want to associate with this Route Table.
+   - Click 'Save associations'.
+
 
 
