@@ -159,9 +159,9 @@ A Virtual Private Cloud (VPC) allows you to provision a logically isolated secti
 
 # EXAMPLE 1 : Steps to Create a VPC with `192.168.1.0/24`: 
 
-# Creating Your Own Virtual Private Cloud (VPC)
+ ## Creating Your Own Virtual Private Cloud (VPC)
 
-## Steps to Create a VPC
+ ### Steps to Create a VPC
 
 1. **Open the Amazon VPC Console**
    - Navigate to the [Amazon VPC Console](https://console.aws.amazon.com/vpc/).
