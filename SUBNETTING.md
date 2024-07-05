@@ -51,7 +51,7 @@ The slash value is a number that comes after an IP address and tells us how many
   - Here, `/24` means the first 24 bits are for the network. The rest can be used for devices.
 
 
-# Example: Allocating 30 IP Addresses To 30 Computers Using Class C
+# Example 1: Allocating 30 IP Addresses To 30 Computers Using Class C
 
 ### Problem
 Using a Class C network (default mask 255.255.255.0), we get 256 IP addresses. Allocating only 30 addresses wastes 226 IP addresses.
@@ -78,7 +78,7 @@ Using a Class C network (default mask 255.255.255.0), we get 256 IP addresses. A
 
 - **New Subnet Mask**:
   - Convert the new mask to decimal: 255.255.255.224
-  - New slash value: /27
+  - New slash value: /27 `(32-5)` the default value is 32 and remove the number of zeroes : 5.
 
 #### STEP 4. Number of Hosts and Networks
 - **Number of Hosts**: \(2^5 = 32\)
@@ -130,7 +130,7 @@ Given the requirement of 10 IP addresses, follow the subnetting steps.
 
 - **New Subnet Mask**:
   - Convert the new mask to decimal: 255.255.255.240
-  - New slash value: /28
+  - New slash value: /28 `(32-4)` the default value is 32 and remove the number of zeroes : 4.
 
 #### STEP 4. Number of Hosts and Networks
 - **Number of Hosts**: \(2^4 = 16\)
@@ -164,6 +164,40 @@ Given the requirement of 10 IP addresses, follow the subnetting steps.
 | Subnet 15     | 192.168.10.224 | 192.168.10.225 - 192.168.10.238| 192.168.10.239     |
 | Subnet 16     | 192.168.10.240 | 192.168.10.241 - 192.168.10.254| 192.168.10.255     |
 
+# Why Do We Use the 2^h / 256 Formula
+
+In IP addressing, the formula `2^h / 256` is used to determine the number of Class B networks required to accommodate a given number of hosts. Here's an explanation of the components and reasoning behind this formula:
+
+## Components of the Formula
+
+1. **2^h (Number of Hosts):**
+   - `h` represents the number of host bits required to accommodate a specific number of hosts.
+   - The term `2^h` calculates the total number of IP addresses that can be assigned to hosts, including the network and broadcast addresses.
+
+2. **Division by 256:**
+   - Class B networks have a default subnet mask of 255.255.0.0, which means the network part occupies the first 16 bits, and the remaining 16 bits are for host addresses.
+   - Since there are 65,536 (2^16) possible host addresses in a Class B network, and each network is divided into 256 subnets of 256 addresses each, dividing by 256 simplifies the calculation of how many networks are needed.
+
+## Application of the Formula
+
+When calculating the number of Class B networks required to allocate a specific number of IP addresses, the formula helps determine how to effectively distribute the address space. For instance, if you need to allocate IP addresses for 1000 hosts, you use the formula as follows:
+
+1. **Determine Host Bits (`h`):**
+   - For 1000 hosts, you need `h` bits such that `2^h >= 1000`. The smallest `h` that satisfies this is 10 (as 2^10 = 1024).
+
+2. **Apply the Formula:**
+   - Using `h = 10`, the formula becomes:
+     \[
+     rac{2^{10}}{256} = rac{1024}{256} = 4
+     \]
+   - This calculation shows that you need 4 subnets of 256 addresses each to accommodate 1000 hosts.
+
+## Why This Matters
+
+The `2^h / 256` formula ensures efficient use of IP address space, avoiding wastage while meeting network requirements. It simplifies subnetting calculations and helps network administrators design networks that optimize address allocation.
+
+By understanding this formula, network planners can better manage IP address distribution, ensuring that each network has the right amount of address space for its needs.
+
 ## Example 3: Allocating 60 IP Addresses to 60 Computers
 
 ### Problem
@@ -189,7 +223,7 @@ Given the requirement of 60 IP addresses, follow the subnetting steps.
 
 - **New Subnet Mask**:
   - Convert the new mask to decimal: 255.255.255.192
-  - New slash value: /26
+  - New slash value: /26 `(32-6)` the default value is 32 and remove the number of zeroes : 6.
 
 #### STEP 4. Number of Hosts and Networks
 - **Number of Hosts per Subnet**: \(2^6 - 2 = 62\) (subtracting 2 for the network and broadcast addresses)
@@ -244,7 +278,7 @@ Given the requirement of 1000 IP addresses, follow the subnetting steps using Cl
 
 - **New Subnet Mask**:
   - Convert the new mask to decimal: 255.255.252.0
-  - New slash value: /22
+  - New slash value: /22 `(32-10)` the default value is 32 and remove the number of zeroes : 10.
 
 #### STEP 4. Number of Hosts and Networks
 - **Number of Addresses per Subnet**: \(2^{10} = 1024\) (includes network and broadcast addresses)
@@ -269,6 +303,52 @@ Using a starting IP of 172.16.0.0/22:
 | Subnet 3      | 172.16.8.0     | 172.16.8.1 - 172.16.11.254           | 172.16.11.255      |
 | Subnet 4      | 172.16.12.0    | 172.16.12.1 - 172.16.15.254          | 172.16.15.255      |
 
+## Example 4: Allocating 2000 IP Addresses Using Class B Addresses :
+
+#### STEP 1. Identify the Requirement
+- **Requirement**:  `2000` IP addresses
+
+#### STEP 2. Nearest Power of 2
+- **Calculation**: The nearest power of 2 that can accommodate at least 2000 IP addresses is \(2^{11} = 2048\).
+
+#### STEP 3. Write the New Subnet Mask
+- **Default Subnet Mask**: 255.255.0.0 (for a Class B network)
+
+- **Change to Fit Requirement**:
+  - We need at least 2048 addresses, including the network and broadcast addresses.
+  - Adjusting the subnet mask to provide 2048 addresses involves using 10 bits for hosts (2^10 = 1024).
+  - Binary Representation:
+    - Default: 11111111.11111111.00000000.00000000
+    - 1*2^7 + 1*2^6 + 1*2^5 + 1*2^4 + 1*2^3 + 0*2^2 + 0*2^1 + 0*2^0
+    - 128 + 64 + 32 + 16 + 8 + 0 + 0 + 0 = 248
+    - New: 11111111.11111111.11111000.00000000 (13 bits for the network and 11 bits for hosts)
+
+- **New Subnet Mask**:
+  - Convert the new mask to decimal: 255.255.248.0
+  - New slash value: /21 `(32-11)` the default value is 32 and remove the number of zeroes : 11.
+
+#### STEP 4. Number of Hosts and Networks
+- **Number of Addresses per Subnet**: \(2^{11} = 2048\) (includes network and broadcast addresses)
+- **Number of Usable Hosts per Subnet**: \(2^{11} - 2 = 2046\) (subtracting 2 for the network and broadcast addresses)
+- **Number of networks** : `(2^n)` = `(2^5)` = `32` networks.
+- **Number of Subnets**: With 2 bits borrowed for subnetting, we have \(2^3 = 8\) subnets.
+
+#### STEP 5. Writing the Range
+- **Range Calculation**: Each subnet will have 1024 addresses (1022 usable for hosts).
+
+   | No. of Hosts | No. of Networks |
+   |--------------|-----------------|
+   |     2048     |       32        |
+
+### Example Subnet Allocation
+Using a starting IP of 172.16.0.0/22:
+
+| Subnet        | Network ID     | Usable IP Range                     | Broadcast ID       |
+|---------------|----------------|-------------------------------------|--------------------|
+| Subnet 1      | 172.16.0.0     | 172.16.0.1 - 172.16.7.254            | 172.16.7.255       |
+| Subnet 2      | 172.16.8.0     | 172.16.8.1 - 172.16.15.254            | 172.16.15.255       |
+| Subnet 3      | 172.16.16.0     | 172.16.16.1 - 172.16.23.254           | 172.16.23.255      |
+| Subnet 4      | 172.16.24.0    | 172.16.24.1 - 172.16.31.254          | 172.16.32.255      |
 
 
 # Example: Understanding Subnet Mask and IP Address Communication
