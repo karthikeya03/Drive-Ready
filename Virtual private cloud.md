@@ -88,23 +88,25 @@ The Internet Control Message Protocol (ICMP) is a network layer protocol used by
    - Try pinging your instance.
    - The ping should fail, indicating no connectivity.
   
-# Creating Your Own Virtual Private Cloud (VPC) :
+# Creating Your Own Virtual Private Cloud (VPC)
 
-## Introduction : 
+## Introduction
+
 A Virtual Private Cloud (VPC) allows you to provision a logically isolated section of the AWS cloud where you can launch AWS resources in a virtual network. This guide will walk you through the steps to create your own VPC.
 
-##Steps TO CREATE A VPC : 
-###Step 1: Create a VPC
--Open the Amazon VPC Console
--Navigate to the Amazon VPC Console.
--Create a VPC
--In the left-hand navigation pane, click on "Your VPCs".
--Click "Create VPC".
--Configure the VPC
--Name tag: Enter a name for your VPC (e.g., MyVPC).
--IPv4 CIDR block: Enter the CIDR block for your VPC (e.g., 10.0.0.0/16).
--IPv6 CIDR block: Leave this as default (No IPv6 CIDR Block).
--Tenancy: Default.
--Create the VPC
--Click "Create VPC".
+## Steps TO CREATE A VPC
 
+### Step 1: Create a VPC
+
+- Open the Amazon VPC Console
+- Navigate to the Amazon VPC Console.
+- Create a VPC
+- In the left-hand navigation pane, click on "Your VPCs".
+- Click "Create VPC".
+- Configure the VPC
+  - Name tag: Enter a name for your VPC (e.g., MyVPC).
+  - IPv4 CIDR block: Enter the CIDR block for your VPC (e.g., 10.0.0.0/16).
+  - IPv6 CIDR block: Leave this as default (No IPv6 CIDR Block).
+  - Tenancy: Default.
+- Create the VPC
+- Click "Create VPC".
