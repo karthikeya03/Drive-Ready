@@ -110,3 +110,10 @@ A Virtual Private Cloud (VPC) allows you to provision a logically isolated secti
   - Tenancy: Default.
 - Create the VPC
 - Click "Create VPC".
+
+  ## Steps TO CREATE A SUBNETWORK
+
+### Step 2: Create a VPC
+
+![VPC](https://raw.github.com/karthikeya03/IMAGES/JustMain/image2.png)
+
