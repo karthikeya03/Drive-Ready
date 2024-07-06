@@ -210,11 +210,8 @@ We are dealing with IP addresses in the range starting from `2.0.0.0`.
 1. **10th Network in Class A**: `10.0.0.0`
 2. **260th IP Address in the 10th Network**: `10.0.1.3`
 3. **Number of Hosts in the 10th Network**: `16,777,216`
-4. **Number of Networks in Class A**: `126`
-   
-<BR>
-</BR>
-
+4. **Number of Networks in Class A**: `126` 
+<BR></BR>
 6. **5th Network in Class B**: `128.4.0.0`
 7. **256th IP Address in the 5th Network**: `128.4.0.255`
 8. **Number of Hosts in the 5th Network**: `65,536`
