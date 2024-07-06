@@ -157,18 +157,6 @@ We are dealing with IP addresses in the range starting from `2.0.0.0`.
 - Each Class C network has `256` IP addresses (0 to 255 in the last octet).
 - The first address is the **network address** (e.g., `192.168.1.0`), and the last address is the **broadcast address** (e.g., `192.168.1.255`).
 
-## Summary of IPv4 Address Classes
-
-1. **10th Network in Class A**: `10.0.0.0`
-2. **260th IP Address in the 10th Network**: `10.0.1.3`
-3. **Number of Hosts in the 10th Network**: `16,777,216`
-4. **Number of Networks in Class A**: `126`
-
-5. **5th Network in Class B**: `128.4.0.0`
-6. **256th IP Address in the 5th Network**: `128.4.0.255`
-7. **Number of Hosts in the 5th Network**: `65,536`
-8. **Number of Networks in Class B**: `64`
-
 ## Example 4: Class A and Class B Network Overview
 
 ### Class A Network
@@ -192,6 +180,18 @@ We are dealing with IP addresses in the range starting from `2.0.0.0`.
    - **Definition:** Total possible networks within Class A range.
    - **Calculation:** `2^7` or `128` total networks, minus 2 (0 and 127 are reserved).
    - **Answer:** `126`.
+
+## Summary of IPv4 Address Classes
+
+1. **10th Network in Class A**: `10.0.0.0`
+2. **260th IP Address in the 10th Network**: `10.0.1.3`
+3. **Number of Hosts in the 10th Network**: `16,777,216`
+4. **Number of Networks in Class A**: `126`
+
+5. **5th Network in Class B**: `128.4.0.0`
+6. **256th IP Address in the 5th Network**: `128.4.0.255`
+7. **Number of Hosts in the 5th Network**: `65,536`
+8. **Number of Networks in Class B**: `64`
 
 ### Class B Network
 
