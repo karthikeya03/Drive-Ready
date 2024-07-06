@@ -90,6 +90,17 @@
 | D     | `224.0.0.0` to `239.255.255.255` | Multicast          |
 | E     | `240.0.0.0` to `255.255.255.255` | Experimental       |
 
+# IP Address Classes and Default Subnet Masks
+
+| IP Address Class | Default Subnet Mask   |
+|------------------|-----------------------|
+| Class A          | 255.0.0.0             |
+| Class B          | 255.255.0.0           |
+| Class C          | 255.255.255.0         |
+| Class D          | Not defined           |
+| Class E          | Not defined           |
+
+
 ## Example 1: IP Address of the Following
 
 ### Series 1
