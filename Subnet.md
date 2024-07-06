@@ -29,6 +29,7 @@ Classful addressing divides IP addresses into five classes (A, B, C, D, and E). 
    - Prefix Length: `/24` (24 bits for the network)
 
 ![subnet](https://raw.github.com/karthikeya03/IMAGES/JustMain/image.png)
+(https://raw.github.com/karthikeya03/IMAGES/JustMain/SUB.png))
 
 ### Prefix Length
 The prefix length indicates the number of bits used for the network portion of the address. The remaining bits are used for host addresses within the network.
