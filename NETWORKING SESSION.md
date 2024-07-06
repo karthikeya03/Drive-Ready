@@ -181,18 +181,6 @@ We are dealing with IP addresses in the range starting from `2.0.0.0`.
    - **Calculation:** `2^7` or `128` total networks, minus 2 (0 and 127 are reserved).
    - **Answer:** `126`.
 
-## Summary of IPv4 Address Classes
-
-1. **10th Network in Class A**: `10.0.0.0`
-2. **260th IP Address in the 10th Network**: `10.0.1.3`
-3. **Number of Hosts in the 10th Network**: `16,777,216`
-4. **Number of Networks in Class A**: `126`
-
-5. **5th Network in Class B**: `128.4.0.0`
-6. **256th IP Address in the 5th Network**: `128.4.0.255`
-7. **Number of Hosts in the 5th Network**: `65,536`
-8. **Number of Networks in Class B**: `64`
-
 ### Class B Network
 
 1. **5th Network in Class B**
@@ -217,4 +205,14 @@ We are dealing with IP addresses in the range starting from `2.0.0.0`.
 
 ---
 
-This summary includes an overview of the networking concepts and examples covered in the session, along with details about IPv4 addressing and the various classes of IP addresses.
+## Summary of IPv4 Address Classes
+
+1. **10th Network in Class A**: `10.0.0.0`
+2. **260th IP Address in the 10th Network**: `10.0.1.3`
+3. **Number of Hosts in the 10th Network**: `16,777,216`
+4. **Number of Networks in Class A**: `126`
+<BR>
+5. **5th Network in Class B**: `128.4.0.0`
+6. **256th IP Address in the 5th Network**: `128.4.0.255`
+7. **Number of Hosts in the 5th Network**: `65,536`
+8. **Number of Networks in Class B**: `64`
