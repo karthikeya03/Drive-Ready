@@ -62,5 +62,11 @@
    - Initialize and format the volume if necessary to start using it.
    - click on the offline button and turn it to online
 
+     RIGHT CLICK -> INITIALIZE DISK 
 
+![image](https://github.com/karthikeya03/Drive-Ready/assets/120096427/73c898bd-555f-41be-84aa-5e3523d825c9)
+
+   RIGHT CLICK -> ALLOCATE THE VOLUME 
+
+   
 
