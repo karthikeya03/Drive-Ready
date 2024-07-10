@@ -1,5 +1,8 @@
 # Enabling Bucket Versioning
 
+![image](https://github.com/karthikeya03/Drive-Ready/assets/120096427/1285ac34-2747-4c36-90b4-7bbf13746822)
+
+
 ## Navigate to S3 Console:
 1. Go to the AWS Management Console.
 2. Open the S3 service.
