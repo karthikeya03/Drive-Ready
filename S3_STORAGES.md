@@ -53,6 +53,7 @@ AWS provides physical devices to transfer large amounts of data from on-premises
    ![image](https://github.com/karthikeya03/Drive-Ready/assets/120096427/28b4523a-716c-4c5f-b859-0edee4e586c8)
 3. **Choose 'Create Bucket'**.
 4. **Configure Bucket Settings**:
+   ![image](https://github.com/karthikeya03/Drive-Ready/assets/120096427/a1df4956-2223-4f06-94dc-0f60599304b1)
    - **Name and Region**: Enter a unique bucket name and select the AWS Region.
     ![image](https://github.com/karthikeya03/Drive-Ready/assets/120096427/2c7af4bd-bc95-4926-916a-29b1241176ef)
 
@@ -62,3 +63,52 @@ AWS provides physical devices to transfer large amounts of data from on-premises
    - **Bucket Versioning**: Enable if needed.
 5. **Upload Some files** :
 ![image](https://github.com/karthikeya03/Drive-Ready/assets/120096427/485292f7-d387-42e4-96fa-d60b94264293)
+
+# Making an Object Public and Downloadable in AWS S3
+
+## Prerequisites
+
+- AWS account with appropriate permissions
+- S3 bucket and object already created
+- AWS CLI installed and configured (optional for CLI commands)
+
+## Step 1: Set Permissions
+
+1. **Navigate to the S3 Dashboard:**
+   - Open the AWS Management Console.
+   - Navigate to the S3 Dashboard.
+
+2. **Select Your Bucket:**
+   - Click on the name of the bucket containing the object you want to make public.
+
+3. **Navigate to the Object:**
+   - Find and click on the object you want to make public.
+
+## Step 2: Go to Permissions
+
+1. **Access the Object Permissions:**
+   - In the **Object overview** section, click on the **Permissions** tab.
+
+## Step 3: Enable ACL (Access Control List)
+
+1. **Edit Object Permissions:**
+   - Click on **Edit** under **Access control list (ACL)**.
+
+2. **Grant Public Read Access:**
+   - Check the box next to **Everyone (public access)** under the **Read** column.
+   - This will allow everyone to view the object.
+   - Click on the **Save changes** button.
+
+   ![Screenshot showing how to enable ACL](https://github.com/karthikeya03/Drive-Ready/assets/120096427/a6369be7-7eb6-4143-9a52-1635efcb0944)
+   
+3. **Make Object Public using ACL:**
+   - Confirm that the object is now publicly accessible by checking the **Public** tag.
+
+   ![Screenshot showing the public status](https://github.com/karthikeya03/Drive-Ready/assets/120096427/7c08319a-78dd-4303-a6d8-a10b533fd59b)
+   
+4. **Make Public:**
+   - Ensure the object's URL is now accessible without any authentication.
+   - This URL can be shared with anyone who needs to download the object.
+
+   ![Screenshot of the public URL](https://github.com/karthikeya03/Drive-Ready/assets/120096427/813c2e8b-b083-40c3-a3a6-0c6abce440b8)
+
