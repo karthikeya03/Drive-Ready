@@ -112,3 +112,17 @@ AWS provides physical devices to transfer large amounts of data from on-premises
 
    ![Screenshot of the public URL](https://github.com/karthikeya03/Drive-Ready/assets/120096427/813c2e8b-b083-40c3-a3a6-0c6abce440b8)
 
+## Deploy static website using S3 : 
+
+1. Create a bucket
+2. Edit object permissions
+3. edit object permissions
+4. enable
+5. ![image](https://github.com/karthikeya03/Drive-Ready/assets/120096427/4fb4fa87-57d4-4b5b-8e26-a708ba2463ad)
+
+6. grant public read acess
+7. make object public using ASL
+8. upload website related file (zip file)
+  ![image](https://github.com/karthikeya03/Drive-Ready/assets/120096427/0419cd79-1eac-4b48-a909-d6f1e1d79ad6)
+9. go to static website hositng in properties
+   ![image](https://github.com/karthikeya03/Drive-Ready/assets/120096427/08191cc6-875d-4271-bd22-db2081353eb1)
