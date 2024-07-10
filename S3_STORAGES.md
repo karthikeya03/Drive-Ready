@@ -112,17 +112,63 @@ AWS provides physical devices to transfer large amounts of data from on-premises
 
    ![Screenshot of the public URL](https://github.com/karthikeya03/Drive-Ready/assets/120096427/813c2e8b-b083-40c3-a3a6-0c6abce440b8)
 
-## Deploy static website using S3 : 
+# Deploy Static Website Using S3
 
-1. Create a bucket
-2. Edit object permissions
-3. edit object permissions
-4. enable
-5. ![image](https://github.com/karthikeya03/Drive-Ready/assets/120096427/4fb4fa87-57d4-4b5b-8e26-a708ba2463ad)
+## 1. Create a Bucket
 
-6. grant public read acess
-7. make object public using ASL
-8. upload website related file (zip file)
-  ![image](https://github.com/karthikeya03/Drive-Ready/assets/120096427/0419cd79-1eac-4b48-a909-d6f1e1d79ad6)
-9. go to static website hositng in properties
-   ![image](https://github.com/karthikeya03/Drive-Ready/assets/120096427/08191cc6-875d-4271-bd22-db2081353eb1)
+- Go to the S3 service in the AWS Management Console.
+- Click on “Create bucket”.
+- Enter a unique bucket name.
+- Select your preferred region.
+- Click “Create bucket”.
+
+## 2. Edit Object Permissions
+
+- Navigate to your newly created bucket.
+- Click on the “Permissions” tab.
+
+## 3. Enable Public Access Using ACL
+
+- In the “Permissions” tab, under “Block public access (bucket settings)”, click “Edit”.
+
+- Uncheck “Block all public access”.
+
+- Click “Save changes”.
+
+  ![ACL Settings](https://github.com/karthikeya03/Drive-Ready/assets/120096427/4fb4fa87-57d4-4b5b-8e26-a708ba2463ad)
+
+## 4. Grant Public Read Access
+
+- Upload your website files to the bucket.
+- After uploading, select the uploaded files.
+- Click “Actions” and then “Make public using ACL”.
+
+## 5. Upload Website Files
+
+- Upload your website files (HTML, CSS, JavaScript, etc.).
+
+- Optionally, you can upload a zip file and extract it in the S3 bucket.
+
+  ![Upload Files](https://github.com/karthikeya03/Drive-Ready/assets/120096427/0419cd79-1eac-4b48-a909-d6f1e1d79ad6)
+
+## 6. Configure Static Website Hosting
+
+- Go to the “Properties” tab.
+
+- Scroll down to “Static website hosting”.
+
+- Click “Edit” and select “Enable”.
+
+- Enter the index document (e.g., `index.html`).
+
+- Optionally, enter the error document (e.g., `error.html`).
+
+- Click “Save”.
+
+  ![Static Website Hosting](https://github.com/karthikeya03/Drive-Ready/assets/120096427/08191cc6-875d-4271-bd22-db2081353eb1)
+
+## 7. Access Your Website
+
+- Go back to the “Properties” tab.
+- Under “Static website hosting”, copy the “Bucket website endpoint” URL.
+- Open this URL in your web browser to see your deployed static website.
