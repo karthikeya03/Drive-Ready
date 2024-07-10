@@ -3,6 +3,9 @@
 ## AWS S3: Amazon Simple Storage Service
 Amazon S3 is an object storage service that offers scalability, data availability, security, and performance. It allows you to store and retrieve any amount of data from anywhere.
 
+![image](https://github.com/karthikeya03/Drive-Ready/assets/120096427/e32b79eb-5c1b-4fe5-a428-63275ddd6237)
+
+
 ### Key Features:
 - **Unlimited Storage**: No limit to the amount of data you can store.
 - **Storage Tiers**: Different types of storage classes for various use cases.
@@ -32,6 +35,7 @@ Amazon S3 is an object storage service that offers scalability, data availabilit
    - **Storage**: Data is stored offline on physical hard disks and uploaded to the cloud upon request.
    - **Example**: Apollo Hospitals uses S3 Glacier to create datasets.
      - **Dataset**: A collection of related sets of information composed of separate elements but can be manipulated as a unit by a computer.
+![image](https://github.com/karthikeya03/Drive-Ready/assets/120096427/d8e01b67-a0e2-44bb-bac0-6e76bd6c9d67)
 
 ## S3 Snow Family
 AWS provides physical devices to transfer large amounts of data from on-premises environments to the cloud.
