@@ -128,7 +128,7 @@ This process guides you through connecting to AWS CloudShell, exploring its capa
 
 5. **Upload and Run Python Script**
 
-   - Download the `list-buckets.py` file from [[here](https://example.com/list-buckets.py).][](https://aws-tc-largeobjects.s3.us-west-2.amazonaws.com/CUR-TF-200-ACCDEV-2-91558/01-lab-cloud9/s3/list-buckets.py)
+   - Download the `list-buckets.py` file from [HERE](https://aws-tc-largeobjects.s3.us-west-2.amazonaws.com/CUR-TF-200-ACCDEV-2-91558/01-lab-cloud9/s3/list-buckets.py)
    - Upload the file to CloudShell.
    - Run the command: `cat list-buckets.py`
    - Run the script: `python3 list-buckets.py`
@@ -139,7 +139,7 @@ This process guides you through connecting to AWS CloudShell, exploring its capa
    - Run the command: `aws s3 cp list-buckets.py s3://<bucket-name>`
    - Verify the upload was successful.
 
-![Uploading image.png…]()
+![image](https://github.com/karthikeya03/Drive-Ready/assets/120096427/e47864ba-6150-4af3-9756-cff9669e0c1b)
 
 
 ## Step 2: Creating an AWS Cloud9 Instance
