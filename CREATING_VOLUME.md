@@ -1,6 +1,6 @@
 # Creating and Attaching an EBS Volume in AWS EC2
 
-## Step 1: Create a Volume
+## Step 1: Create a Volume :
 1. **Navigate to EC2 Dashboard**:
    - Go to the AWS Management Console.
    - Open the EC2 Dashboard from the Services menu.
