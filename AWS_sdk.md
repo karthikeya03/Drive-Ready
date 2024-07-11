@@ -131,6 +131,9 @@ This process guides you through connecting to AWS CloudShell, exploring its capa
    - Download the `list-buckets.py` file from [HERE](https://aws-tc-largeobjects.s3.us-west-2.amazonaws.com/CUR-TF-200-ACCDEV-2-91558/01-lab-cloud9/s3/list-buckets.py)
    - Upload the file to CloudShell.
    - Run the command: `cat list-buckets.py`
+     
+     ![image](https://github.com/karthikeya03/Drive-Ready/assets/120096427/5bf781ea-64ef-4bbd-ae09-477f7940afb5)
+
    - Run the script: `python3 list-buckets.py`
    - Note the list of S3 buckets.
 
@@ -153,10 +156,13 @@ This process guides you through connecting to AWS CloudShell, exploring its capa
    - Choose Create environment.
    - Name the environment `MyCloud9`.
    - Choose Additional Instance Types > t2.medium.
+   - In the New EC2 instance section, choose Additional Instance Types.
+   - From the Additional instance types dropdown list, choose t2.medium.
    - Set Network settings to Secure Shell (SSH).
    - Choose Create.
 
-   ![AWS Cloud9 Creation](https://example.com/cloud9_creation.png)
+![image](https://github.com/karthikeya03/Drive-Ready/assets/120096427/cf8a3c1c-5b64-48c5-b01b-bf7c1874b05c)
+
 
 3. **Open AWS Cloud9 IDE**
 
