@@ -188,8 +188,6 @@ This process guides you through connecting to AWS CloudShell, exploring its capa
    - Save the file as `index.html`.
    - Upload the file to S3 using AWS Explorer.
 
-   ![Upload HTML File](https://example.com/upload_html_file.png)
-
 ## Step 4: Using Amazon CodeWhisperer
 
 1. **Enable CodeWhisperer**
@@ -222,8 +220,6 @@ This process guides you through connecting to AWS CloudShell, exploring its capa
    - Save the script as `s3-permissions.py`.
    - Run the script using the Run icon.
    
-
-   ![Run Python Script](https://example.com/run_python_script.png)
 
 ## Verification
 
