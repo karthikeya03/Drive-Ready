@@ -1,4 +1,3 @@
-
 # AWS SDK and Ways to Access AWS Services
 
 ## AWS SDK
@@ -222,6 +221,7 @@ This process guides you through connecting to AWS CloudShell, exploring its capa
 
    - Save the script as `s3-permissions.py`.
    - Run the script using the Run icon.
+   
 
    ![Run Python Script](https://example.com/run_python_script.png)
 
@@ -229,6 +229,7 @@ This process guides you through connecting to AWS CloudShell, exploring its capa
 
 1. **Check Webpage Accessibility**
    - In the AWS Management Console, navigate to the S3 bucket.
+   -  give read-write permissions for that object
    - Open the `index.html` file using the Object URL.
    - Verify the "Hello World" message is displayed.
 
