@@ -7,7 +7,7 @@
    - Choose the existing IDE named Cloud9 Instance and select Open.
 
 2. Install the AWS SDK for Python:
-   - In the AWS Cloud9 bash terminal, run: `sudo pip install boto3`.
+   - In the AWS Cloud9 bash terminal, run: `sudo pip install boto3`
 
   ![image](https://github.com/user-attachments/assets/1ccddd87-44b0-4e8e-8aae-0faa17ca136c)
 
