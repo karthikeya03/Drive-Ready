@@ -115,7 +115,7 @@ In this guide, you might find that access to some AWS services is limited to onl
 
     ![image](https://github.com/user-attachments/assets/7e17b903-7f75-441f-8d56-8c4e3686ec88)
 
-##### Business Scenario :
+### Business Scenario :
 > For the remainder of this lab, you will work with these Users and Groups to enable permissions supporting the following business scenario:
 > Your company is growing its use of Amazon Web Services, and is using many Amazon EC2 instances and a great deal of Amazon S3 storage. You wish to give access to new staff depending upon their job function:
 
