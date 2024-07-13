@@ -49,6 +49,7 @@ The security in the cloud is the responsibility of the user. This includes manag
 
 2. **IAM Group:** A collection of IAM users that are granted identical authorization through group policies. This simplifies the management of permissions.
     - **Example:** Creating a "Developers" group with specific permissions and adding users to this group from the root account ensures consistent access management.
+      <br>
     ![IAM Group](https://github.com/user-attachments/assets/59050122-b143-4a26-b7f9-e676743195f5)
 
 3. **IAM Policy:** The document that defines which resources can be accessed and the level of access granted. Policies are attached to users, groups, or roles to enforce permissions.
