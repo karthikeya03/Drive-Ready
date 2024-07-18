@@ -1,3 +1,22 @@
+# RDS : 
+there are two types of RDS : 
+1. relational : also called aS SQL services : has a limit : AWS RDS , AMAZON AURORA : by amazon
+2. non-relatonal : non SQL services : no limit  : 
+
+
+difference between SQL serivces and non SQL is the way they save their data 
+in relations, 1.rows adn coloumns 2. the schemas are fixed 3. uses sql for querying, 4. the scalabitliy is vertical , give an example.
+
+in non : 2. keyvalue,, document, graph (fill the rest)
+
+(give a table for this) 
+
+![image](https://github.com/user-attachments/assets/dfba3f7e-c7cd-45e7-9c0a-032d7b6eb131)
+
+use cases : web adn mobile , ecoomerce , mobile and online games : for relational : max 1 lakh 50 thousand writes per second 
+for non-relational :    
+
+
 # Creatng a RDS database and connecting it with a Ec2 instnace : 
 
 ## Step 1: Creating an RDS Database
