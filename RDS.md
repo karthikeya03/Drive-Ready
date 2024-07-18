@@ -188,11 +188,14 @@ After connecting :
 # Connecting through MySQL Workbench :
 
 
-![MySQL Workbench Home](https://github.com/user-attachments/assets/93a861eb-47e0-4674-a702-0bbb113e0548)
+![](https://github.com/user-attachments/assets/93a861eb-47e0-4674-a702-0bbb113e0548)
 
-![New Connection Setup](https://github.com/user-attachments/assets/25f20e70-f730-4379-8057-f0f2f49a0571)
+![](https://github.com/user-attachments/assets/25f20e70-f730-4379-8057-f0f2f49a0571)
+
+![image](https://github.com/user-attachments/assets/7133f1a2-1d26-42a0-a9e8-e7c98bee8c15)
 
 ![Connection Details](https://github.com/user-attachments/assets/a91a759e-2135-4e32-a38d-2a8c45d24803)
 
+![image](https://github.com/user-attachments/assets/7605fa91-5fd5-4e68-84df-2928288270e8)
 
 
