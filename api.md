@@ -85,5 +85,64 @@ Postman is a popular tool used for API testing and development. It allows you to
 - Testing APIs with various HTTP methods (GET, POST, PUT, DELETE)
 - Automating tests with scripting
 
-By using Postman, developers can efficiently test and debug their APIs, ensuring they work correctly before deploying them to production.
+Using Postman, developers can efficiently test and debug their APIs, ensuring they work correctly before deploying them to production.
 
+# Create an API in sandbox - API Gateway Setup and Configuration
+
+## 1. API Gateway Overview
+
+API Gateway allows you to create, publish, maintain, monitor, and secure APIs. It supports different API types:
+
+- **WebSocket API**: Best for real-time applications like chat.
+- **REST API**: Suitable for simple GET, PUT, POST, DELETE operations.
+
+![image](https://github.com/user-attachments/assets/9766aa95-068f-4a9e-ab18-a07d98baf3f6)
+
+## 2. Choose API Type
+
+When setting up an API in API Gateway, you can choose between:
+
+- **New API**: Create a brand new API.
+- **Import API**: Import an existing API definition.
+
+## 3. API Deployment Options
+
+There are three deployment options:
+
+- **Regional**: The API is deployed in a specific AWS region.
+- **Edge-Optimized**: Designed for clients across the globe, using CloudFront to reduce latency.
+- **Private**: The API is accessible only within your VPC.
+
+## 4. Creating an API
+
+To create an API:
+
+1. **Create API**: Choose to create a new API.
+2. **Create Resources**: Define the resources (paths) and methods for the API.
+
+## 5. Create a Resource
+
+- **Resource Path**: Specify the resource path (e.g., `/users`).
+- **Resource Name**: Provide a name for the resource.
+
+## 6. Create a Method
+
+1. **Select Method Type**: Choose HTTP method (e.g., GET, POST).
+2. **Integration Type**: For a simple example, choose HTTP integration.
+3. **Set up GET Request**:
+   - **Select GET Request**: Choose GET as the method.
+   - **Copy Public API URL**: Use any public API URL for integration.
+  
+  ![image](https://github.com/user-attachments/assets/3e8da24d-f2e5-491d-9a9b-eaa8267183a3)
+
+
+## 7. Pass-Through Behavior
+
+- **Passthrough Behavior**: Determines how the request payload is processed. The default is to pass the request directly to the backend if it matches the integration request format.
+
+## 8. Deploy the API
+
+1. **Deploy API**: Deploy the API to make it available for use.
+2. **Select a Stage**: Choose or create a stage (e.g., `dev`, `prod`) for deployment.
+
+![image](https://github.com/user-attachments/assets/34c71b77-7fe7-4dd9-821c-d910a03dce6a)
