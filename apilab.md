@@ -72,6 +72,9 @@ However, by the end of this lab, you will have created the following architectur
    - Open API Gateway console, check the `ProductsApi` and `GET` method.
    - Test the method to see mock data response.
 
+   ![image](https://github.com/user-attachments/assets/8b09ab90-5e9f-4290-ac97-b3f03ba2b6e2)
+
+
 ### Task 3: Creating the Second API Endpoint (GET)
 **Definition**: This task involves creating another GET endpoint for a different purpose, such as filtering items based on certain criteria.
 
