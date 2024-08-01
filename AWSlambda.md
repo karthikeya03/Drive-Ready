@@ -122,3 +122,94 @@ This approach eliminates the need for an always-on server, and you are only char
 
 > Without the IAM role, the Lambda function will not have the necessary permissions to operate and interact with other AWS resources.
 
+![image](https://github.com/user-attachments/assets/e25dadce-0d05-4dfa-9622-613119907273)
+
+## Benefits of AWS Lambda
+
+1. **Supports Multiple Programming Languages**: Lambda supports a variety of programming languages including Python, JavaScript (Node.js), Java, C#, and Go, allowing flexibility in development.
+
+2. **Fully Automated Application**: Lambda handles infrastructure management automatically, enabling you to focus solely on your code without worrying about servers.
+
+3. **Scalability**: Lambda automatically scales your application by running code in response to triggers, handling thousands of requests simultaneously without manual intervention.
+
+4. **Pay-as-You-Go Pricing**: You only pay for the compute time you consume. There are no charges when your code is not running, which helps to reduce costs.
+
+5. **Integrated with Other AWS Services**: Lambda integrates seamlessly with other AWS services like S3, DynamoDB, and API Gateway, allowing you to build complex serverless applications.
+
+6. **Automatic Fault Tolerance**: Lambda provides built-in fault tolerance by automatically handling failures and retries, which enhances the reliability of your application.
+
+7. **Event-Driven Execution**: Lambda functions are triggered by events such as HTTP requests, changes in data, or scheduled tasks, enabling responsive and efficient processing.
+
+## AWS Lambda Triggers
+
+| **Trigger Source**               | **Description**                                                                                      |
+|----------------------------------|------------------------------------------------------------------------------------------------------|
+| **API Gateway**                  | Allows Lambda functions to respond to HTTP requests via REST or WebSocket APIs.                      |
+| **S3 (Simple Storage Service)**  | Triggers Lambda functions when objects are created, deleted, or modified in an S3 bucket.           |
+| **DynamoDB Streams**             | Invokes Lambda functions when items in a DynamoDB table are added, updated, or deleted.                |
+| **SQS (Simple Queue Service)**   | Triggers Lambda functions when messages arrive in an SQS queue.                                    |
+| **SNS (Simple Notification Service)** | Executes Lambda functions in response to notifications published to an SNS topic.                   |
+| **CloudWatch Events**            | Invokes Lambda functions based on scheduled events or other CloudWatch triggers.                    |
+| **Kinesis**                      | Triggers Lambda functions to process data streams from Amazon Kinesis.                              |
+
+## AWS Lambda Limitations
+
+| **Limitation**                       | **Description**                                                                                          |
+|-------------------------------------|----------------------------------------------------------------------------------------------------------|
+| **Execution Time**                  | Maximum execution time for a Lambda function is 15 minutes.                                             |
+| **Memory Allocation**               | Lambda functions can be allocated between 128 MB and 10,240 MB of memory.                               |
+| **Deployment Package Size**         | The maximum size of a deployment package is 50 MB (zipped) or 250 MB (uncompressed).                    |
+| **Concurrent Executions**           | The default concurrent execution limit is 1,000 per AWS account per region.                            |
+| **Invocation Payload Size**         | The maximum size of the invocation payload is 6 MB for synchronous invocations and 256 KB for asynchronous invocations. |
+| **Function Timeout**                | The maximum timeout for a Lambda function is 15 minutes.                                                |
+| **Execution Role Permissions**      | Lambda functions require permissions through an IAM role, which may limit the actions they can perform. |
+
+## AWS Lambda Function to Stop EC2 Instance :
+
+### Function Overview
+
+1. **Purpose**: Create an AWS Lambda function that stops an EC2 instance at a specified time.
+
+2. **Function Code**:
+   - The Lambda function will use the AWS SDK to stop an EC2 instance based on an instance ID.
+
+### Steps to Configure the Lambda Function
+
+1. **Create the Lambda Function**:
+   - Access the AWS Lambda console.
+   - Click on “Create function” and select “Author from scratch.”
+   - Provide a name for your function.
+   - Choose the appropriate runtime (e.g., Python 3.x).
+   - Create a new IAM role with basic Lambda permissions.
+
+2. **Set Environment Variables**:
+   - In the Lambda function configuration, set an environment variable for the instance ID of the EC2 instance you want to stop.
+
+3. **Deploy the Lambda Function**:
+   - Input the function code into the Lambda editor.
+   - Click “Deploy” to save and activate the function.
+
+### Configure the Trigger
+
+1. **Create a CloudWatch Event Rule**:
+   - Go to the CloudWatch console.
+   - Navigate to “Rules” under “Events” or “EventBridge.”
+   - Click “Create rule” and choose “Event Source” as “Schedule.”
+   - Define the schedule expression (e.g., `rate(1 minute)` for every minute or `rate(10 minutes)` for every 10 minutes).
+   - Set the Lambda function as the target for the rule.
+   - Click “Configure details,” enter a name and description, and create the rule.
+
+### IAM Role
+
+- **Role Requirement**: The Lambda function must have an IAM role with appropriate permissions to stop EC2 instances. Without an IAM role, there can never be a lambda function. 
+
+## AWS Lambda Function to Stop EC2 Instance
+
+| **Step**                        | **Description**                                                                                          |
+|---------------------------------|----------------------------------------------------------------------------------------------------------|
+| **1. Function Overview**         | Create an AWS Lambda function that stops an EC2 instance based on the instance ID provided.             |
+| **2. Create the Lambda Function**| - Access the AWS Lambda console. <br> - Click “Create function” and choose “Author from scratch.” <br> - Enter a function name. <br> - Select runtime (e.g., Python 3.x). <br> - Create a new IAM role with basic Lambda permissions. |
+| **3. Set Environment Variables** | - In Lambda configuration, set an environment variable named `INSTANCE_ID` with the EC2 instance ID to be stopped. |
+| **4. Deploy the Lambda Function** | - Input the function code into the Lambda editor. <br> - Click “Deploy” to save and activate the function. |
+| **5. Configure the Trigger**     | - Go to the CloudWatch console. <br> - Navigate to “Rules” under “Events” or “EventBridge.” <br> - Click “Create rule” and select “Schedule” as the event source. <br> - Define the schedule expression (e.g., `rate(1 minute)` or `rate(10 minutes`). <br> - Set the Lambda function as the target. <br> - Click “Configure details,” provide a name and description, and create the rule. |
+| **6. IAM Role**                  | - Ensure the Lambda function has an IAM role with permissions to stop EC2 instances. <br> - The basic Lambda execution role alone is not sufficient. |
