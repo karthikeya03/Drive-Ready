@@ -1,4 +1,4 @@
-# Session 9: AWS Lambda
+# Session 8: AWS Lambda
 
 ## Definition
 AWS Lambda is a serverless compute service that allows you to run code without provisioning or managing servers. Lambda executes your code only when needed and scales automatically, from a few requests per day to thousands per second.
@@ -213,3 +213,95 @@ This approach eliminates the need for an always-on server, and you are only char
 | **4. Deploy the Lambda Function** | - Input the function code into the Lambda editor. <br> - Click “Deploy” to save and activate the function. |
 | **5. Configure the Trigger**     | - Go to the CloudWatch console. <br> - Navigate to “Rules” under “Events” or “EventBridge.” <br> - Click “Create rule” and select “Schedule” as the event source. <br> - Define the schedule expression (e.g., `rate(1 minute)` or `rate(10 minutes`). <br> - Set the Lambda function as the target. <br> - Click “Configure details,” provide a name and description, and create the rule. |
 | **6. IAM Role**                  | - Ensure the Lambda function has an IAM role with permissions to stop EC2 instances. <br> - The basic Lambda execution role alone is not sufficient. |
+
+
+# AWS Lambda Hands-On Activity
+
+## Lab Overview
+
+In this activity, you will create an AWS Lambda function that stops an Amazon EC2 instance every minute using an Amazon EventBridge event.
+
+### Architectural Diagram
+
+![Architectural Diagram](https://github.com/user-attachments/assets/0f1129cc-b1fa-47dc-a2e5-299fe40c01b7)
+
+
+## Duration
+
+This activity takes approximately 30 minutes to complete.
+
+## AWS Service Restrictions
+
+Access is limited to the necessary services and actions for this lab.
+
+## Accessing the AWS Management Console
+
+1. Choose **Start Lab**.
+2. Wait for the circle icon next to the **AWS** link to turn green.
+3. Choose the **AWS** link to open the console.
+
+## Task 1: Create a Lambda Function
+
+1. Search for and choose **Lambda**.
+2. Choose **Create a function**.
+3. Configure the settings:
+   - **Author from scratch**
+   - **Function name**: `myStopinator`
+   - **Runtime**: Python 3.11
+   - **Execution role**: Use an existing role
+   - **Existing role**: `myStopinatorRole`
+4. Choose **Create function**.
+
+## Task 2: Configure the Trigger
+
+1. Choose **Add trigger**.
+2. Select **EventBridge (CloudWatch Events)**.
+3. Create a new rule:
+   - **Rule name**: `everyMinute`
+   - **Rule type**: Schedule expression
+   - **Schedule expression**: `rate(1 minute)`
+4. Choose **Add**.
+
+## Task 3: Configure the Lambda Function
+
+1. In the **Function overview** pane, choose **Code**, then **lambda_function.py**.
+
+2. Replace the existing code with the following:
+
+   ```python
+   import boto3
+   region = '<REPLACE_WITH_REGION>'
+   instances = ['<REPLACE_WITH_INSTANCE_ID>']
+   ec2 = boto3.client('ec2', region_name=region)
+   
+   def lambda_handler(event, context):
+       ec2.stop_instances(InstanceIds=instances)
+       print('stopped your instances: ' + str(instances))
+   ```
+
+3. Replace `<REPLACE_WITH_REGION>` with your region code (e.g., 'us-east-1').
+
+4. Verify an EC2 instance named `instance1` is running and copy its instance ID.
+
+5. Replace `<REPLACE_WITH_INSTANCE_ID>` with the copied instance ID.
+
+6. Save and deploy the code.
+
+## Task 4: Verify the Lambda Function
+
+1. Check the **Monitor** tab for invocation and error metrics.
+2. In the EC2 console, verify the instance was stopped.
+
+## Submitting Your Work
+
+1. Choose **Submit** at the top of the instructions.
+2. Wait for the grades panel to appear.
+3. If needed, wait a few minutes and submit again for credit.
+
+## Activity Complete
+
+- Choose **End Lab** to end the activity.
+
+
+
+
