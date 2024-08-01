@@ -252,6 +252,9 @@ Access is limited to the necessary services and actions for this lab.
    - **Existing role**: `myStopinatorRole`
 4. Choose **Create function**.
 
+   ![image](https://github.com/user-attachments/assets/fcae605c-158d-408e-a5ad-1acf92272093)
+
+
 ## Task 2: Configure the Trigger
 
 1. Choose **Add trigger**.
@@ -261,6 +264,8 @@ Access is limited to the necessary services and actions for this lab.
    - **Rule type**: Schedule expression
    - **Schedule expression**: `rate(1 minute)`
 4. Choose **Add**.
+
+![image](https://github.com/user-attachments/assets/28882f77-dabc-4f40-823e-83ab120ca9d5)
 
 ## Task 3: Configure the Lambda Function
 
@@ -278,6 +283,8 @@ Access is limited to the necessary services and actions for this lab.
        ec2.stop_instances(InstanceIds=instances)
        print('stopped your instances: ' + str(instances))
    ```
+
+![image](https://github.com/user-attachments/assets/2529796f-fc2d-45a9-bd8a-08fdd8a0fc01)
 
 3. Replace `<REPLACE_WITH_REGION>` with your region code (e.g., 'us-east-1').
 
@@ -301,6 +308,8 @@ Access is limited to the necessary services and actions for this lab.
 ## Activity Complete
 
 - Choose **End Lab** to end the activity.
+
+# CRON : 
 
 
 
