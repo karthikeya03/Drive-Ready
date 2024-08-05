@@ -309,7 +309,113 @@ Access is limited to the necessary services and actions for this lab.
 
 - Choose **End Lab** to end the activity.
 
-# CRON : 
+# CRON :
+
+## Introduction
+
+CRON is a time-based job scheduler in Unix-like operating systems. Users can schedule jobs (commands or scripts) to run at specific times or intervals. CRON is commonly used for system maintenance or administration.
+
+## Basic Concepts
+
+### CRON Daemon
+
+- **Definition:** The CRON daemon is a long-running process that executes CRON jobs at specified times.
+- **Location:** Typically located at `/usr/sbin/cron` or `/usr/sbin/crond`.
+
+### CRON Table (Crontab)
+
+- **Definition:** The CRON table, known as the crontab, is a configuration file that specifies shell commands to run periodically on a given schedule.
+- **Location:** Each user has their own crontab file, usually stored in `/var/spool/cron/crontabs`.
+
+## Crontab Format
+
+A crontab file has five time-and-date fields followed by a command. The fields are:
+
+| Field        | Allowed Values  | Special Characters |
+| ------------ | --------------- | ------------------ |
+| Minute       | 0-59            | , - * /            |
+| Hour         | 0-23            | , - * /            |
+| Day of Month | 1-31            | , - * /            |
+| Month        | 1-12 or JAN-DEC | , - * /            |
+| Day of Week  | 0-6 or SUN-SAT  | , - * /            |
+
+### Special Characters
+
+- **Comma (,):** Separates multiple values.
+- **Dash (-):** Specifies a range of values.
+- **Asterisk (*):** Represents all possible values for a field.
+- **Slash (/):** Specifies step values.
+
+### Example Crontab Entries
+
+```
+# Run a script every day at 2 AM
+0 2 * * * /path/to/script.sh
+
+# Run a command every 15 minutes
+*/15 * * * * /path/to/command
+
+# Run a task every Monday at 5 PM
+0 17 * * 1 /path/to/task
+
+# Run a backup on the 1st of every month at 3:30 AM
+30 3 1 * * /path/to/backup.sh
+```
+
+## Managing Crontab Files
+
+### List Crontab Entries
+
+To list your current crontab entries, use:
+
+```
+crontab -l
+```
+
+### Edit Crontab File
+
+To edit your crontab file, use:
+
+```
+crontab -e
+```
+
+### Remove Crontab File
+
+To remove your crontab file, use:
+
+```
+crontab -r
+```
+
+## Special Strings
+
+CRON also supports special strings to replace the five time-and-date fields:
+
+| String    | Equivalent to            |
+| --------- | ------------------------ |
+| @reboot   | Run at startup           |
+| @yearly   | 0 0 1 1 * (once a year)  |
+| @annually | Same as @yearly          |
+| @monthly  | 0 0 1 * * (once a month) |
+| @weekly   | 0 0 * * 0 (once a week)  |
+| @daily    | 0 0 * * * (once a day)   |
+| @midnight | Same as @daily           |
+| @hourly   | 0 * * * * (once an hour) |
+
+### Example Using Special Strings
+
+```
+# Run a command at every system reboot
+@reboot /path/to/startup_script
+
+# Run a job once a year
+@yearly /path/to/yearly_job
+```
+
+## Conclusion
+
+CRON is a powerful tool for scheduling repetitive tasks in Unix-like operating systems. Understanding its syntax and capabilities can greatly enhance system administration and automation tasks.
 
 
 
