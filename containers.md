@@ -167,3 +167,59 @@
 | **Search and Discovery** | Search for and discover popular Docker images and repositories, making it easier to find pre-built images for various software. |
 | **Access Control**       | Manage who can view or modify images by controlling access to repositories. |
 
+# Deploying a Container :
+
+## 1. Go to Sandbox
+
+- Access your cloud provider's sandbox environment, which allows you to perform tasks without affecting production systems.
+
+## 2. Launch an EC2 Instance
+
+- **Log in to your AWS Management Console**: Navigate to the EC2 service.
+- **Click on "Launch Instance"**: Start the process to create a new virtual server.
+- **Choose an Amazon Machine Image (AMI)**: Select an appropriate AMI for your instance. For this guide, choose an Ubuntu Server AMI.
+
+## 3. Select Ubuntu Server
+
+- **Select Instance Type**: Choose an instance type based on your needs. For a simple setup, a t2.micro instance may be sufficient.
+- **Configure Instance**: Set up any necessary configurations such as network settings, IAM roles, and monitoring.
+- **Add Storage**: Adjust storage options if needed.
+- **Add Tags**: (Optional) Tag your instance for easier identification.
+- **Configure Security Group**: Set up security group rules to allow necessary traffic (e.g., SSH access on port 22).
+
+## 4. Update OS
+
+- **Connect to Your EC2 Instance**: Use SSH to connect to your EC2 instance. You can find the SSH command in the AWS Management Console under the instance details.
+
+- `sudo apt-get update`
+
+## 5. Install Docker
+- Install Docker: Use the following command to install Docker on your Ubuntu server.
+- `sudo apt-get install docker.io`
+- Container Images vs. Containers:
+- **Container Images**: These are files obtained from Docker Hub. They are not running environments but snapshots of a filesystem that include everything needed to run an application. Examples include Alpine, libraries, binaries, and applications.
+- **Containers**: These are the running environments created from container images. They provide the execution environment for the application as defined by the image.
+
+## To See Any Running Containers and add one : 
+
+- **List Running Containers**:
+   ` docker ps` 
+-** List Available Images:**
+ ` docker images`
+- **Run a Container**: To start a new container from an image, use the docker run command. For example, to run an HTTP server:
+  `docker run httpd`
+- **To Stop a Container **:
+  `docker stop [container_id]`
+- **To view stopped containers **:
+  `docker ps -a`
+- ** To Start a Container:**:
+  `docker start [container_id]`
+
+| **Action**                    | **Command**                  |
+|-------------------------------|------------------------------|
+| **List Running Containers**   | `docker ps`                  |
+| **List Available Images**      | `docker images`             |
+| **Run a Container**           | `docker run httpd`          |
+| **Stop a Container**          | `docker stop [container_id]` |
+| **View Stopped Containers**   | `docker ps -a`              |
+| **Start a Container**         | `docker start [container_id]` |
