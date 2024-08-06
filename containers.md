@@ -48,33 +48,24 @@
 # Evolution from On-Premise Servers to Microservices :
 
 |---------------------|
-| On-Premise Servers  |
+| **On-Premise Servers**  |
 |---------------------|
-
-          ↓          
-
+          ↓           
 |---------------------|
-| Virtualization      |
+| **Virtualization**      |
 |---------------------|
-
-          ↓          
-
+          ↓           
 |---------------------|
-| Cloud Computing     |
+| **Cloud Computing**     |
 |---------------------|
-
-          ↓          
-
+          ↓           
 |---------------------|
-| Containers          |
+| **Containers**          |
 |---------------------|
-
-          ↓          
-
+          ↓           
 |---------------------|
-| Microservices       |
+| **Microservices**       |
 |---------------------|
-
 
 ## 1. On-Premise Servers
 
