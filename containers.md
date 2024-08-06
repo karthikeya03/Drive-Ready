@@ -49,11 +49,11 @@
 
 | On-Premise Servers  |
 |---------------------|
-| ↓                   |
+          ↓           
 | Virtualization      |
-| ↓                   |
+          ↓                   
 | Cloud Computing     |
-| ↓                   |
+          ↓                   
 | Containers          |
-| ↓                   |
+          ↓                   
 | Microservices       |
