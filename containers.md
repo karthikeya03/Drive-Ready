@@ -215,15 +215,16 @@
 - **To Start a Container:**:
   `docker start [container_id]`
 
-| **Action**                    | **Command**                  |
-|-------------------------------|------------------------------|
-| **Check Docker Version**      | `docker --version`          |
-| **List Running Containers**   | `docker ps`                  |
-| **List Available Images**      | `docker images`             |
-| **Pull an Image**             | `docker pull [image_name]`  |
-| **Run a Container**           | `docker run [image_name]`   |
-| **Start a Container**         | `docker start [container_id]` |
-| **Stop a Container**          | `docker stop [container_id]` |
-| **View All Containers**       | `docker ps -a`              |
-| **Remove a Container**        | `docker rm [container_id]`  |
-| **Remove an Image**           | `docker rmi [image_name]`   |
+| **Action**                    | **Command**                  | **Description**                                  |
+|-------------------------------|------------------------------|--------------------------------------------------|
+| **Check Docker Version**      | `docker --version`          | Displays the installed Docker version.           |
+| **List Running Containers**   | `docker ps`                  | Lists all currently running containers.          |
+| **List Available Images**      | `docker images`             | Lists all Docker images on the local machine.    |
+| **Pull an Image**             | `docker pull [image_name]`  | Downloads an image from Docker Hub or another registry. |
+| **Run a Container**           | `docker run [image_name]`   | Creates and starts a new container from the specified image. |
+| **Start a Container**         | `docker start [container_id]` | Starts a stopped container.                     |
+| **Stop a Container**          | `docker stop [container_id]` | Stops a running container.                      |
+| **View All Containers**       | `docker ps -a`              | Lists all containers, including stopped ones.   |
+| **Remove a Container**        | `docker rm [container_id]`  | Removes a stopped container from the system.    |
+| **Remove an Image**           | `docker rmi [image_name]`   | Removes an image from the local machine.        |
+
