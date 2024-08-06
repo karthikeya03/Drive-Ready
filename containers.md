@@ -195,7 +195,7 @@
 
 ## 5. Install Docker
 - Install Docker: Use the following command to install Docker on your Ubuntu server.
-- `sudo apt-get install docker.io`
+- `sudo apt-get install docker.com`
 - Container Images vs. Containers:
 - **Container Images**: These are files obtained from Docker Hub. They are not running environments but snapshots of a filesystem that include everything needed to run an application. Examples include Alpine, libraries, binaries, and applications.
 - **Containers**: These are the running environments created from container images. They provide the execution environment for the application as defined by the image.
