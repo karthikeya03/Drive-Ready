@@ -203,8 +203,8 @@
 ## To See Any Running Containers and add one : 
 
 - **List Running Containers**:
-   ` docker ps` 
--**List Available Images:**
+   ` docker ps`
+-  **List Available Images:**
  ` docker images`
 - **Run a Container**: To start a new container from an image, use the docker run command. For example, to run an HTTP server:
   `docker run httpd`
@@ -217,9 +217,11 @@
 
 | **Action**                    | **Command**                  |
 |-------------------------------|------------------------------|
+| **Check Docker Version**      | `docker --version`          |
 | **List Running Containers**   | `docker ps`                  |
 | **List Available Images**      | `docker images`             |
-| **Run a Container**           | `docker run httpd`          |
-| **Stop a Container**          | `docker stop [container_id]` |
-| **View Stopped Containers**   | `docker ps -a`              |
+| **Pull an Image**             | `docker pull [image_name]`  |
+| **Run a Container**           | `docker run [image_name]`   |
 | **Start a Container**         | `docker start [container_id]` |
+| **Stop a Container**          | `docker stop [container_id]` |
+| **View All Containers**       | `docker ps -a`              |
