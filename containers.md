@@ -157,3 +157,25 @@
 | **OS**        | Containers use a single operating system on the host. A small, lightweight operating system (like Alpine Linux) is often used within the container. |
 | **Binaries/Libraries (Environment)** | Containers include all necessary binaries and libraries to run the applications, ensuring a consistent environment. |
 | **Applications** | Software packaged within containers for consistent deployment across different environments. |
+
+# Docker Hub :
+
+**Definition**: Docker Hub is a cloud-based registry service provided by Docker that allows users to store, share, and manage Docker images. It is the default registry for Docker and provides a centralized place for image distribution and management.
+
+## Components :
+
+- **Item + Item = Repository**: A repository on Docker Hub is a collection of Docker images. Each repository can store different versions of an image, tagged with version names or other identifiers. Repositories help organize and manage Docker images for different applications or services.
+
+- **Repository + Repository = Docker Hub**: Docker Hub is a service that hosts multiple repositories. It serves as a central registry where users can publish their Docker images, access images published by others, and collaborate on shared images.
+
+## Uses :
+
+| **Use**                  | **Description** |
+|--------------------------|-----------------|
+| **Image Storage**        | Centralized location to store Docker images, making them easy to manage and retrieve. |
+| **Image Sharing**        | Share Docker images with others by pushing them to Docker Hub repositories, facilitating collaboration. |
+| **Version Management**   | Manage and deploy different versions of an application using tagged images. |
+| **Automated Builds**     | Automate the building of Docker images from source code repositories, supporting continuous integration and delivery. |
+| **Search and Discovery** | Search for and discover popular Docker images and repositories, making it easier to find pre-built images for various software. |
+| **Access Control**       | Manage who can view or modify images by controlling access to repositories. |
+
