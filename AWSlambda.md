@@ -1,4 +1,4 @@
-# Session 8: AWS Lambda
+# Session 9: AWS Lambda
 
 ## Definition
 AWS Lambda is a serverless compute service that allows you to run code without provisioning or managing servers. Lambda executes your code only when needed and scales automatically, from a few requests per day to thousands per second.
