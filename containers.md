@@ -168,6 +168,11 @@
 
 - **Repository + Repository = Docker Hub**: Docker Hub is a service that hosts multiple repositories. It serves as a central registry where users can publish their Docker images, access images published by others, and collaborate on shared images.
 
+- **SQL + Configuration + Start Script = Container**: A container includes everything needed to run an application, combining:
+  - **SQL**: Database configurations or initialization scripts.
+  - **Configuration**: Application configuration files and environment settings.
+  - **Start Script**: Scripts that automate the startup process of the application within the container.
+
 ## Uses :
 
 | **Use**                  | **Description** |
