@@ -204,15 +204,15 @@
 
 - **List Running Containers**:
    ` docker ps` 
--** List Available Images:**
+-**List Available Images:**
  ` docker images`
 - **Run a Container**: To start a new container from an image, use the docker run command. For example, to run an HTTP server:
   `docker run httpd`
-- **To Stop a Container **:
+- **To Stop a Container**:
   `docker stop [container_id]`
-- **To view stopped containers **:
+- **To view stopped containers**:
   `docker ps -a`
-- ** To Start a Container:**:
+- **To Start a Container:**:
   `docker start [container_id]`
 
 | **Action**                    | **Command**                  |
