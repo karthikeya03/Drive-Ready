@@ -225,3 +225,5 @@
 | **Start a Container**         | `docker start [container_id]` |
 | **Stop a Container**          | `docker stop [container_id]` |
 | **View All Containers**       | `docker ps -a`              |
+| **Remove a Container**        | `docker rm [container_id]`  |
+| **Remove an Image**           | `docker rmi [image_name]`   |
