@@ -215,16 +215,63 @@
 - **To Start a Container:**:
   `docker start [container_id]`
 
+## Docker Commands
+
 | **Action**                    | **Command**                  | **Description**                                  |
 |-------------------------------|------------------------------|--------------------------------------------------|
-| **Check Docker Version**      | `docker --version`          | Displays the installed Docker version.           |
+| **Check Docker Version**      | `docker --version`           | Displays the installed Docker version.           |
 | **List Running Containers**   | `docker ps`                  | Lists all currently running containers.          |
-| **List Available Images**      | `docker images`             | Lists all Docker images on the local machine.    |
-| **Pull an Image**             | `docker pull [image_name]`  | Downloads an image from Docker Hub or another registry. |
-| **Run a Container**           | `docker run [image_name]`   | Creates and starts a new container from the specified image. |
-| **Start a Container**         | `docker start [container_id]` | Starts a stopped container.                     |
-| **Stop a Container**          | `docker stop [container_id]` | Stops a running container.                      |
-| **View All Containers**       | `docker ps -a`              | Lists all containers, including stopped ones.   |
-| **Remove a Container**        | `docker rm [container_id]`  | Removes a stopped container from the system.    |
-| **Remove an Image**           | `docker rmi [image_name]`   | Removes an image from the local machine.        |
+| **List Available Images**     | `docker images`              | Lists all Docker images on the local machine.    |
+| **Pull an Image**             | `docker pull [image_name]`   | Downloads an image from Docker Hub or another registry. |
+| **Run a Container**           | `docker run [image_name]`    | Creates and starts a new container from the specified image. |
+| **Start a Container**         | `docker start [container_id]`| Starts a stopped container.                      |
+| **Stop a Container**          | `docker stop [container_id]` | Stops a running container.                       |
+| **View All Containers**       | `docker ps -a`               | Lists all containers, including stopped ones.    |
+| **Remove a Container**        | `docker rm [container_id]`   | Removes a stopped container from the system.     |
+| **Remove an Image**           | `docker rmi [image_name]`    | Removes an image from the local machine.         |
 
+## Steps to Create a Docker Container and Configure Inbound Rules
+
+### 1. Pull the Required Image
+
+First, pull the desired Docker image from Docker Hub or another registry:
+
+\`\`\`bash
+docker pull httpd
+\`\`\`
+
+### 2. Run the Container
+
+Next, create and start a new container from the pulled image. In this case, we'll use the \`httpd\` image and map port 80 on the host to port 80 in the container:
+
+\`\`\`bash
+docker run -d -p 80:80 httpd
+\`\`\`
+
+### 3. Check Running Containers
+
+Ensure the container is running:
+
+\`\`\`bash
+docker ps
+\`\`\`
+
+### 4. Add Inbound Rules (if using a Cloud Service)
+
+If you're running Docker on a cloud service (e.g., AWS, Azure), you need to add inbound rules to allow traffic on port 80. Here's an example for AWS:
+
+1. Go to the EC2 Dashboard.
+2. Select "Security Groups" from the left-hand menu.
+3. Find the security group associated with your Docker host.
+4. Click on the security group ID to edit it.
+5. Go to the "Inbound rules" tab.
+6. Click "Edit inbound rules".
+7. Add a new rule with the following details:
+    - Type: HTTP
+    - Protocol: TCP
+    - Port range: 80
+    - Source: Anywhere (0.0.0.0/0) for public access, or specify a particular IP range.
+
+### 5. Test the Container
+
+Open a web
