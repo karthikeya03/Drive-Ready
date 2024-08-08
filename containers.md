@@ -276,22 +276,27 @@ If you're running Docker on a cloud service (e.g., AWS, Azure), you need to add 
 
 After adding the inbound rules, you can test the container by accessing the IP address of your Docker host in a web browser.
 
-### Additional Steps
+# Deploying Multiple Websites on the Same Docker Host :
 
-#### Run a Named Container
+## Step 1: Run a Named Container
 
-Run a container with a specific name:
+To run a container with a specific name, use the following command:
 
-`
+```
 docker run -d -p 80:80 --name <anyname> httpd
-`
+```
 
-#### Run a Container on a Different Port
+This command runs the `httpd` container in detached mode and maps port 80 on the host to port 80 in the container. Replace `<anyname>` with your desired container name.
 
-Run a container and map port 8080 on the host to port 80 in the container:
+## Step 2: Run a Container on a Different Port
 
-`
+To run another container and map port 8080 on the host to port 80 in the container, use the following command:
+
+```
 docker run -d -p 8080:80 --name <anyname1> httpd
-`
+```
 
-These additional steps are useful for deploying multiple websites on the same Docker host.
+This command runs another `httpd` container in detached mode and maps port 8080 on the host to port 80 in the container. Replace `<anyname1>` with your desired container name.
+
+These steps allow you to deploy multiple websites on the same Docker host by running containers on different ports.
+
