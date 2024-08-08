@@ -236,25 +236,25 @@
 
 First, pull the desired Docker image from Docker Hub or another registry:
 
-\`\`\`bash
+`
 docker pull httpd
-\`\`\`
+`
 
 ### 2. Run the Container
 
 Next, create and start a new container from the pulled image. In this case, we'll use the \`httpd\` image and map port 80 on the host to port 80 in the container:
 
-\`\`\`bash
+`
 docker run -d -p 80:80 httpd
-\`\`\`
+`
 
 ### 3. Check Running Containers
 
 Ensure the container is running:
 
-\`\`\`bash
+`
 docker ps
-\`\`\`
+`
 
 ### 4. Add Inbound Rules (if using a Cloud Service)
 
@@ -282,16 +282,16 @@ After adding the inbound rules, you can test the container by accessing the IP a
 
 Run a container with a specific name:
 
-\`\`\`bash
+`
 docker run -d -p 80:80 --name <anyname> httpd
-\`\`\`
+`
 
 #### Run a Container on a Different Port
 
 Run a container and map port 8080 on the host to port 80 in the container:
 
-\`\`\`bash
+`
 docker run -d -p 8080:80 --name <anyname1> httpd
-\`\`\`
+`
 
 These additional steps are useful for deploying multiple websites on the same Docker host.
