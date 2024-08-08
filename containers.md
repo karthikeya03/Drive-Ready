@@ -230,7 +230,7 @@
 | **Remove a Container**        | `docker rm [container_id]`   | Removes a stopped container from the system.     |
 | **Remove an Image**           | `docker rmi [image_name]`    | Removes an image from the local machine.         |
 
-## Steps to Create a Docker Container and Configure Inbound Rules :
+# Steps to Create a Docker Container and Configure Inbound Rules :
 
 ### 1. Pull the Required Image
 
