@@ -278,25 +278,45 @@ After adding the inbound rules, you can test the container by accessing the IP a
 
 # Deploying Multiple Websites on the Same Docker Host :
 
-## Step 1: Run a Named Container
+## Step 1: Prepare HTML Files
+
+1. Connect to your server using an SFTP client.
+2. Upload your HTML files to the server. Ensure each website's files are in separate directories.
+
+## Step 2: Run a Named Container
 
 To run a container with a specific name, use the following command:
 
-```
+```sh
 docker run -d -p 80:80 --name <anyname> httpd
 ```
 
 This command runs the `httpd` container in detached mode and maps port 80 on the host to port 80 in the container. Replace `<anyname>` with your desired container name.
 
-## Step 2: Run a Container on a Different Port
+## Step 3: Run a Container on a Different Port
 
 To run another container and map port 8080 on the host to port 80 in the container, use the following command:
 
-```
+```sh
 docker run -d -p 8080:80 --name <anyname1> httpd
 ```
 
 This command runs another `httpd` container in detached mode and maps port 8080 on the host to port 80 in the container. Replace `<anyname1>` with your desired container name.
 
-These steps allow you to deploy multiple websites on the same Docker host by running containers on different ports.
+## Step 4: Copy HTML Files to Containers
 
+For each container, copy the respective HTML files to the container's web directory:
+
+1. For the first container:
+
+   ```sh
+   docker cp /path/to/your/first-website/. <anyname>:/usr/local/apache2/htdocs/
+   ```
+
+2. For the second container:
+
+   ```sh
+   docker cp /path/to/your/second-website/. <anyname1>:/usr/local/apache2/htdocs/
+   ```
+
+These steps allow you to deploy multiple websites on the same Docker host by running containers on different ports and serving different HTML files from each container.
