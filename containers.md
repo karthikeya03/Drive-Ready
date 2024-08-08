@@ -276,47 +276,168 @@ If you're running Docker on a cloud service (e.g., AWS, Azure), you need to add 
 
 After adding the inbound rules, you can test the container by accessing the IP address of your Docker host in a web browser.
 
-# Deploying Multiple Websites on the Same Docker Host :
 
-## Step 1: Prepare HTML Files
+# Deploying a Website on Docker :
+
+## Step 1: Install Docker
+
+First, ensure that Docker is installed on your server. You can check this by running:
+
+```sh
+docker --version
+```
+
+If Docker is not installed, you can install it by following the official Docker installation guide for your operating system.
+
+```sh
+apt-get install docker.io
+```
+
+## Step 2: Prepare HTML Files
 
 1. Connect to your server using an SFTP client.
-2. Upload your HTML files to the server. Ensure each website's files are in separate directories.
+2. Upload your HTML files to the server. Ensure each website's files are in separate Folders.
 
-## Step 2: Run a Named Container
+## Step 3: Create and Run a Named Container
 
 To run a container with a specific name, use the following command:
 
 ```sh
-docker run -d -p 80:80 --name <anyname> httpd
+docker run -d -p 8080:80 --name mywebsite1 httpd
 ```
 
-This command runs the `httpd` container in detached mode and maps port 80 on the host to port 80 in the container. Replace `<anyname>` with your desired container name.
+This command runs the `httpd` container in detached mode, maps port 8080 on the host to port 80 in the container, and names the container `mywebsite1`.
 
-## Step 3: Run a Container on a Different Port
+## Step 4: Copy HTML Files to the Container
 
-To run another container and map port 8080 on the host to port 80 in the container, use the following command:
+Copy your HTML files to the container's web directory:
+
+
+> docker cp `/path/to/your/website/.` mywebsite1:/usr/local/apache2/htdocs/
+
+
+Replace `/path/to/your/website/` with the actual path to your website files.
+
+## Step 5: Access the Website
+
+After copying the files, you can access your website by navigating to `http://<IP_ADDRESS>:8080` in your web browser, where `<IP_ADDRESS>` is the IP address of your server.
+
+# Output will be as follows : 
+
+1. **Run the Container:**
+
+   ```sh
+   $ docker run -d -p 8080:80 --name mywebsite1 httpd
+   5d415b78ed0a365bb8f4b0a447e2e0075f61f5f1b02e1d9d6e93f7a2e48f63d7
+   ```
+
+2. **Copy HTML Files:**
+
+   ```sh
+   $ docker cp /path/to/your/website/. mywebsite1:/usr/local/apache2/htdocs/
+   ```
+
+3. **Access the Website:**
+
+   Open your web browser and go to `http://<IP_ADDRESS>:8080`.\
+
+# Deploying Multiple Websites on a Single Docker Host :
+
+## Step 1: Install Docker :
+
+First, ensure that Docker is installed on your server. You can check this by running:
 
 ```sh
-docker run -d -p 8080:80 --name <anyname1> httpd
+docker --version
 ```
 
-This command runs another `httpd` container in detached mode and maps port 8080 on the host to port 80 in the container. Replace `<anyname1>` with your desired container name.
+If Docker is not installed, you can install it by following the official Docker installation guide for your operating system.
 
-## Step 4: Copy HTML Files to Containers
+```sh
+apt-get install docker.io
+```
 
-For each container, copy the respective HTML files to the container's web directory:
+## Step 2: Prepare HTML Files
 
-1. For the first container:
+1. Connect to your server using an SFTP client.
+2. Upload your HTML files to the server. Ensure each website's files are in separate directories.
+
+## Step 3: Create and Run Named Containers
+
+### Website 1
+
+To run a container for the first website with a specific name, use the following command:
+
+```sh
+docker run -d -p 8080:80 --name mywebsite1 httpd
+```
+
+This command runs the `httpd` container in detached mode, maps port 8080 on the host to port 80 in the container, and names the container `mywebsite1`.
+
+### Website 2
+
+To run another container for the second website and map port 8081 on the host to port 80 in the container, use the following command:
+
+```sh
+docker run -d -p 8081:80 --name mywebsite2 httpd
+```
+
+This command runs another `httpd` container in detached mode, maps port 8081 on the host to port 80 in the container, and names the container `mywebsite2`.
+
+## Step 4: Copy HTML Files to the Containers
+
+### Website 1
+
+Copy the HTML files for the first website to the container's web directory:
+
+```sh
+docker cp /path/to/your/website1/. mywebsite1:/usr/local/apache2/htdocs/
+```
+
+Replace `/path/to/your/website1/` with the actual path to your first website files.
+
+### Website 2
+
+Copy the HTML files for the second website to the container's web directory:
+
+```sh
+docker cp /path/to/your/website2/. mywebsite2:/usr/local/apache2/htdocs/
+```
+
+Replace `/path/to/your/website2/` with the actual path to your second website files.
+
+## Step 5: Access the Websites
+
+After copying the files, you can access your websites by navigating to the following URLs in your web browser:
+
+- Website 1: `http://<IP_ADDRESS>:8080`
+- Website 2: `http://<IP_ADDRESS>:8081`
+
+where `<IP_ADDRESS>` is the IP address of your server.
+
+### Example Output
+
+1. **Run the Containers:**
 
    ```sh
-   docker cp /path/to/your/first-website/. <anyname>:/usr/local/apache2/htdocs/
+   $ docker run -d -p 8080:80 --name mywebsite1 httpd
+   5d415b78ed0a365bb8f4b0a447e2e0075f61f5f1b02e1d9d6e93f7a2e48f63d7
+   
+   $ docker run -d -p 8081:80 --name mywebsite2 httpd
+   6e4f0b29f7d1f02e6b7f1c6f1e2c6a5d6e9d5f5f1b02e1d9d6e93f7a2e48f63d
    ```
 
-2. For the second container:
+2. **Copy HTML Files:**
 
    ```sh
-   docker cp /path/to/your/second-website/. <anyname1>:/usr/local/apache2/htdocs/
+   $ docker cp /path/to/your/website1/. mywebsite1:/usr/local/apache2/htdocs/
+   
+   $ docker cp /path/to/your/website2/. mywebsite2:/usr/local/apache2/htdocs/
    ```
 
-These steps allow you to deploy multiple websites on the same Docker host by running containers on different ports and serving different HTML files from each container.
+3. **Access the Websites:**
+
+   Open your web browser and go to:
+
+   - `http://<IP_ADDRESS>:8080` for Website 1
+   - `http://<IP_ADDRESS>:8081` for Website 2
