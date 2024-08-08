@@ -339,7 +339,7 @@ After copying the files, you can access your website by navigating to `http://<I
 
 3. **Access the Website:**
 
-   Open your web browser and go to `http://<IP_ADDRESS>:8080`.\
+   Open your web browser and go to `http://<IP_ADDRESS>:8080`.
 
 # Deploying Multiple Websites on a Single Docker Host :
 
