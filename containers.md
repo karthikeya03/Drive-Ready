@@ -230,7 +230,7 @@
 | **Remove a Container**        | `docker rm [container_id]`   | Removes a stopped container from the system.     |
 | **Remove an Image**           | `docker rmi [image_name]`    | Removes an image from the local machine.         |
 
-## Steps to Create a Docker Container and Configure Inbound Rules
+## Steps to Create a Docker Container and Configure Inbound Rules :
 
 ### 1. Pull the Required Image
 
@@ -267,11 +267,31 @@ If you're running Docker on a cloud service (e.g., AWS, Azure), you need to add 
 5. Go to the "Inbound rules" tab.
 6. Click "Edit inbound rules".
 7. Add a new rule with the following details:
-    - Type: HTTP
-    - Protocol: TCP
-    - Port range: 80
-    - Source: Anywhere (0.0.0.0/0) for public access, or specify a particular IP range.
+   - Type: HTTP
+   - Protocol: TCP
+   - Port range: 80
+   - Source: Anywhere (0.0.0.0/0) for public access, or specify a particular IP range.
 
 ### 5. Test the Container
 
-Open a web
+After adding the inbound rules, you can test the container by accessing the IP address of your Docker host in a web browser.
+
+### Additional Steps
+
+#### Run a Named Container
+
+Run a container with a specific name:
+
+\`\`\`bash
+docker run -d -p 80:80 --name <anyname> httpd
+\`\`\`
+
+#### Run a Container on a Different Port
+
+Run a container and map port 8080 on the host to port 80 in the container:
+
+\`\`\`bash
+docker run -d -p 8080:80 --name <anyname1> httpd
+\`\`\`
+
+These additional steps are useful for deploying multiple websites on the same Docker host.
