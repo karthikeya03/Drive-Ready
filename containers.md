@@ -576,3 +576,55 @@ The table below summarizes the Docker commands covered in this guide:
 ## Conclusion
 
 By following the steps and commands outlined in this guide, you can effectively manage Docker containers and images, commit changes, and ensure your images are up-to-date. Docker is a powerful tool for containerization, and these commands form the foundation of its usage.
+
+# Docker Commands Workflow :
+
+1. **Login to Docker Hub**
+
+   ```bash
+   docker login
+   ```
+
+2. **Commit Changes to a Container**
+
+   ```bash
+   docker commit <container_id> <repository_name>:<tag>
+   ```
+
+3. **List Running Containers**
+
+   ```bash
+   docker ps
+   ```
+
+4. **Stop a Running Container**
+
+   ```bash
+   docker stop <container_id>
+   ```
+
+5. **Run a Container in Detached Mode and Map Ports**
+
+   ```bash
+   docker run -d -p 8080:80 <image_name>/<repository_name>
+   ```
+
+6. **List Running Containers Again**
+
+   ```bash
+   docker ps
+   ```
+
+7. **Pull an Image from Docker Hub**
+
+   ```bash
+   docker pull <repository_name>:<tag>
+   ```
+
+8. **Push an Image to Docker Hub**
+
+   ```bash
+   docker push <repository_name>:<tag>
+   ```
+
+
