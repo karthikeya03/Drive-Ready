@@ -441,3 +441,109 @@ where `<IP_ADDRESS>` is the IP address of your server.
 
    - `http://<IP_ADDRESS>:8080` for Website 1
    - `http://<IP_ADDRESS>:8081` for Website 2
+
+# Docker Commands Guide
+
+## Introduction
+
+Docker is a platform that allows developers to automate the deployment of applications inside lightweight, portable containers. This guide will cover some essential Docker commands and their use cases, including creating an account, committing changes, pushing images, running containers, and more.
+
+## 1. Create an Account in Docker
+
+### Step 1: Login to Docker Account
+
+To log in to your Docker account, use the following command:
+
+```bash
+docker login
+```
+
+You will be prompted to enter your Docker Hub **username** and **password**.
+
+### Step 2: Commit a Container
+
+After making changes to a running container, you can commit those changes to a new image:
+
+```bash
+docker commit {container_id} <username>/<repository_name>
+```
+
+- **container_id**: The ID of the container you want to commit.
+- **username**: Your Docker Hub username.
+- **repository_name**: The name of the repository where the image will be stored.
+
+### Step 3: Stop the Container
+
+To stop a running container, use:
+
+```bash
+docker stop {container_id}
+```
+
+- **container_id**: The ID of the container you want to stop.
+
+### Step 4: Push the Image to Docker Hub
+
+Push the committed image to your Docker Hub repository:
+
+```bash
+docker push <username>/<repository_name>
+```
+
+- **username**: Your Docker Hub username.
+- **repository_name**: The name of the repository where the image will be stored.
+
+### Step 5: Run the Container
+
+To run a container from the image you just pushed:
+
+```bash
+docker run -d -p 8080:80 <username>/<repository_name>
+```
+
+- **-d**: Run the container in detached mode.
+- **-p 8080:80**: Map port 8080 on the host to port 80 in the container.
+- **username**: Your Docker Hub username.
+- **repository_name**: The name of the repository where the image is stored.
+
+### Step 6: Verify the Image Update
+
+This process ensures that your image is up to date. You can verify the output by accessing the service running on `http://localhost:8080` in your web browser.
+
+## 2. Docker Container Prune
+
+This command is used to remove all stopped containers:
+
+```bash
+docker container prune
+```
+
+This will prompt you to confirm the removal of all stopped containers.
+
+## 3. Remove Docker Images
+
+To remove a Docker image, use the following command:
+
+```bash
+docker rmi httpd
+```
+
+This removes the image named `httpd`.
+
+## 4. Command Summary Table
+
+The table below summarizes the Docker commands covered in this guide:
+
+| Command                  | Description                                    | Example Usage                                               |
+| ------------------------ | ---------------------------------------------- | ----------------------------------------------------------- |
+| `docker login`           | Log in to your Docker account.                 | `docker login`                                              |
+| `docker commit`          | Create a new image from a container's changes. | `docker commit {container_id} <username>/<repository_name>` |
+| `docker stop`            | Stop a running container.                      | `docker stop {container_id}`                                |
+| `docker push`            | Push an image to a Docker repository.          | `docker push <username>/<repository_name>`                  |
+| `docker run`             | Run a container from an image.                 | `docker run -d -p 8080:80 <username>/<repository_name>`     |
+| `docker container prune` | Remove all stopped containers.                 | `docker container prune`                                    |
+| `docker rmi`             | Remove a Docker image.                         | `docker rmi httpd`                                          |
+
+## Conclusion
+
+By following the steps and commands outlined in this guide, you can effectively manage Docker containers and images, commit changes, and ensure your images are up-to-date. Docker is a powerful tool for containerization, and these commands form the foundation of its usage.
