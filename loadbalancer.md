@@ -63,7 +63,9 @@ Serverless applications are those where you don’t have to worry about managing
 
 # Creating a Load Balancer in AWS
 
-## Step-by-Step Process
+## Step-by-Step Process : This is what you're trying to build : 
+
+![WhatsApp Image 2024-08-13 at 10 45 54_b9712e36](https://github.com/user-attachments/assets/e54a83d2-40fa-4cb0-8f93-82acbe6c9222)
 
 ### 1. Launch a Virtual Private Cloud (VPC)
 
@@ -81,6 +83,7 @@ Serverless applications are those where you don’t have to worry about managing
      - **IPv6 CIDR block:** (Optional) You can choose to add IPv6 if needed.
      - **Tenancy:** Choose "Default" unless you need dedicated instances.
    - Click "Create VPC."
+
 
 ### 2. Create Two Subnets
 
@@ -145,54 +148,92 @@ Serverless applications are those where you don’t have to worry about managing
    - Ensure this instance is launched in the second subnet (e.g., `Subnet-2`).
    - Name this instance (e.g., `Instance-2`).
 
-### 5. Create a Load Balancer
+# Creating a Load Balancer in AWS
 
-1. **Navigate to Load Balancers**
-   - In the AWS Management Console, search for and select "EC2" and then click "Load Balancers" in the left sidebar.
+## Step 1: Navigate to Load Balancers
+1. **Login to AWS Management Console:** 
+   - Open your web browser and log in to the [AWS Management Console](https://aws.amazon.com/console/).
 
-2. **Create a New Load Balancer**
-   - Click "Create Load Balancer."
-   - **Choose Load Balancer Type:**
-     - Select "Application Load Balancer" for HTTP/HTTPS traffic or "Network Load Balancer" for TCP traffic.
-   - **Configure Load Balancer:**
-     - **Name:** Enter a name for your load balancer (e.g., `MyLoadBalancer`).
-     - **Scheme:** Choose "internet-facing" if it needs to be accessible from the internet.
-     - **IP Address Type:** Choose "ipv4."
-     - **Listeners:** Add listeners (e.g., HTTP on port 80).
-   - Click "Next: Configure Security Settings."
+2. **Access EC2 Dashboard:**
+   - In the AWS Management Console, type “EC2” in the search bar at the top and select “EC2” from the dropdown list.
 
-3. **Configure Security Settings**
-   - For HTTP, you can skip the SSL configuration.
-   - Click "Next: Configure Security Groups."
+3. **Locate Load Balancers:**
+   - In the EC2 Dashboard, look at the left sidebar and scroll down to find the “Load Balancing” section.
+   - Click on “Load Balancers” under “Load Balancing.”
 
-4. **Configure Security Groups**
-   - Choose an existing security group or create a new one that allows traffic on the required ports (e.g., HTTP port 80).
-   - Click "Next: Configure Routing."
+## Step 2: Create a New Load Balancer
+1. **Initiate Load Balancer Creation:**
+   - Click the “Create Load Balancer” button at the top of the Load Balancers page.
 
-5. **Configure Routing**
-   - **Target Group:** Create a target group for the instances.
-     - **Name:** Enter a name for the target group (e.g., `MyTargetGroup`).
-     - **Target Type:** Select "Instance."
-     - **Protocol:** Choose the protocol (e.g., HTTP).
-     - **Port:** Choose the port (e.g., 80).
-   - Click "Next: Register Targets."
+2. **Choose Load Balancer Type:**
+   - You’ll be presented with three options:
+     - **Application Load Balancer (ALB):** Best for HTTP/HTTPS traffic and provides advanced routing features.
+     - **Network Load Balancer (NLB):** Ideal for handling TCP/UDP traffic at high performance.
+     - **Gateway Load Balancer:** Used for third-party virtual appliances.
+   - **Choose "Application Load Balancer"** if you’re dealing with HTTP/HTTPS traffic.
 
-6. **Register Targets**
-   - Select the EC2 instances you launched earlier (e.g., `Instance-1` and `Instance-2`).
-   - Click "Add to registered."
-   - Click "Next: Review."
+3. **Configure Load Balancer Settings:**
+   - **Name:** Enter a unique name for your load balancer (e.g., `MyLoadBalancer`).
+   - **Scheme:** Select "internet-facing" if you want your load balancer to be accessible from the internet. Choose "internal" if it's only for private use within a VPC.
+   - **IP Address Type:** Choose "ipv4" unless you need IPv6 support.
+   - **Listeners:** A listener is a process that checks for connection requests. Add an HTTP listener on port 80 by default.
 
-7. **Review and Create**
-   - Review all the settings.
-   - Click "Create" to launch the load balancer.
+4. **Availability Zones:**
+   - Select the VPC where your instances are running.
+   - Choose at least two Availability Zones and associate them with subnets for high availability.
 
-### 6. Verify and Test
+5. **Click "Next: Configure Security Settings"** to proceed.
 
-1. **Check Load Balancer Status**
+## Step 3: Configure Security Settings
+1. **SSL/TLS Configuration:** 
+   - Since you are configuring an HTTP listener (non-encrypted traffic), you can skip the SSL configuration step. If you were setting up an HTTPS listener, you'd need to configure SSL certificates here.
+
+2. **Click "Next: Configure Security Groups"** to continue.
+
+## Step 4: Configure Security Groups
+1. **Assign Security Groups:**
+   - Security groups act as a virtual firewall for your instances.
+   - **Choose an existing security group** or **create a new one**. Ensure that the security group allows incoming traffic on the listener port (e.g., HTTP port 80).
+
+2. **Click "Next: Configure Routing"** to move forward.
+
+## Step 5: Configure Routing
+1. **Target Group Configuration:**
+   - A target group is a logical grouping of instances that your load balancer will route traffic to.
+   - **Target Group Name:** Enter a name for the target group (e.g., `MyTargetGroup`).
+   - **Target Type:** Select "Instance" to route traffic to EC2 instances.
+   - **Protocol:** Choose the protocol for routing (e.g., HTTP).
+   - **Port:** Enter the port number on which the target instances will receive traffic (e.g., port 80).
+
+2. **Health Checks:**
+   - Configure health checks to ensure that only healthy instances receive traffic.
+   - You can leave the default settings or customize the health check path, protocol, and response timeout.
+
+3. **Click "Next: Register Targets"** to continue.
+
+## Step 6: Register Targets
+1. **Select EC2 Instances:**
+   - On the Register Targets page, you'll see a list of your EC2 instances.
+   - **Select the instances** you want to include in the target group (e.g., `Instance-1` and `Instance-2`).
+
+2. **Add to Registered:**
+   - After selecting the instances, click "Add to registered" to move them to the registered targets list.
+
+3. **Click "Next: Review"** to proceed.
+
+## Step 7: Review and Create
+1. **Review Configuration:**
+   - On the Review page, review all your settings to ensure everything is configured correctly.
+
+2. **Create Load Balancer:**
+   - If everything looks good, click the “Create” button to launch the load balancer.
+   - AWS will begin provisioning your load balancer, which might take a few minutes.
+
+## Step 8: Verify and Test
+
+1. **Check Load Balancer Status:**
    - In the Load Balancers section, ensure that the status of the new load balancer is "active."
 
-2. **Test the Load Balancer**
+2. **Test the Load Balancer:**
    - Access the DNS name of the load balancer (provided in the description tab of the load balancer) from your web browser.
    - Verify that you can access the application and that traffic is balanced between the two EC2 instances.
-
-
