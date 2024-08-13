@@ -9,8 +9,8 @@ A load balancer is a system that helps distribute incoming network traffic acros
 
 ### How Does it Work?
 Imagine you have 5,000 users trying to access an application. Here’s how a load balancer handles this situation:
-1. **Users** -> **Load Balancer** -> **EC2 Instance 1**
-2. **Users** -> **Load Balancer** -> **EC2 Instance 2**
+1. **Users** (2500)-> **Load Balancer** -> **EC2 Instance 1**
+2. **Users** (2500)-> **Load Balancer** -> **EC2 Instance 2**
 
 The load balancer sits between the users and the EC2 instances (servers) that run your application. It splits the traffic between these instances to ensure no single server becomes a bottleneck.
 
