@@ -61,13 +61,16 @@ Serverless applications are those where you don’t have to worry about managing
 
 **Example**: Building a serverless API with Lambda and API Gateway allows you to create a REST API that responds to HTTP requests without managing the server infrastructure.
 
-# Creating a Load Balancer in AWS
+# **Creating a Load Balancer in AWS**
 
-## Step-by-Step Process : This is what you're trying to build : 
+## **Step-by-Step Process**
+This is what you're trying to build:
 
-![WhatsApp Image 2024-08-13 at 10 45 54_b9712e36](https://github.com/user-attachments/assets/e54a83d2-40fa-4cb0-8f93-82acbe6c9222)
+![AWS Load Balancer Diagram](https://github.com/user-attachments/assets/e54a83d2-40fa-4cb0-8f93-82acbe6c9222)
 
-### 1. Launch a Virtual Private Cloud (VPC)
+---
+
+### **1. Launch a Virtual Private Cloud (VPC)**
 
 1. **Sign in to AWS Management Console**
    - Go to the [AWS Management Console](https://aws.amazon.com/console/).
@@ -84,8 +87,7 @@ Serverless applications are those where you don’t have to worry about managing
      - **Tenancy:** Choose "Default" unless you need dedicated instances.
    - Click "Create VPC."
 
-
-### 2. Create Two Subnets
+### **2. Create Two Subnets**
 
 1. **Navigate to Subnets**
    - In the VPC Dashboard, click on "Subnets."
@@ -108,7 +110,7 @@ Serverless applications are those where you don’t have to worry about managing
      - **IPv4 CIDR block:** Enter a different subnet CIDR block, such as `10.0.2.0/24`.
    - Click "Create subnet."
 
-### 3. Create a Routing Table Connected to Both Subnets
+### **3. Create a Routing Table Connected to Both Subnets**
 
 1. **Navigate to Route Tables**
    - In the VPC Dashboard, click on "Route Tables."
@@ -127,7 +129,7 @@ Serverless applications are those where you don’t have to worry about managing
    - Select both subnets (e.g., `Subnet-1` and `Subnet-2`).
    - Click "Save changes."
 
-### 4. Launch Two Separate EC2 Instances
+### **4. Launch Two Separate EC2 Instances**
 
 1. **Navigate to EC2 Dashboard**
    - In the AWS Management Console, search for and select "EC2" to open the EC2 Dashboard.
@@ -148,9 +150,11 @@ Serverless applications are those where you don’t have to worry about managing
    - Ensure this instance is launched in the second subnet (e.g., `Subnet-2`).
    - Name this instance (e.g., `Instance-2`).
 
-# Creating a Load Balancer in AWS
+---
 
-## Step 1: Navigate to Load Balancers
+## **Creating a Load Balancer in AWS**
+
+### **1. Navigate to Load Balancers**
 1. **Login to AWS Management Console:** 
    - Open your web browser and log in to the [AWS Management Console](https://aws.amazon.com/console/).
 
@@ -161,7 +165,7 @@ Serverless applications are those where you don’t have to worry about managing
    - In the EC2 Dashboard, look at the left sidebar and scroll down to find the “Load Balancing” section.
    - Click on “Load Balancers” under “Load Balancing.”
 
-## Step 2: Create a New Load Balancer
+### **2. Create a New Load Balancer**
 1. **Initiate Load Balancer Creation:**
    - Click the “Create Load Balancer” button at the top of the Load Balancers page.
 
@@ -184,20 +188,20 @@ Serverless applications are those where you don’t have to worry about managing
 
 5. **Click "Next: Configure Security Settings"** to proceed.
 
-## Step 3: Configure Security Settings
+### **3. Configure Security Settings**
 1. **SSL/TLS Configuration:** 
    - Since you are configuring an HTTP listener (non-encrypted traffic), you can skip the SSL configuration step. If you were setting up an HTTPS listener, you'd need to configure SSL certificates here.
 
 2. **Click "Next: Configure Security Groups"** to continue.
 
-## Step 4: Configure Security Groups
+### **4. Configure Security Groups**
 1. **Assign Security Groups:**
    - Security groups act as a virtual firewall for your instances.
    - **Choose an existing security group** or **create a new one**. Ensure that the security group allows incoming traffic on the listener port (e.g., HTTP port 80).
 
 2. **Click "Next: Configure Routing"** to move forward.
 
-## Step 5: Configure Routing
+### **5. Configure Routing**
 1. **Target Group Configuration:**
    - A target group is a logical grouping of instances that your load balancer will route traffic to.
    - **Target Group Name:** Enter a name for the target group (e.g., `MyTargetGroup`).
@@ -211,7 +215,7 @@ Serverless applications are those where you don’t have to worry about managing
 
 3. **Click "Next: Register Targets"** to continue.
 
-## Step 6: Register Targets
+### **6. Register Targets**
 1. **Select EC2 Instances:**
    - On the Register Targets page, you'll see a list of your EC2 instances.
    - **Select the instances** you want to include in the target group (e.g., `Instance-1` and `Instance-2`).
@@ -221,7 +225,7 @@ Serverless applications are those where you don’t have to worry about managing
 
 3. **Click "Next: Review"** to proceed.
 
-## Step 7: Review and Create
+### **7. Review and Create**
 1. **Review Configuration:**
    - On the Review page, review all your settings to ensure everything is configured correctly.
 
@@ -229,11 +233,26 @@ Serverless applications are those where you don’t have to worry about managing
    - If everything looks good, click the “Create” button to launch the load balancer.
    - AWS will begin provisioning your load balancer, which might take a few minutes.
 
-## Step 8: Verify and Test
+### **8. Verify and Test**
 
 1. **Check Load Balancer Status:**
    - In the Load Balancers section, ensure that the status of the new load balancer is "active."
 
 2. **Test the Load Balancer:**
-   - Access the DNS name of the load balancer (provided in the description tab of the load balancer) from your web browser.
-   - Verify that you can access the application and that traffic is balanced between the two EC2 instances.
+   - Access the DNS name of the load balancer (provided in the description tab of the load balancer details).
+   - Open a web browser and enter the DNS name to verify that it routes traffic correctly to your EC2 instances.
+
+---
+
+## **Best Practices**
+1. **Monitoring and Alerts:** 
+   - Set up CloudWatch alarms to monitor your load balancer's performance and automatically alert you if something goes wrong.
+
+2. **Auto Scaling:** 
+   - Consider setting up Auto Scaling groups to automatically adjust the number of instances behind your load balancer based on demand.
+
+3. **Security:** 
+   - Regularly review and update your security groups and IAM policies to follow the principle of least privilege.
+
+---
+
