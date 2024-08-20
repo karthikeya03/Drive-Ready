@@ -95,14 +95,21 @@ Once you are connected to your EC2 instance, execute the following commands in t
 
 | **Command**                                                  | **Explanation**                                              |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| `sudo amazon-linux-extras install epel -y`                   | Installs the Extra Packages for Enterprise Linux (EPEL) repository on an Amazon Linux instance. The `-y` flag automatically confirms the installation. |
-| `sudo yum install gcc jemalloc-devel openssl-devel tcl tcl-devel -y` | Installs necessary tools and libraries, including the GNU Compiler Collection (`gcc`), memory allocator (`jemalloc`), OpenSSL libraries, and Tcl development libraries on your instance. |
-| `sudo wget http://download.redis.io/redis-stable.tar.gz`     | Downloads the latest stable version of Redis from the official Redis website. |
-| `sudo tar xvzf redis-stable.tar.gz`                          | Extracts the downloaded Redis archive file to your current directory. |
-| `cd redis-stable`                                            | Navigates into the extracted Redis directory.                |
-| `sudo make`                                                  | Compiles the Redis source code.                              |
+| sudo amazon-linux-extras install epel -y                     | Installs the Extra Packages for Enterprise Linux (EPEL) repository on an Amazon Linux instance. The `-y` flag automatically confirms the installation. |
+| sudo yum install gcc jemalloc-devel openssl-devel tcl tcl-devel -y | Installs necessary tools and libraries, including the GNU Compiler Collection (`gcc`), memory allocator (`jemalloc`), OpenSSL libraries, and Tcl development libraries on your instance. |
+| sudo wget http://download.redis.io/redis-stable.tar.gz       | Downloads the latest stable version of Redis from the official Redis website. |
+| sudo tar xvzf redis-stable.tar.gz                            | Extracts the downloaded Redis archive file to your current directory. |
+| cd redis-stable                                              | Navigates into the extracted Redis directory.                |
+| sudo make                                                    | Compiles the Redis source code.                              |
+| make BUILD_TLS=yes                                           | Compiles Redis with TLS (Transport Layer Security) support.  |
+| cd src                                                       | Navigates into the `src` directory containing the compiled Redis binaries. |
+| chmod a+x redis-cli                                          | Gives executable permission to the `redis-cli` binary.       |
+| cp redis-cli /usr/bin/                                       | Copies the `redis-cli` binary to `/usr/bin/` for easy access from anywhere on the system. |
+
 
 After running these commands, Redis will be installed on your EC2 instance.
+
+# Redis Setup and Configuration
 
 ## Step 3: Continue with Redis Setup and Configuration
 
@@ -110,32 +117,72 @@ After installing Redis, you can continue with the setup by configuring Redis, st
 
 ### 1. Start the Redis Server
 
+To start the Redis server, navigate to the directory where Redis was installed and use the following command:
+
 ```bash
 src/redis-server
 ```
 
 ### 2. Set Up Security Groups
 
-- Return to the AWS Management Console and attach security groups as described earlier.
+Return to the AWS Management Console and attach the necessary security groups as described earlier. Ensure that inbound and outbound rules are configured to allow access from trusted IP ranges or specific applications. You can view and manage these settings under the **EC2 Dashboard > Security Groups** section.
 
 ### 3. Manage Traffic and Access
 
-- Follow the steps for managing traffic and access using Redis endpoints, scaling the Redis cluster, and monitoring performance as explained in the previous sections.
+To manage traffic and access to Redis, use Redis endpoints and follow best practices like scaling the Redis cluster and monitoring performance. Detailed configurations for traffic management and access control can be done using Redis configurations (`redis.conf`) and security group settings on AWS.
 
 ### 4. Monitoring and Maintenance
 
-- **Monitoring Metrics**:
-  - Check for CPU Utilization, Free Memory, and Network Traffic using AWS CloudWatch.
-- **Backups and Restores**:
-  - Enable automated snapshots and create manual snapshots before major changes.
-  - Restore from snapshots if needed.
+#### Monitoring Metrics
 
-## Best Practices
+Key metrics such as CPU Utilization, Free Memory, and Network Traffic should be regularly monitored. AWS CloudWatch can be used for tracking these metrics.
 
-- **Security**: Use VPCs and security groups to restrict access.
-- **Persistence**: Enable RDB or AOF persistence for durability.
-- **Scaling**: Regularly review and adjust your scaling strategy.
+#### Backups and Restores
+
+Enable automated snapshots for periodic backups. Additionally, create manual snapshots before making major changes. You can manage and view backups under **Elasticache > Snapshots**. To restore from a snapshot, follow the restore process in the same section.
+
+### Best Practices
+
+- **Security**: Use VPCs and security groups to restrict access and avoid exposing Redis directly to the internet.
+- **Persistence**: Enable RDB (Redis Database Backup) or AOF (Append-Only File) persistence for durability. You can manage these options using Redis configuration commands.
+- **Scaling**: Regularly review your Redis workload and adjust your scaling strategy to match your needs.
+
+### Verify Configurations in Redis
+
+Once Redis is running, you can verify key configurations:
+
+#### 1. Check Redis Server Status
+
+Use the following command to verify that the Redis server is running and responsive:
+
+```bash
+redis-cli ping
+```
+
+Expected output: `PONG`
+
+#### 2. Verify Redis Configuration Settings
+
+To view the current configuration settings:
+
+```bash
+CONFIG GET *
+```
+
+This command displays all current configuration parameters.
+
+#### 3. Verify Persistence Settings
+
+To check the persistence settings like RDB and AOF, run the following commands:
+
+```bash
+CONFIG GET save
+CONFIG GET appendonly
+CONFIG GET dir
+```
+
+These settings determine how Redis saves data and the directory where it stores the data files.
 
 ---
 
-With these steps, you’ve set up Redis on an EC2 instance, configured security, and learned how to monitor and maintain your Redis cluster in AWS.
+For further Redis setup and configuration details, refer to the [Redis documentation](https://redis.io/documentation).
