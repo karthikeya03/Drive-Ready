@@ -34,7 +34,7 @@ Redis (Remote Dictionary Server) is an open-source, in-memory key-value data sto
 4. **Cluster Configuration**:
    - **Name**: Enter a unique name for your cluster.
    - **Node Type**: Choose the instance type (e.g., `cache.t2.micro` for testing).
-   - **Number of Replicas**: Decide how many replicas you need for high availability.
+   - **Number of Replicas**: Decide how many replicas you need for high availability (0) FOR NOW.
    - **Subnet Group**: Select a subnet group or create a new one if needed.
    - **VPC**: Select the VPC where your Redis cluster will be deployed.
 
@@ -51,7 +51,8 @@ Redis (Remote Dictionary Server) is an open-source, in-memory key-value data sto
 
 1. **Access the Security Groups**:
    - In the AWS Management Console, go to "EC2".
-   - In the left-hand menu, click on "Security Groups".
+   - Create a instance with Amazon Linux 2 AMI (HVM) - Kernel 5.10, SSD Volume Type
+   - Click on "Security Groups".
 
 2. **Create or Modify a Security Group**:
    - **Create Security Group**: Click "Create Security Group".
