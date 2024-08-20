@@ -102,9 +102,13 @@ Once you are connected to your EC2 instance, execute the following commands in t
 | cd redis-stable                                              | Navigates into the extracted Redis directory.                |
 | sudo make                                                    | Compiles the Redis source code.                              |
 | make BUILD_TLS=yes                                           | Compiles Redis with TLS (Transport Layer Security) support.  |
+
+| **Command**                                                  | **Explanation**                                              |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
 | cd src                                                       | Navigates into the `src` directory containing the compiled Redis binaries. |
 | chmod a+x redis-cli                                          | Gives executable permission to the `redis-cli` binary.       |
 | cp redis-cli /usr/bin/                                       | Copies the `redis-cli` binary to `/usr/bin/` for easy access from anywhere on the system. |
+| redis-cli -h your-cluster-name.cache.amazonaws.com --tls -a YOURPASSWORD -p 6379 | Connects to your Redis cluster over TLS using the provided hostname, password, and port 6379. |
 
 
 After running these commands, Redis will be installed on your EC2 instance.
