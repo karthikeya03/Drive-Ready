@@ -71,50 +71,71 @@ Redis (Remote Dictionary Server) is an open-source, in-memory key-value data sto
    - Attach the new or modified security group to your cluster.
    - Click "Apply Changes".
 
-### 3. Managing Traffic and Access
+### 3.Connecting to an AWS EC2 Instance with MobaXterm and Installing Redis
 
-#### **Redis Endpoints**
+## Step 1: Connect to Your EC2 Instance
 
-- **Primary Endpoint**: Used to write data to the master node.
-- **Reader Endpoints**: Used to read data from replica nodes.
+1. **Launch MobaXterm**:
+   - Open MobaXterm on your local machine.
 
-1. **Accessing the Redis Cluster**:
-   - Use the Redis CLI or a Redis client library to connect to the Redis cluster.
-   - The connection string format is `redis-cli -h <PrimaryEndpoint> -p 6379`.
+2. **Start a New SSH Session**:
+   - Click on "Session" in the top left corner.
+   - Choose "SSH" from the options.
+   - In the "Remote host" field, enter the public IP address of your EC2 instance.
+   - In the "Specify username" field, enter `ec2-user`.
+   - Click on "Advanced SSH settings" and select your `.pem` file (key pair) under "Use private key".
 
-2. **Redis Command Examples**:
-   - **Set a value**: `SET mykey "myvalue"`
-   - **Get a value**: `GET mykey`
-   - **List all keys**: `KEYS *`
+3. **Connect**:
+   - Click "OK" to connect to your EC2 instance.
+   - If prompted to save the session, you can choose to do so for easier access next time.
 
-3. **Scaling the Redis Cluster**:
-   - **Adding Nodes**: You can scale the cluster by adding more nodes.
-   - **Modifying Node Types**: Change the node types for better performance.
-   - **Scaling Strategy**: Use replicas to scale reads and partitioning to scale writes.
+## Step 2: Installing Redis on the EC2 Instance
+
+Once you are connected to your EC2 instance, execute the following commands in the MobaXterm terminal:
+
+| **Command**                                                  | **Explanation**                                              |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `sudo amazon-linux-extras install epel -y`                   | Installs the Extra Packages for Enterprise Linux (EPEL) repository on an Amazon Linux instance. The `-y` flag automatically confirms the installation. |
+| `sudo yum install gcc jemalloc-devel openssl-devel tcl tcl-devel -y` | Installs necessary tools and libraries, including the GNU Compiler Collection (`gcc`), memory allocator (`jemalloc`), OpenSSL libraries, and Tcl development libraries on your instance. |
+| `sudo wget http://download.redis.io/redis-stable.tar.gz`     | Downloads the latest stable version of Redis from the official Redis website. |
+| `sudo tar xvzf redis-stable.tar.gz`                          | Extracts the downloaded Redis archive file to your current directory. |
+| `cd redis-stable`                                            | Navigates into the extracted Redis directory.                |
+| `sudo make`                                                  | Compiles the Redis source code.                              |
+
+After running these commands, Redis will be installed on your EC2 instance.
+
+## Step 3: Continue with Redis Setup and Configuration
+
+After installing Redis, you can continue with the setup by configuring Redis, starting the Redis server, and setting up security groups as mentioned in the previous steps of this guide.
+
+### 1. Start the Redis Server
+
+```bash
+src/redis-server
+```
+
+### 2. Set Up Security Groups
+
+- Return to the AWS Management Console and attach security groups as described earlier.
+
+### 3. Manage Traffic and Access
+
+- Follow the steps for managing traffic and access using Redis endpoints, scaling the Redis cluster, and monitoring performance as explained in the previous sections.
 
 ### 4. Monitoring and Maintenance
 
-#### **Monitoring Metrics**
+- **Monitoring Metrics**:
+  - Check for CPU Utilization, Free Memory, and Network Traffic using AWS CloudWatch.
+- **Backups and Restores**:
+  - Enable automated snapshots and create manual snapshots before major changes.
+  - Restore from snapshots if needed.
 
-- **CPU Utilization**: Check for spikes in CPU usage to determine if scaling is necessary.
-- **Free Memory**: Monitor available memory to prevent out-of-memory errors.
-- **Network Traffic**: Ensure your network bandwidth can handle the traffic to and from your Redis cluster.
+## Best Practices
 
-#### **Backups and Restores**
-
-- **Automated Backups**: Enable automated snapshots for disaster recovery.
-- **Manual Snapshots**: Create manual snapshots before making significant changes.
-- **Restoring from Snapshot**: In case of a failure, restore the Redis cluster from a snapshot.
-
-### 5. Best Practices
-
-- **Security**: Always use VPCs and security groups to restrict access.
-- **Persistence**: Enable RDB or AOF persistence for data durability.
-- **Monitoring**: Use CloudWatch to monitor performance and set up alarms.
-- **Scaling**: Regularly review your scaling strategy to meet demand efficiently.
+- **Security**: Use VPCs and security groups to restrict access.
+- **Persistence**: Enable RDB or AOF persistence for durability.
+- **Scaling**: Regularly review and adjust your scaling strategy.
 
 ---
 
-## Conclusion
-
-Amazon ElastiCache with Redis is a powerful tool for creating fast, scalable, and secure caching layers in your applications. By following these steps, you can set up and manage a Redis cluster, configure security groups, and manage traffic effectively. Whether you're using Redis for caching, session management, or real-time analytics, ElastiCache provides the tools you need to ensure high performance and availability.
+With these steps, you’ve set up Redis on an EC2 instance, configured security, and learned how to monitor and maintain your Redis cluster in AWS.
