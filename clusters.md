@@ -10,7 +10,7 @@ AWS provides a variety of memory and storage options designed to meet different 
 - **Use Cases**: Caching, temporary databases, scratch data.
 - **Example**: Running an application that processes large datasets quickly and stores intermediate results on the instance store.
 
-### 1.2 Elastic Block Store (EBS)
+### 1.2 Elastic Block Store (EBS) :
 
 - **Definition**: Amazon EBS is a persistent block storage service designed for use with Amazon EC2 instances. EBS volumes are automatically replicated within their Availability Zone to protect you from component failure, offering high availability and durability.
 - **Use Cases**: Databases, file systems, application data.
