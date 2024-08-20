@@ -55,10 +55,6 @@ Redis (Remote Dictionary Server) is an open-source, in-memory key-value data sto
    - Click on "Security Groups".
 
 2. **Create or Modify a Security Group**:
-   - **Create Security Group**: Click "Create Security Group".
-     - **Name**: Enter a name for your security group.
-     - **Description**: Add a description for easy identification.
-     - **VPC**: Select the VPC associated with your Redis cluster.
    - **Modify Security Group**: Select an existing security group and click on "Edit Inbound Rules".
 
 3. **Set Inbound Rules**:
