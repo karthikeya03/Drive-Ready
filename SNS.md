@@ -82,5 +82,3 @@ AWS Simple Notification Service (SNS) is a fully managed service that provides m
 - **Protocols:** Methods for notification delivery (e.g., Email, HTTP).
 - **Confirmation:** Required for subscriptions to become active.
 
-For more detailed information, refer to the [AWS SNS Documentation](https://docs.aws.amazon.com/sns/latest/dg/welcome.html).
-
