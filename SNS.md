@@ -83,67 +83,67 @@ AWS Auto Scaling groups allow you to automatically scale your Amazon EC2 instanc
    - Your newly created AMI will appear in the **AMIs** section of the EC2 dashboard.
    - This AMI can now be used to launch new instances with the same configuration.
 
-   ## 3. Step-by-Step Guide to Create an SNS : 
+## 3. Step-by-Step Guide to Create an SNS
 
-   ### 1. Create an SNS Topic
+### 1. Create an SNS Topic
 
-   1. **Sign in to AWS Management Console**
-      - Navigate to the [Amazon SNS console](https://console.aws.amazon.com/sns/).
+1. **Sign in to AWS Management Console**
+   - Navigate to the [Amazon SNS console](https://console.aws.amazon.com/sns/).
 
-   2. **Create a New Topic**
-      - Go to **Topics** in the left-hand menu and click **Create topic**.
-      - Select the type of topic (Standard or FIFO).
-        - **Standard Topic:** For high-throughput, distributed systems. Messages are delivered at least once.
-        - **FIFO Topic:** For ordered message delivery with exactly-once processing.
-      - Enter a **Name** for the topic and optionally a **Display Name**.
-      - Click **Create topic**.
+2. **Create a New Topic**
+   - Go to **Topics** in the left-hand menu and click **Create topic**.
+   - Select the type of topic (Standard or FIFO).
+     - **Standard Topic:** For high-throughput, distributed systems. Messages are delivered at least once.
+     - **FIFO Topic:** For ordered message delivery with exactly-once processing.
+   - Enter a **Name** for the topic and optionally a **Display Name**.
+   - Click **Create topic**.
 
-   3. **Note the Topic ARN**
-      - After creating the topic, the Topic ARN (Amazon Resource Name) is displayed. This ARN uniquely identifies the topic.
+3. **Note the Topic ARN**
+   - After creating the topic, the Topic ARN (Amazon Resource Name) is displayed. This ARN uniquely identifies the topic.
 
-   ### 2. Create a Subscription
+### 2. Create a Subscription
 
-   1. **Navigate to Subscriptions**
-      - From the SNS dashboard, select **Subscriptions** from the left-hand menu.
-      - Click **Create subscription**.
+1. **Navigate to Subscriptions**
+   - From the SNS dashboard, select **Subscriptions** from the left-hand menu.
+   - Click **Create subscription**.
 
-   2. **Configure the Subscription**
-      - **Select Topic:** Choose the topic by pasting its ARN or selecting it from the dropdown.
-      - **Select Protocol:** Choose the delivery method (e.g., Email, HTTP, HTTPS).
-      - **Endpoint:** Provide the necessary endpoint information (e.g., email address, URL).
+2. **Configure the Subscription**
+   - **Select Topic:** Choose the topic by pasting its ARN or selecting it from the dropdown.
+   - **Select Protocol:** Choose the delivery method (e.g., Email, HTTP, HTTPS).
+   - **Endpoint:** Provide the necessary endpoint information (e.g., email address, URL).
 
-   3. **Confirm Subscription**
-      - For **Email Protocol**, an email is sent to the provided address.
-      - The recipient must click the confirmation link in the email to confirm the subscription.
-      - For other protocols like HTTP, the endpoint must handle the confirmation request.
+3. **Confirm Subscription**
+   - For **Email Protocol**, an email is sent to the provided address.
+   - The recipient must click the confirmation link in the email to confirm the subscription.
+   - For other protocols like HTTP, the endpoint must handle the confirmation request.
 
-   4. **Verify Subscription Status**
-      - Go back to the **Subscriptions** section in the SNS console.
-      - Refresh the page to update the subscription status.
-      - Once confirmed, the status changes from **Pending Confirmation** to **Confirmed**.
+4. **Verify Subscription Status**
+   - Go back to the **Subscriptions** section in the SNS console.
+   - Refresh the page to update the subscription status.
+   - Once confirmed, the status changes from **Pending Confirmation** to **Confirmed**.
 
-   ### 3. Attach SNS Topic to a Service
+### 3. Attach SNS Topic to a Service
 
-   - You can attach the SNS topic to AWS services like CloudWatch Alarms.
-   - When an alert is generated, it is sent to the SNS topic, which forwards it to all subscribed endpoints.
+- You can attach the SNS topic to AWS services like CloudWatch Alarms.
+- When an alert is generated, it is sent to the SNS topic, which forwards it to all subscribed endpoints.
 
-   ## Example Workflow
+## Example Workflow
 
-   1. **Create Topic**
-      - Topic Name: `MyAlertTopic`
-      - Topic ARN: `arn:aws:sns:region:account-id:MyAlertTopic`
+1. **Create Topic**
+   - Topic Name: `MyAlertTopic`
+   - Topic ARN: `arn:aws:sns:region:account-id:MyAlertTopic`
 
-   2. **Create Subscription**
-      - Topic ARN: `arn:aws:sns:region:account-id:MyAlertTopic`
-      - Protocol: Email
-      - Endpoint: `example@example.com`
+2. **Create Subscription**
+   - Topic ARN: `arn:aws:sns:region:account-id:MyAlertTopic`
+   - Protocol: Email
+   - Endpoint: `example@example.com`
 
-   3. **Confirmation Email**
-      - The recipient clicks the confirmation link in the email to activate the subscription.
+3. **Confirmation Email**
+   - The recipient clicks the confirmation link in the email to activate the subscription.
 
-   4. **Attach to Service**
-      - For example, attach `MyAlertTopic` to a CloudWatch alarm.
-      - All notifications from the alarm will be sent to `example@example.com`.
+4. **Attach to Service**
+   - For example, attach `MyAlertTopic` to a CloudWatch alarm.
+   - All notifications from the alarm will be sent to `example@example.com`.
 
 ### 4. Creating an Auto Scaling Group
 
@@ -173,7 +173,7 @@ AWS Auto Scaling groups allow you to automatically scale your Amazon EC2 instanc
 6. **Review and Create**
    - Review all configurations and click **Create Auto Scaling group**.
 
-### 4. Using Auto Scaling Groups
+## Using Auto Scaling Groups
 
 - **Auto Scaling Group Management:** The group will automatically scale the number of instances up or down based on the defined policies.
 - **Monitoring:** Use the EC2 dashboard or CloudWatch to monitor the performance and health of the instances within the Auto Scaling group.
