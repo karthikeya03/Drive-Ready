@@ -184,3 +184,62 @@ AWS Auto Scaling groups allow you to automatically scale your Amazon EC2 instanc
 - **AMI:** A template used to create new EC2 instances with pre-configured software.
 - **Auto Scaling Group:** Manages EC2 instances, automatically scaling them based on demand.
 - **Launch Configuration/Template:** Specifies the AMI, instance type, and other settings used by an Auto Scaling group to launch instances.
+
+
+# Auto Scaling Groups with Application Load Balancer: Step-by-Step Guide
+
+## 1. Attach to a New Load Balancer
+
+### Application Load Balancer (ALB)
+- **Name**: Assign a unique name to your ALB.
+- **Internet Facing**: Set this to "Yes" to allow the ALB to be accessible from the internet.
+- **Subnets**: Choose the subnets where the ALB will be deployed. These should be in the same VPC as your Auto Scaling Group. For example: Subnets A, B, and C.
+
+### Target Group
+- **No need to create manually**: The ASG will automatically create a target group for you.
+- **Health Check**: Set the health check interval to 100 seconds. This is the frequency with which the ALB checks the health of the instances.
+
+## 2. Configure Auto Scaling Group
+
+### Size (Min, Max, Desired Capacity)
+- **Minimum Desired Capacity**: The minimum number of EC2 instances you want running at all times. For example: `2`
+- **Maximum Capacity**: The maximum number of EC2 instances you want running. For example: `3` (due to sandbox limitations).
+- **Desired Capacity**: The number of EC2 instances you want to start with initially. For example: `2`
+
+**Explanation**: 
+- **Minimum Capacity** ensures that there are always a minimum number of instances running.
+- **Maximum Capacity** limits the number of instances that can scale up to, preventing excessive resource use.
+- **Desired Capacity** is the initial number of instances the ASG will maintain.
+
+### Target Tracking Policy
+- **Policy Type**: Choose the target tracking policy.
+- **CPU Utilization**: Set the policy to scale out (add more instances) if CPU utilization exceeds 30%. This means if the CPU usage goes above 30%, the ASG will automatically launch additional instances.
+- **Target Value**: Set this to 30%, which is the threshold for scaling.
+
+### Instance Warm-Up
+- **Instance Warm-Up**: Set to 100 seconds. This is the amount of time the ASG will wait before considering a new instance to be fully operational and available to handle traffic.
+
+### No Policy
+- **No Additional Policies**: You do not need to set any other policies for this configuration.
+
+## 3. Notifications
+
+### Adding SNS Notifications
+- **Add Notification**: Enable notifications for your ASG.
+- **Add Topic**: Create or select an existing SNS topic to which notifications will be sent.
+- **When to Send Alerts**: Check the tick boxes for the types of notifications you want to receive. For example:
+  - **Instance Launch**: Notify when a new instance is launched.
+  - **Instance Termination**: Notify when an instance is terminated.
+  - **Health Check Failures**: Notify if there are health check failures.
+
+**Explanation**:
+- **SNS Topic**: An SNS topic is used to send notifications to subscribers when certain events occur in your ASG.
+- **Notification Options**: Choose the events for which you want to receive notifications to stay informed about the status and changes in your ASG.
+
+## Summary
+
+1. **Attach to ALB**: Configure your ALB with the correct settings and subnets.
+2. **Configure ASG**: Set the minimum, maximum, and desired capacities, and configure target tracking policies and instance warm-up times.
+3. **Add Notifications**: Set up SNS notifications to receive alerts about significant events in your ASG.
+
+By following these steps, you can effectively set up and manage an Auto Scaling Group with an Application Load Balancer in AWS.
