@@ -58,6 +58,8 @@ AWS Auto Scaling groups allow you to automatically scale your Amazon EC2 instanc
      - Choose an existing key pair or create a new one. This key pair will be used to SSH into the instance.
      - Click **Launch**.
 
+![image](https://github.com/user-attachments/assets/b048a457-dc8a-4f84-8ad7-031579278e8b)
+
 3. **Access Your Instance**
    - Once launched, your EC2 instance will appear in the EC2 dashboard.
    - Use the public DNS or IP address to connect to your instance via SSH.
