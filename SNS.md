@@ -31,7 +31,7 @@ AWS Auto Scaling groups allow you to automatically scale your Amazon EC2 instanc
 
 ## Step-by-Step Guide
 
-### 1. Creating an EC2 Instance
+# 1. Creating an EC2 Instance
 
 1. **Sign in to AWS Management Console**
    - Navigate to the [Amazon EC2 console](https://console.aws.amazon.com/ec2/).
@@ -60,7 +60,7 @@ AWS Auto Scaling groups allow you to automatically scale your Amazon EC2 instanc
    - Once launched, your EC2 instance will appear in the EC2 dashboard.
    - Use the public DNS or IP address to connect to your instance via SSH.
 
-### 2. Creating an Amazon Machine Image (AMI)
+# 2. Creating an Amazon Machine Image (AMI)
 
 1. **Connect to Your EC2 Instance**
 
@@ -83,7 +83,7 @@ AWS Auto Scaling groups allow you to automatically scale your Amazon EC2 instanc
    - Your newly created AMI will appear in the **AMIs** section of the EC2 dashboard.
    - This AMI can now be used to launch new instances with the same configuration.
 
-## 3. Step-by-Step Guide to Create an SNS
+# 3. Step-by-Step Guide to Create an SNS
 
 ### 1. Create an SNS Topic
 
@@ -145,7 +145,7 @@ AWS Auto Scaling groups allow you to automatically scale your Amazon EC2 instanc
    - For example, attach `MyAlertTopic` to a CloudWatch alarm.
    - All notifications from the alarm will be sent to `example@example.com`.
 
-### 4. Creating an Auto Scaling Group
+# 4. Creating an Auto Scaling Group
 
 1. **Sign in to AWS Management Console**
    - Navigate to the [Amazon EC2 Auto Scaling console](https://console.aws.amazon.com/ec2autoscaling/).
@@ -186,7 +186,7 @@ AWS Auto Scaling groups allow you to automatically scale your Amazon EC2 instanc
 - **Launch Configuration/Template:** Specifies the AMI, instance type, and other settings used by an Auto Scaling group to launch instances.
 
 
-# Auto Scaling Groups with Application Load Balancer: Step-by-Step Guide
+# 5. Auto Scaling Groups with Application Load Balancer: Step-by-Step Guide
 
 ## 1. Attach to a New Load Balancer
 
