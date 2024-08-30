@@ -36,6 +36,8 @@ AWS Auto Scaling groups allow you to automatically scale your Amazon EC2 instanc
 1. **Sign in to AWS Management Console**
    - Navigate to the [Amazon EC2 console](https://console.aws.amazon.com/ec2/).
 
+![image](https://github.com/user-attachments/assets/e6978bd8-ea56-404a-babd-63913614378d)
+
 2. **Launch an EC2 Instance**
    - Click on **Launch Instance**.
    - **Choose an AMI:** Select an existing AMI or a public AMI provided by AWS. An AMI is a pre-configured template for your instance.
