@@ -6,7 +6,7 @@
 ## Step 2: Add End Devices
 1. **Add PCs to the Workspace:**
     - Select the "End Devices" icon from the bottom left.
-    - Drag and drop three PCs (PC-PT) onto the workspace. They will be labeled PC0, PC1, and PC2 by default.
+    - Drag and drop three PCs (PC-PT) onto the workspace. They will be labeled PC0, PC1, and PC2 by default
 
 ![ONE](https://raw.github.com/karthikeya03/IMAGES/JustMain/14.1.png)
 
