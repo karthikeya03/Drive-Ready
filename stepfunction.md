@@ -41,7 +41,7 @@ AWS Step Functions are primarily used to:
 
 Here's a basic example of a Step Functions workflow:
 
-\`\`\`json
+```json
 {
   "StartAt": "Task1",
   "States": {
@@ -69,13 +69,13 @@ Here's a basic example of a Step Functions workflow:
     }
   }
 }
-\`\`\`
+```
 
 ### Diagram
 
 Below is a visual representation of the above state machine:
 
-\`\`\`mermaid
+```mermaid
 stateDiagram-v2
     [*] --> Task1
     Task1 --> ChoiceState
@@ -83,7 +83,7 @@ stateDiagram-v2
     ChoiceState --> FailState: Default
     SuccessState --> [*]
     FailState --> [*]
-\`\`\`
+```
 
 ### Real-World Example: ETL Pipeline
 
@@ -95,7 +95,7 @@ In a real-world scenario, you might use Step Functions to orchestrate an Extract
 
 ### ETL Pipeline Example
 
-\`\`\`json
+```json
 {
   "StartAt": "ExtractData",
   "States": {
@@ -116,7 +116,7 @@ In a real-world scenario, you might use Step Functions to orchestrate an Extract
     }
   }
 }
-\`\`\`
+```
 
 ## Benefits
 
