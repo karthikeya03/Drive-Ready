@@ -1,176 +1,91 @@
-DOCKER : 
+# Docker and MongoDB Setup on EC2
 
-IF YOU RUN AN IMAGE IT BEOCMES A CONTAINER
+# Docker Image and Container Analogy
 
-IF THE OS IS ON YOUR PENDIRVE ITS AN IMAGE
+- **Docker Image**: If you run an image, it becomes a container.
+- **Analogy**: 
+  - If the OS is on your pendrive, it's an **image** (just the stored form).
+  - If it is running on your computer, then it's a **container** (the active, running form of the image).
 
-IF ITS RUNNED INTO UPUR COMPUTER THEN ITS A CONTIANER
+## Steps
 
-SEARCH FOR MONGO
+### 1. Creating an EC2 Instance
 
-Step 1: Launch an Ubuntu Instance
-Go to the AWS EC2 Dashboard:
+You first create an EC2 instance on AWS. This instance is a virtual machine that will act as your server.
 
-Open the AWS Management Console.
-Navigate to EC2 by searching for "EC2" in the search bar.
-Launch an EC2 Instance:
+### 2. Updating Packages
 
-Click on Launch Instance.
-Choose AMI: Select Ubuntu Server 20.04 LTS (free tier eligible).
-Instance Type: Select t2.micro (free tier eligible).
-Key Pair: If you don't have a key pair, create one for SSH access.
-Configure Storage: The default size is 8GB, but you can modify it if needed.
-Security Group: Allow SSH (port 22) for access and HTTP/HTTPS if you plan to expose a web app.
-Launch the instance.
-Connect to Your Instance:
+When you run `sudo yum update`, you're updating all the software packages on your EC2 instance. This ensures your system is up-to-date with the latest security patches and software updates.
 
-Once the instance is running, click on Connect.
-Copy the provided SSH command and use it to connect from your terminal:
-bash
-Copy code
-ssh -i /path/to/your-key.pem ubuntu@<your-ec2-public-ip>
-Step 2: Update Ubuntu
-Once connected to your instance:
+### 3. Installing Docker
 
-Update package list:
+You install Docker, which is a platform that allows you to run applications in containers. Containers are lightweight, isolated environments for running applications, which makes it easy to deploy and manage software consistently.
 
-bash
-Copy code
-sudo apt update
-Upgrade installed packages:
+### 4. Docker Network Management
 
-bash
-Copy code
-sudo apt upgrade -y
+- `docker network ls`: Lists the networks available in Docker. Docker networks allow containers to communicate with each other, and they isolate different sets of containers.
 
+- `docker network create mongo-network`: Creates a new network in Docker named `mongo-network`. This is an isolated network where your MongoDB and other containers can communicate with each other.
 
+### 5. Pulling the MongoDB Image
 
+- `docker pull mongo`: Pulls the MongoDB image from Docker Hub (the image repository). This is a pre-packaged version of MongoDB, which is a NoSQL database.
 
-step 2 :  isntall docker
-Install Docker
-Install Docker with a Single Command: Run the following command to install Docker:
+### 6. Configuring MongoDB
 
-bash
-Copy code
-curl -fsSL https://get.docker.com/ | sh
-Start the Docker Service: After installation, start the Docker service using:
+- `docker run -d -p 27017:27017 --name mongo --net mongo-network -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=pass mongo`: 
 
-bash
-Copy code
-sudo systemctl start docker
-Enable Docker to Start at Boot: To ensure Docker starts automatically on system boot, run:
+This command starts a MongoDB container and does the following:
 
-bash
-Copy code
-sudo systemctl enable docker
-Verify Docker Installation: You can verify that Docker was installed correctly by running:
+- **`-d`**: Runs the container in detached mode (in the background).
+- **`-p 27017:27017`**: Maps the port `27017` of your EC2 instance to port `27017` inside the container. MongoDB uses port `27017` by default.
+- **`--name mongo`**: Names the container `mongo`.
+- **`--net mongo-network`**: Connects the container to the `mongo-network` Docker network.
+- **`-e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=pass`**: These environment variables set the root username (`admin`) and password (`pass`) for MongoDB.
 
-bash
-Copy code
-sudo docker --version
-This command will show you the installed version of Docker.
+### 7. Enabling Port 27017 in EC2 Security Groups
 
-Run a Test Container: To confirm that Docker is working properly, you can run a simple test container:
+To allow external access to MongoDB, you need to open port `27017` in your EC2 instance's security group. This step ensures that your MongoDB instance can be accessed from outside (like from a browser or another machine).
 
-bash
-Copy code
-sudo docker run hello-world
-If Docker is installed correctly, you should see a message saying "Hello from Docker!" and information about how to use Docker.
+### 8. Viewing MongoDB Logs
 
+- `docker logs <container_id>`: This command shows the logs for your MongoDB container. The container ID will be something like `2e45f5fc835a`. This is useful for troubleshooting or ensuring that MongoDB started correctly.
 
-Step 4: Enable SSH and Port Number
-To ensure that you can access your MongoDB instance securely and that the necessary ports are open, you’ll need to configure both the security group in AWS and the firewall on your Ubuntu server.
+### 9. Accessing MongoDB via Browser
 
-4.1: Configure AWS Security Group
-Log into the AWS Management Console.
+- `<public-ip>:27017`: If you visit this URL in your browser (where `<public-ip>` is the public IP address of your EC2 instance), it tries to connect to MongoDB. However, since MongoDB is a database, it doesn't have a web interface directly—so you won't see much in the browser at this step.
 
-Navigate to EC2 Dashboard:
+### 10. Pulling the Mongo Express Image
 
-Click on "Instances" in the left sidebar.
-Find your running instance and click on its Instance ID.
-Edit Security Groups:
+- `docker pull mongo-express`: Pulls the `mongo-express` image from Docker Hub. Mongo Express is a web-based administrative interface for MongoDB, allowing you to interact with MongoDB via a web UI.
 
-Scroll down to the "Security" tab.
-Under "Security Groups", click on the security group link.
-Add Inbound Rules:
+### 11. Enabling Port 8081 in EC2 Security Groups
 
-Click on the "Inbound rules" tab.
-Click on "Edit inbound rules".
-Add the following rules:
-SSH:
-Type: SSH
-Protocol: TCP
-Port Range: 22
-Source: Your IP (or 0.0.0.0/0 for all, though this is less secure).
-MongoDB:
-Type: Custom TCP
-Protocol: TCP
-Port Range: 27017
-Source: Your IP (or 0.0.0.0/0 for all, again less secure).
-Click "Save rules".
-Note: Allowing access from 0.0.0.0/0 can expose your MongoDB to the internet, which is not recommended for production environments. Always restrict it to specific IP addresses whenever possible.
+- You need to enable port `8081` in your EC2 security group to allow access to Mongo Express via the web interface.
 
-4.2: Configure the Firewall on Ubuntu
-Check the UFW Status: To see if the firewall (UFW - Uncomplicated Firewall) is active, run:
+### 12. Running Mongo Express
 
-bash
-Copy code
-sudo ufw status
-Enable UFW (if not already enabled): If UFW is not enabled, you can enable it with:
+- `docker run -d -p 8081:8081 --name mongo-express --net mongo-network -e ME_CONFIG_MONGODB_ADMINUSERNAME=admin -e ME_CONFIG_MONGODB_ADMINPASSWORD=pass -e ME_CONFIG_MONGODB_SERVER=mongo mongo-express`:
 
-bash
-Copy code
-sudo ufw enable
-Allow SSH and MongoDB Ports: Run the following commands to allow traffic on the SSH and MongoDB ports:
+This command starts the Mongo Express container and does the following:
 
-bash
-Copy code
-sudo ufw allow 22/tcp   # Allow SSH
-sudo ufw allow 27017/tcp  # Allow MongoDB
-Verify UFW Rules: After adding the rules, check the status again:
+- **`-d`**: Runs Mongo Express in detached mode.
+- **`-p 8081:8081`**: Maps port `8081` of your EC2 instance to port `8081` inside the container (Mongo Express’s web interface uses port 8081).
+- **`--name mongo-express`**: Names the container `mongo-express`.
+- **`--net mongo-network`**: Connects the Mongo Express container to the `mongo-network`, so it can communicate with the MongoDB container.
+- **`-e ME_CONFIG_MONGODB_ADMINUSERNAME=admin -e ME_CONFIG_MONGODB_ADMINPASSWORD=pass -e ME_CONFIG_MONGODB_SERVER=mongo`**: These environment variables tell Mongo Express to use the `admin` username and `pass` password to connect to the MongoDB server.
 
-![image](https://github.com/user-attachments/assets/d73c65aa-7169-4c1a-b6f2-c41fca1bc168)
+### 13. Viewing Mongo Express Logs
 
-bash
-Copy code
-sudo ufw status
-Summary of Step 4
-Configured AWS Security Group to allow inbound traffic on SSH (port 22) and MongoDB (port 27017).
-Configured UFW on Ubuntu to allow traffic on the same ports.
-Step 5: Verify MongoDB Container is Running
-Check if the MongoDB container is running:
-bash
-Copy code
-docker ps
-Step 6: Access MongoDB from Your Host
-Connect to MongoDB using a MongoDB client or shell:
-For command-line access, run:
-bash
-Copy code
-mongo --host 54.242.25.192 --port 27017 -u admin -p pass --authenticationDatabase admin
-Step 7: Stop and Remove the MongoDB Container (Optional)
-If you ever need to stop or remove the container, you can do so with the following commands:
+- `docker logs <container_id>`: This shows the logs of the Mongo Express container to check for any issues during startup.
 
-Stop the container:
+### 14. Accessing Mongo Express Web Interface
 
-bash
-Copy code
-docker stop mongo
-Remove the container:
+- `<public-ip>:8081`: If you visit this URL in your browser (where `<public-ip>` is the public IP of your EC2 instance), you should see the Mongo Express web interface, where you can manage your MongoDB database.
 
-bash
-Copy code
-docker rm mongo
-Final Notes
-Always secure your MongoDB database and avoid exposing it to the public internet unless necessary. Consider using authentication and limiting access to trusted IPs only.
-Use strong passwords and rotate them regularly.
-Monitor your MongoDB instance and secure your environment as needed.
+### Summary:
 
-
-step 7 : 
-
-to see if hte mongo is running and listneign on 27017 or not
-
-docker logs < hashvalue > 
-paste the hash value 
-
+- You're setting up MongoDB and Mongo Express inside Docker containers on your EC2 instance.
+- MongoDB is the database, and you're configuring it to run inside Docker.
+- Mongo Express is a web-based interface for managing MongoDB.
+- You're connecting these containers via a Docker network and opening the necessary ports in your EC2 instance's security groups so you can access the services from outside.
