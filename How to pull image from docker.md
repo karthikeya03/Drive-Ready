@@ -13,17 +13,107 @@
 
 You first create an EC2 instance on AWS. This instance is a virtual machine that will act as your server.
 
-### 2. Updating Packages
+### 2. Updating Packages and installing Docker
 
-When you run `sudo yum update`, you're updating all the software packages on your EC2 instance. This ensures your system is up-to-date with the latest security patches and software updates.
+# Updating Packages and Installing Docker on Ubuntu EC2 Instance
 
-To update all the software packages on your EC2 instance, run:
+## 1. Updating Packages
+
+To update all the software packages on your EC2 instance, run the following commands:
 
 ```bash
-sudo yum update -y
+sudo apt-get update -y
+sudo apt-get upgrade -y
 ```
 
-This command updates the packages on your system and automatically answers "yes" to any prompts (`-y` flag).
+This updates the package list and installs the latest versions of the packages.
+
+---
+
+## 2. Installing Docker
+
+To install Docker on an Ubuntu EC2 instance, follow these steps:
+
+### 2.1 Install Prerequisites:
+
+Run the following command to install the required packages:
+
+```bash
+sudo apt-get install apt-transport-https ca-certificates curl software-properties-common -y
+```
+
+### 2.2 Add Docker's Official GPG Key:
+
+To add Docker’s official GPG key, run the following command:
+
+```bash
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+```
+
+### 2.3 Add Docker's Official Repository:
+
+Run the following command to add Docker's official repository to your sources list:
+
+```bash
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+```
+
+### 2.4 Update the Package Database:
+
+Update the package database again with the following command:
+
+```bash
+sudo apt-get update
+```
+
+### 2.5 Install Docker:
+
+Run the following command to install Docker:
+
+```bash
+sudo apt-get install docker-ce -y
+```
+
+### 2.6 Start the Docker Service:
+
+Start the Docker service using the following command:
+
+```bash
+sudo systemctl start docker
+```
+
+### 2.7 Enable Docker to Start at Boot:
+
+To ensure Docker starts automatically when the system boots, run:
+
+```bash
+sudo systemctl enable docker
+```
+
+### 2.8 Verify Docker is Running:
+
+Check the status of the Docker service with:
+
+```bash
+sudo systemctl status docker
+```
+
+---
+
+## 3. Optional Step: Running Docker Without `sudo`
+
+To avoid needing `sudo` each time you run Docker commands, add your user to the Docker group with:
+
+```bash
+sudo usermod -aG docker $USER
+```
+
+After running this command, log out and log back in for the group changes to take effect.
+
+---
+
+With these steps, Docker should now be installed and running on your EC2 instance.
+
 
 ### 3. Installing Docker
 
