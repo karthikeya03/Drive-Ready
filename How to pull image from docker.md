@@ -17,9 +17,45 @@ You first create an EC2 instance on AWS. This instance is a virtual machine that
 
 When you run `sudo yum update`, you're updating all the software packages on your EC2 instance. This ensures your system is up-to-date with the latest security patches and software updates.
 
+To update all the software packages on your EC2 instance, run:
+
+```bash
+sudo yum update -y
+```
+
+This command updates the packages on your system and automatically answers "yes" to any prompts (`-y` flag).
+
 ### 3. Installing Docker
 
 You install Docker, which is a platform that allows you to run applications in containers. Containers are lightweight, isolated environments for running applications, which makes it easy to deploy and manage software consistently.
+
+To install Docker on your EC2 instance, run the following commands:
+
+### 1. Install Docker:
+
+```bash
+sudo yum install docker -y
+```
+
+### 2. Start the Docker service:
+
+```bash
+sudo systemctl start docker
+```
+
+### 3. Enable Docker to start at boot:
+
+```bash
+sudo systemctl enable docker
+```
+
+### 4. Verify Docker is running:
+
+```bash
+sudo systemctl status docker
+```
+
+This will display the status of the Docker service.
 
 ### 4. Docker Network Management
 
