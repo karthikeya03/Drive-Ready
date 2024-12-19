@@ -162,3 +162,99 @@ docker run karthikeya0303/my-first-app
 | `docker tag <image> <username>/<repo>` | Tag an image for pushing to Docker Hub.                      |
 | `docker push <username>/<repo>`        | Push an image to Docker Hub.                                 |
 | `docker pull <username>/<repo>`        | Pull an image from Docker Hub.                               |
+
+
+Here is the content you requested as Markdown text with added notes:
+
+```markdown
+# Simplified Docker Workflow
+
+This is a simpler approach to test and deploy a basic Python application using Docker without complex build processes.
+
+## Step 1: Use a Pre-Built Base Image
+
+Instead of starting from scratch, use a base image with Python and minimal setup.
+
+1. **Create the Docker Folder**  
+   Create a folder named `docker` and inside it, create a file called `app.py` with the following content:
+
+   ```python
+   print("Hello, Docker from Windows!")
+   ```
+
+2. **Create the Dockerfile**  
+   Inside the same folder, create a file named `Dockerfile` with the following content:
+
+   ```dockerfile
+   FROM python:3.9-slim
+   COPY app.py /app/app.py
+   WORKDIR /app
+   CMD ["python", "app.py"]
+   ```
+
+## Step 2: Test Locally Without Dockerfile
+
+You can test the Python script directly in a pre-built Python container without creating the `Dockerfile`.
+
+Run the following command:
+
+```bash
+docker run --rm -v "%cd%":/app -w /app python:3.9-slim python app.py
+```
+
+**What this command does:**
+
+- Pulls the `python:3.9-slim` image if it’s not already downloaded.
+- Mounts your `docker` folder to the container.
+- Runs `app.py` directly in the container.
+
+## Step 3: Build the Docker Image
+
+If Step 2 works, you can now build the Docker image.
+
+Run the following command:
+
+```bash
+docker build -t my-first-app .
+```
+
+This command builds the image and tags it as `my-first-app`.
+
+## Step 4: Run and Verify the Image
+
+Once the image is built, run the container:
+
+```bash
+docker run my-first-app
+```
+
+**Expected Output:**
+
+```
+Hello, Docker from Windows!
+```
+
+## Alternative Without Building Dockerfile
+
+If building a Dockerfile is still troublesome, you can push directly using Docker Hub's pre-built Python image.
+
+1. **Run the container directly:**
+
+   ```bash
+   docker run --name hello-docker -it python:3.9-slim
+   ```
+
+2. **Inside the container, create the `app.py` file:**
+
+   ```bash
+   echo 'print("Hello, Docker from Python container!")' > app.py
+   ```
+
+3. **Run the Python script inside the container:**
+
+   ```bash
+   python app.py
+   ```
+
+---
+
