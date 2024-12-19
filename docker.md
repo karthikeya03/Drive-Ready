@@ -166,7 +166,6 @@ docker run karthikeya0303/my-first-app
 
 Here is the content you requested as Markdown text with added notes:
 
-```markdown
 # Simplified Docker Workflow
 
 This is a simpler approach to test and deploy a basic Python application using Docker without complex build processes.
